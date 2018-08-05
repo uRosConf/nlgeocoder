@@ -1,8 +1,7 @@
 as_params <- function(..., .list = NULL){
-  if (is.null(.list)){
-    .list <- list(...)
-  }
-
+  .list <- as.list(.list)
+  l <- list(...)
+  .list[names(l)] <- l
   keys <- names(.list)
   keys <- sapply(keys, utils::URLencode, USE.NAMES = FALSE)
 
