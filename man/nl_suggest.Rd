@@ -2,7 +2,7 @@
 % Please edit documentation in R/suggest.R
 \name{nl_suggest}
 \alias{nl_suggest}
-\title{Get a list of suggestion for geolocations in NL}
+\title{Get a list of suggestions for geolocations in NL}
 \usage{
 nl_suggest(q, ..., type = NULL, verbose = TRUE)
 }
@@ -14,5 +14,5 @@ nl_suggest(q, ..., type = NULL, verbose = TRUE)
 \item{type}{restrict type of geolocation to}
 }
 \description{
-Get a list of suggestion for geolocations in NL
+Get a list of suggestions for geolocations in NL
 }

@@ -1,4 +1,4 @@
-#' Get a list of suggestion for geolocations in NL
+#' Get a list of suggestions for geolocations in NL
 #'
 #' @param q search terms that should be geolocated
 #' @param ... parameters passed to geolocation service
