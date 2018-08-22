@@ -4,12 +4,14 @@
 \alias{nl_suggest}
 \title{Get a list of suggestions for geolocations in NL}
 \usage{
-nl_suggest(q, ..., type = NULL, verbose = TRUE)
+nl_suggest(q, ..., rows = NULL, type = NULL, verbose = TRUE)
 }
 \arguments{
 \item{q}{search terms that should be geolocated}
 
 \item{...}{parameters passed to geolocation service}
+
+\item{rows}{number of rows}
 
 \item{type}{restrict type of geolocation to}
 }
