@@ -3,7 +3,12 @@
 #' Retrieve detailed properties of a geo object found with suggest or free.
 #' @export
 #' @param id of object found in nl_suggest or nl_free
-nl_lookup <- function(id, ..., verbose = FALSE){
+nl_lookup <- function(id, ..., raw = FALSE, verbose = FALSE){
+  if (length(id) > 1){
+    warning("Only using the first id")
+    id <- id[1]
+  }
+
   l <- list(...)
   params <- as_params(id = id, .list = l)
   q_url <- paste0(file.path(API, "lookup"), "?", params)
@@ -12,5 +17,16 @@ nl_lookup <- function(id, ..., verbose = FALSE){
   }
   #TODO currently return value is too complicated: should only return the response not
   # the para/meta data of the query itself.
-  jsonlite::read_json(q_url)
+
+  res_lookup <- jsonlite::read_json(q_url)
+
+  if (raw){
+    return(res_lookup)
+  }
+
+  if (res_lookup$response$numFound){
+    res_lookup$response$docs
+  } else {
+    NULL
+  }
 }
