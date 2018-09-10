@@ -78,4 +78,5 @@ Considerations:
 - Create unit tests with `testthat` (Willy)
 - Add documentation using Roxygen2
 - Add functionality and make it more user-friendly  (Edwin)
-- Create demo using tmap and shiny (Egge-Jan, Juris)
+- Create vignette (Egge-Jan)
+- Create demo using tmap and shiny (Juris)
