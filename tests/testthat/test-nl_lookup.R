@@ -1,9 +1,11 @@
 context("nl_lookup")
 
 test_that("id = weg-998023d41c562b2b433378161ea5670", {
-  res <- nl_suggest("weg-998023d41c562b2b433378161ea56704")
-  expect_true(res$response$numFound > 0)
+  res <- nl_lookup(id = "weg-998023d41c562b2b433378161ea56704")
+  expect_true(res[[1]][[15]] == "weg-998023d41c562b2b433378161ea56704")
 })
 
-weg-998023d41c562b2b433378161ea56704 6.740476
-2  adres   's Gravenhof 1, 7201DN Zutphen adr-1dc7a72e5caf9ee2b1f8ae2315eda36b
+test_that("Filter attributes - weergavenaam and type", {
+  res <- nl_lookup(id = "weg-998023d41c562b2b433378161ea56704", fl = "weergavenaam, type")
+  expect_true(names(res[[1]]) == c("type", "weergavenaam"))
+})
