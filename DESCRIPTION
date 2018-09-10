@@ -5,7 +5,7 @@ Authors@R: c(person("Willy", "Tadema", role = c("aut")),
     person("Egge-Jan", "Pollé", role = c("aut"))
    ,person("Edwin", "de Jonge", email = "edwindjonge@gmail.com", role = c("aut", "cre")))
 Description: R interface to the location server API of PDOK.
-Depends: R (>= 3.4)
+Depends: R (>= 3.4), testthat
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
