@@ -2,10 +2,27 @@
 % Please edit documentation in R/nl_free.R
 \name{nl_free}
 \alias{nl_free}
-\title{Free search}
+\title{Free geocoding search}
 \usage{
-nl_free(q, ..., verbose = FALSE)
+nl_free(q, start = NULL, fq = NULL, lat = NULL, lon = NULL, ...,
+  verbose = FALSE)
+}
+\arguments{
+\item{q}{query to geocoding service.}
+
+\item{start}{Starting index is van het eerste resultaat dat teruggegeven wordt. Dit is
+zero-based. In combinatie met de rows-parameter kunnen deze services gepagineerd worden bevraagd. De default-waarde is "0"}
+
+\item{fq}{Hiermee kan een filter query worden opgegeven, bijv. fq=bron:BAG. Met fq=* kan de default filter query worden opgeheven. De default filter is type:(gemeente OR woonplaats OR weg OR postcode OR adres)}
+
+\item{lat}{Hiermee kan een coördinaat (in lat/lon, ofwel WGS84) worden opgegeven. Met behulp van deze parameters worden de gevonden zoekresultaten gesorteerd op afstand van het meegegeven punt. Wanneer de locatie van de gebruiker bekend is, kan op deze manier effectiever worden gezocht.
+Het meegeven van een coördinaat is met name nuttig voor de suggest- en vrije geocoder-services. Hier worden meestal meerdere resultaten teruggegeven. Als decimaal scheidingsteken moet een punt worden opgegeven i.p.v. een komma.}
+
+\item{lon}{see lat}
 }
 \description{
-Free search
+This function wraps the pdok service, and allows for free search.
+}
+\seealso{
+\code{\link{nl_geocode}}
 }
