@@ -5,13 +5,15 @@
 #' @param type restrict type of geolocation to
 #' @inheritParams query
 #' @export
-nl_suggest <- function(q
+nl_suggest <- function( q
                       , ...
                       , rows = NULL
                       , type = NULL
                       , verbose = TRUE
                       ){
   l <- list(...)
+  l$rows = rows
+  l$type = type
   l <- type_filter(l, type)
   params <- as_params(q = q, .list = l)
   q_url <- paste0(file.path(API, "suggest"), "?", params)
@@ -20,6 +22,3 @@ nl_suggest <- function(q
   }
   jsonlite::read_json(q_url, simplifyVector = TRUE)
 }
-
-#TODO currently result is simple list, should be made of type "suggestions", with
-# specific methods, like print, summary

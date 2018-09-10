@@ -1,6 +1,7 @@
 #' Dummy function only used for describing common api parameters
 #' @keywords internal
-#' @param rows number of rows
+#' @param rows maximum number of rows that will be returned, if not specified it will be 10.
+#' @param start
 #'
 #' #' @seealso
 query <- function( rows = NULL
@@ -10,11 +11,6 @@ query <- function( rows = NULL
   stop("Dummy function, only used for documenting its arguments")
 }
 
-#'
-#' Optioneel: rows=<aantal>
-#'
-#'   Hiermee wordt opgegeven wat het maximale aantal rijen (ofwel resultaten) is dat teruggegeven moet worden op deze bevraging. De default-waarde is "10".
-#'
 #' Optioneel: start=<index>
 #'
 #'   Hiermee wordt opgegeven wat de index is van het eerste resultaat dat teruggegeven wordt. Dit is zero-based. In combinatie met de rows-parameter kunnen deze services gepagineerd worden bevraagd. De default-waarde is "0".
