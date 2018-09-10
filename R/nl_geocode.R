@@ -7,10 +7,10 @@
 #' weg;postcode;adres;perceel;hectometerpaal;wijk;buurt;waterschapsgrens;appartementsrecht.
 #' The return type can be specified.
 #' @export
-#' @inheritParams query
 #' @param location string with location to be found
 #' @param output How should the
 #' @param type retrict the type of object that is returned from the service.
+#' @inheritParams query
 nl_geocode <- function( location
                       , output = c("latlon", "rd", "data.frame")
                       #, source = c("google", "dsk") not needed
@@ -20,7 +20,7 @@ nl_geocode <- function( location
                       #, signature = ""
                       #, nameType = c("long", "short")
                       #, data
-                      , type = NULL
+                      , type = "adres"
                       , ...
                       , verbose = !messaging
                       ){

@@ -4,11 +4,13 @@
 \alias{nl_free}
 \title{Free geocoding search}
 \usage{
-nl_free(q, start = NULL, fq = NULL, lat = NULL, lon = NULL, ...,
-  verbose = FALSE)
+nl_free(q, rows = NULL, start = NULL, fq = NULL, lat = NULL,
+  lon = NULL, ..., verbose = FALSE)
 }
 \arguments{
 \item{q}{query to geocoding service.}
+
+\item{rows}{maximum number of rows that will be returned, if not specified it will be 10.}
 
 \item{start}{Starting index is van het eerste resultaat dat teruggegeven wordt. Dit is
 zero-based. In combinatie met de rows-parameter kunnen deze services gepagineerd worden bevraagd. De default-waarde is "0"}
