@@ -30,6 +30,8 @@ devtools::install_github("uRos2018/nlgeocoder")
 
 ```{r example}
 ## basic example code
+library(tmap)
+qtm()
 library(nlgeocoder)
 adres <- nl_suggest("Dam, Amsterdam")
 adres$response$docs
