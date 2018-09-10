@@ -5,7 +5,7 @@
 \title{geocode function}
 \usage{
 nl_geocode(location, output = c("wgs84", "rd", "data.frame"),
-  messaging = FALSE, type = "adres", ..., verbose = !messaging)
+  messaging = FALSE, type = "adres", ..., verbose = messaging)
 }
 \arguments{
 \item{location}{string with location to be found}
