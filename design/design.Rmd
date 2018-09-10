@@ -22,7 +22,7 @@ Locatieserver is part of the Dutch National Spatial Data Infrastructure and host
 - [Edwin de Jonge](https://github.com/edwindj)
 - [Egge-Jan Pollé](https://github.com/twiav)
 - [Willy Tadema](https://github.com/friesewoudloper)
-- [Juris]()
+- [Juris Breidaks](https://github.com/jbreidaks)
 
 ## Documentation
 
@@ -34,7 +34,6 @@ Suggestions:
 
 - pdokr    
 - nllocation  
-- nllocator
 - dutchgeocoder    
 - nlgeocoder     
 
@@ -52,7 +51,7 @@ Considerations:
 
 ## Naming conventions
 
-- Prefix functions with `nl-`
+- Prefix functions with `nl_`
 
 ## Ideas
 
