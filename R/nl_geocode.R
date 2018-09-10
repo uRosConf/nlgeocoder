@@ -25,7 +25,6 @@ nl_geocode <- function( location
                       , ...
                       , verbose = !messaging
                       ){
-
   df <- lapply(location, function(loc){
     res <- nl_free(q = loc, type = type, ..., verbose = verbose)
     # TODO check if the docs is available
@@ -33,6 +32,13 @@ nl_geocode <- function( location
   })
   df
 }
+
+my_bindrows <- function(x){
+  y <- jsonlite::toJSON(x, dataframe = "rows")
+  jsonlite::fromJSON(y, simplifyDataFrame = T, flatten = TRUE)
+}
+
+
 
 
 # if (requireNamespace("sf")){
