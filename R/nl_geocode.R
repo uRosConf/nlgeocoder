@@ -26,11 +26,11 @@ nl_geocode <- function( location
                       , verbose = !messaging
                       ){
   df <- lapply(location, function(loc){
-    res <- nl_free(q = loc, type = type, ..., verbose = verbose)
+    res <- nl_free(q = loc, type = type, ..., rows = 1, verbose = verbose)
     # TODO check if the docs is available
     res$response$docs[1,]
   })
-  bind_rows(df)
+  bind_rows(.list = df)
 }
 
 bind_rows <- function(..., .list){
