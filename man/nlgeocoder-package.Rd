@@ -4,9 +4,12 @@
 \name{nlgeocoder-package}
 \alias{nlgeocoder}
 \alias{nlgeocoder-package}
-\title{Geo coder package}
+\title{nlgeocoder package}
 \description{
-R interface to the location server API of PDOK.
+The nlgeocoder package provides a R wrapper around the pdok webservice.
+}
+\details{
+it allows to geocode data using the following functions:
 }
 \author{
 \strong{Maintainer}: Edwin de Jonge \email{edwindjonge@gmail.com}

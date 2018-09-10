@@ -19,6 +19,10 @@ zero-based. In combinatie met de rows-parameter kunnen deze services gepagineerd
 Het meegeven van een coördinaat is met name nuttig voor de suggest- en vrije geocoder-services. Hier worden meestal meerdere resultaten teruggegeven. Als decimaal scheidingsteken moet een punt worden opgegeven i.p.v. een komma.}
 
 \item{lon}{see lat}
+
+\item{...}{parameters passed to the pdok webservice}
+
+\item{verbose}{\code{logical} should the function print out messages.}
 }
 \description{
 This function wraps the pdok service, and allows for free search.

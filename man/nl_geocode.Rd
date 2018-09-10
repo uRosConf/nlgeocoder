@@ -4,13 +4,22 @@
 \alias{nl_geocode}
 \title{geocode function}
 \usage{
-nl_geocode(location, output = c("latlon", "latlona", "rd", "rda", "all"),
+nl_geocode(location, output = c("latlon", "rd", "data.frame"),
   messaging = FALSE, type = NULL, ..., verbose = !messaging)
+}
+\arguments{
+\item{location}{string with location to be found}
+
+\item{output}{How should the}
+
+\item{type}{retrict the type of object that is returned from the service.}
 }
 \description{
 Which is more user friendly than the barebones webservices,
 uses the same function signature as ggmap geocode.
 }
 \details{
+type can be one of the following:"provincie", "gemeente", "woonplaats",
+weg;postcode;adres;perceel;hectometerpaal;wijk;buurt;waterschapsgrens;appartementsrecht.
 The return type can be specified.
 }
