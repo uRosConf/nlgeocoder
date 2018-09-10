@@ -5,7 +5,8 @@
 \title{Free geocoding search}
 \usage{
 nl_free(q, rows = NULL, start = NULL, fq = NULL, lat = NULL,
-  lon = NULL, type = NULL, ..., verbose = FALSE)
+  lon = NULL, type = NULL, fl = NULL, df = NULL, ...,
+  verbose = FALSE)
 }
 \arguments{
 \item{q}{query to geocoding service.}
@@ -21,6 +22,10 @@ nl_free(q, rows = NULL, start = NULL, fq = NULL, lat = NULL,
 \item{lon}{enter a decimal degree (longitude, in WGS84). Together with lat this will define  point to search from. Search results will be ordered by distance from this point. For example: 'lat=52.09&lon=5.12'}
 
 \item{type}{restrict the results on a specific type.}
+
+\item{fl}{fields to return.}
+
+\item{df}{field that should be search in.}
 
 \item{...}{parameters passed to the pdok webservice}
 
