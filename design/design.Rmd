@@ -1,6 +1,6 @@
 ---
-title: "design.Rmd"
-author: "Willy Tadema"
+title: "The nlgeocoder package"
+author: 
 date: "10 september 2018"
 output: beamer_presentation
 ---
@@ -13,7 +13,10 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Aim
 
 Create an R interface to the PDOK Locatieserver API.     
-Locatieserver is a (reverse) geocoding service for The Netherlands.
+Locatieserver is a (reverse) geocoding service for The Netherlands.    
+Locatieserver is part of the Dutch National Spatial Data Infrastructure and hosted by [PDOK](http://www.pdok.nl).
+
+\includegraphics[width = 80mm]{img/pdok.png}
 
 ## Team
 - [Edwin de Jonge](https://github.com/edwindj)
@@ -21,11 +24,17 @@ Locatieserver is a (reverse) geocoding service for The Netherlands.
 - [Willy Tadema](https://github.com/friesewoudloper)
 - [Juris]()
 
+## Documentation
+
+- [https://github.com/PDOK/locatieserver](https://github.com/PDOK/locatieserver)
+- [https://forum.pdok.nl/c/applicaties-en-diensten/locatieserver](https://forum.pdok.nl/c/applicaties-en-diensten/locatieserver)
+
 ## How do we name the package?
 Suggestions:    
 
 - pdokr    
-- nllocation    
+- nllocation  
+- nllocator
 - dutchgeocoder    
 - nlgeocoder     
 
@@ -57,6 +66,7 @@ Considerations:
 ## Findings
 
 - You can only do one-by-one requests to the Locatieserver, no bulk requests.
+- What are the terms of use for Locatieserver?
 
 ## Tasks
 
