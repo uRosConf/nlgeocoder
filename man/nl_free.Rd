@@ -4,7 +4,7 @@
 \alias{nl_free}
 \title{Free search}
 \usage{
-nl_free(q, ...)
+nl_free(q, ..., verbose = FALSE)
 }
 \description{
 Free search
