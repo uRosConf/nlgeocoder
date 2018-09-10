@@ -4,6 +4,7 @@
 #' @param ... parameters passed to geolocation service
 #' @param type restrict type of geolocation to
 #' @inheritParams query
+#' @param verbose Should the functions print messages on what it is retrieving.
 #' @export
 nl_suggest <- function( q
                       , ...
