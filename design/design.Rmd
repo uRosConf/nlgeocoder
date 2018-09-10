@@ -3,6 +3,9 @@ title: "The nlgeocoder package"
 author: 
 date: "10 september 2018"
 output: beamer_presentation
+header-includes:
+  - \usepackage{color}
+urlcolor: blue
 ---
 
 ```{r setup, include=FALSE}
@@ -35,7 +38,7 @@ Suggestions:
 - pdokr    
 - nllocation  
 - dutchgeocoder    
-- nlgeocoder     
+- \color{green}nlgeocoder
 
 Considerations:    
 
@@ -61,11 +64,12 @@ Considerations:
 - Add a parameter to choose between returning the location in WGS84 or RD_New.
 - Add a parameter to limit the number of rows returned with default value 1.
 - Add a parameter to add the API key to the request. Apparantly not obligatory, but nice to have for PDOK to monitor API usage.
+- Add parameter `type` with predefined values to choose from (e.g. `adres`). 
 
 ## Findings
 
 - You can only do one-by-one requests to the Locatieserver, no bulk requests.
-- What are the terms of use for Locatieserver?
+- What are the terms of use for Locatieserver? There are none. See [this answer](https://forum.pdok.nl/t/gebruiksvoorwaarden-locatieserver/1880) in the PDOK forum. 
 
 ## Tasks
 
