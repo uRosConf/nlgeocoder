@@ -20,4 +20,5 @@ devtools::install_github("uRos2018/nlgeocoder")
 
 ``` r
 ## basic example code
+adres <- nl_suggest("Dam, Amsterdam")
 ```
