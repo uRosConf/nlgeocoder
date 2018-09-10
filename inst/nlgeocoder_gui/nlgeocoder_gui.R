@@ -31,7 +31,7 @@ ui <- fluidPage(
 
       textInput(inputId = "vertiba",
                 label = "Searched value:",
-                value = "2492JP"),
+                value = "7511DP"),
 
       selectInput(inputId = "dataset",
                   label = "Choose where search value:",
@@ -55,9 +55,10 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   #coordinates()
-  points <- eventReactive(input$view, {
-    coordinates(input$vertiba)  }, ignoreNULL = FALSE)
+  # points <- eventReactive(input$view, {
+  #   coordinates(input$vertiba)  }, ignoreNULL = FALSE)
 
+  points <- reactive(coordinates(input$vertiba))
 
   output$mymap <- renderLeaflet({
     leaflet() %>%
