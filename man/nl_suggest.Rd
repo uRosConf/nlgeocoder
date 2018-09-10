@@ -11,7 +11,7 @@ nl_suggest(q, ..., rows = NULL, type = NULL, verbose = TRUE)
 
 \item{...}{parameters passed to geolocation service}
 
-\item{rows}{maximum number of rows that will be returned, if not specified it will be 10.}
+\item{rows}{maximum number of rows to be returned. Default is 10.}
 
 \item{type}{restrict type of geolocation to}
 
