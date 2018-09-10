@@ -30,16 +30,14 @@ nl_geocode <- function( location
     # TODO check if the docs is available
     res$response$docs[1,]
   })
-  df
+  bind_rows(df)
 }
 
-my_bindrows <- function(x){
-  y <- jsonlite::toJSON(x, dataframe = "rows")
-  jsonlite::fromJSON(y, simplifyDataFrame = T, flatten = TRUE)
+bind_rows <- function(..., .list){
+  x_l <- lapply(.list, as.list)
+  y <- jsonlite::toJSON(x_l)
+  jsonlite::fromJSON(y)
 }
-
-
-
 
 # if (requireNamespace("sf")){
 #   sf::sf.colors(10)
