@@ -3,7 +3,9 @@
 #' Retrieve detailed properties of a geo object found with suggest or free.
 #' @export
 #' @param id of object found in nl_suggest or nl_free
+#' @param ... extra parameters are passed to the lookup service of pdok.
 #' @param raw should the result be the raw result
+#' @param verbose should the function print message while retrieving the data?
 #' @inheritParams query
 nl_lookup <- function(id,..., raw = FALSE, verbose = FALSE){
   if (length(id) > 1){

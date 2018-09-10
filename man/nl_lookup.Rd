@@ -8,6 +8,12 @@ nl_lookup(id, ..., raw = FALSE, verbose = FALSE)
 }
 \arguments{
 \item{id}{of object found in nl_suggest or nl_free}
+
+\item{...}{extra parameters are passed to the lookup service of pdok.}
+
+\item{raw}{should the result be the raw result}
+
+\item{verbose}{should the function print message while retrieving the data?}
 }
 \description{
 Retrieve detailed properties of a geo object found with suggest or free.
