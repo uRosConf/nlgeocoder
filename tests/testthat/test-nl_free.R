@@ -1,7 +1,7 @@
 context("nl_suggest")
 
 test_that("q = s - no additional parameter values - number of search results > 0", {
-  res <- nl_suggest("s")
+  res <- nl_free("s")
   expect_true(res$response$numFound > 0)
 })
 

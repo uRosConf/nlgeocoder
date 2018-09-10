@@ -5,7 +5,7 @@
 \title{geocode function}
 \usage{
 nl_geocode(location, output = c("latlon", "rd", "data.frame"),
-  messaging = FALSE, type = NULL, ..., verbose = !messaging)
+  messaging = FALSE, type = "adres", ..., verbose = !messaging)
 }
 \arguments{
 \item{location}{string with location to be found}
@@ -13,6 +13,8 @@ nl_geocode(location, output = c("latlon", "rd", "data.frame"),
 \item{output}{How should the}
 
 \item{type}{retrict the type of object that is returned from the service.}
+
+\item{...}{will be passed to \code{\link{nl_free}}.}
 }
 \description{
 Which is more user friendly than the barebones webservices,

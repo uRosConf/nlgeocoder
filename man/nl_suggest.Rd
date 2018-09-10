@@ -12,11 +12,19 @@ nl_suggest(q, ..., rows = NULL, type = NULL, verbose = TRUE,
 
 \item{...}{parameters passed to geolocation service}
 
-\item{rows}{maximum number of rows that will be returned, if not specified it will be 10.}
+\item{rows}{maximum number of rows to be returned. Default is 10.}
 
 \item{type}{restrict type of geolocation to}
 
 \item{verbose}{Should the functions print messages on what it is retrieving.}
+
+\item{fl}{the columns that should be returned (aka select on columms of result)}
+
+\item{sort}{how the data should be sorted}
+
+\item{qf}{the fields that should be queried}
+
+\item{bf}{the boosting of the fields.}
 }
 \description{
 Get a list of suggestions for geolocations in NL
