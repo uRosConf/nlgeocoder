@@ -3,7 +3,8 @@
 #' Retrieve detailed properties of a geo object found with suggest or free.
 #' @export
 #' @param id of object found in nl_suggest or nl_free
-nl_lookup <- function(id, ..., raw = FALSE, verbose = FALSE){
+#' @inheritParams query
+nl_lookup <- function(id,..., raw = FALSE, verbose = FALSE){
   if (length(id) > 1){
     warning("Only using the first id")
     id <- id[1]
@@ -15,11 +16,9 @@ nl_lookup <- function(id, ..., raw = FALSE, verbose = FALSE){
   if (verbose){
     message(q_url)
   }
-  #TODO currently return value is too complicated: should only return the response not
-  # the para/meta data of the query itself.
-
   res_lookup <- jsonlite::read_json(q_url)
 
+  # if raw is used, the re
   if (raw){
     return(res_lookup)
   }
