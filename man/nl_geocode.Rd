@@ -4,7 +4,7 @@
 \alias{nl_geocode}
 \title{geocode function}
 \usage{
-nl_geocode(location, output = c("latlon", "rd", "data.frame"),
+nl_geocode(location, output = c("wgs84", "rd", "data.frame"),
   messaging = FALSE, type = "adres", ..., verbose = !messaging)
 }
 \arguments{
