@@ -2,7 +2,7 @@
 title: "design.Rmd"
 author: "Willy Tadema"
 date: "10 september 2018"
-output: Design considerations for the nllocator Package
+output: beamer_presentation
 ---
 
 ```{r setup, include=FALSE}
@@ -12,7 +12,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Aim
 
-Create an R interface to the PDOK Locatieserver API. Locatieserver is a (reverse) geocoding service for The Netherlands.
+Create an R interface to the PDOK Locatieserver API.     
+Locatieserver is a (reverse) geocoding service for The Netherlands.
 
 ## Team
 - [Edwin de Jonge](https://github.com/edwindj)
@@ -21,18 +22,20 @@ Create an R interface to the PDOK Locatieserver API. Locatieserver is a (reverse
 - [Juris]()
 
 ## How do we name the package?
-Suggestions:
-- pdokr
-- nllocation
-- dutchgeocoder
-- nlgeocoder
+Suggestions:    
 
-Considerations:
-- The name should describe the functionality well
-- Users should see immediately that the package is only for geocoding addresses in the Netherlands
-- Maybe we want to create an interface to other PDOK functionality later, but for now we choose to create a compact package that only uses Locatieserver
-- Prefix 'nl' is better than 'dutch', because the package will only work for The Netherlands, not for other countries where Dutch is spoken.
-- The package should preferrably end with an 'r' ;-)
+- pdokr    
+- nllocation    
+- dutchgeocoder    
+- nlgeocoder     
+
+Considerations:    
+
+- The name should describe the functionality well    
+- Users should see immediately that the package is only for geocoding addresses in the Netherlands    
+- Maybe we want to create an interface to other PDOK functionality later, but for now we choose to create a compact package that only uses Locatieserver    
+- Prefix 'nl' is better than 'dutch', because the package will only work for The Netherlands, not for other countries where Dutch is spoken.    
+- The package should preferrably end with an 'r' ;-)   
 
 ## What license?
 
