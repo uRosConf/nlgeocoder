@@ -4,7 +4,8 @@
 \alias{nl_suggest}
 \title{Get a list of suggestions for geolocations in NL}
 \usage{
-nl_suggest(q, ..., rows = NULL, type = NULL, verbose = TRUE)
+nl_suggest(q, ..., rows = NULL, type = NULL, verbose = TRUE,
+  fl = NULL, sort = NULL, qf = NULL, bq = NULL)
 }
 \arguments{
 \item{q}{search terms that should be geolocated}
