@@ -8,15 +8,19 @@
 #' @export
 nl_suggest <- function( q
                       , ...
-                      , rows = NULL
-                      , type = NULL
+                      , rows    = NULL
+                      , type    = NULL
                       , verbose = TRUE
+                      , fl      = NULL
+                      , sort    = NULL
+                      , qf      = NULL
+                      , bq      = NULL
                       ){
   l <- list(...)
   l$rows = rows
   l$type = type
   l <- type_filter(l, type)
-  params <- as_params(q = q, .list = l)
+  params <- as_params(q = q, .list = l, fl = fl, sort = sort)
   q_url <- paste0(file.path(API, "suggest"), "?", params)
   if (verbose){
     message(q_url)
