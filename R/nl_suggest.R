@@ -5,6 +5,10 @@
 #' @param type restrict type of geolocation to
 #' @inheritParams query
 #' @param verbose Should the functions print messages on what it is retrieving.
+#' @param fl the columns that should be returned (aka select on columms of result)
+#' @param sort how the data should be sorted
+#' @param qf the fields that should be queried
+#' @param bf the boosting of the fields.
 #' @export
 nl_suggest <- function( q
                       , ...
