@@ -5,7 +5,7 @@
 [![travis
 build](https://travis-ci.org/edwindj/nllocation.svg?branch=master)](https://travis-ci.org/edwindj/nllocation)
 
-# nllocation
+# nlgeocoder
 
 ## Installation
 
@@ -13,7 +13,7 @@ You can install nllocation from github with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("edwindj/nllocation")
+devtools::install_github("uRos2018/nlgeocoder")
 ```
 
 ## Example
