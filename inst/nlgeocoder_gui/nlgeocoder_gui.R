@@ -6,6 +6,14 @@ names(r_colors) <- colors()
 
 library(data.table)
 
+type
+municipality gemeente
+town         woonplaats
+neiborhood   weg
+postcode     postcode
+adress       adres
+
+
 coordinates <- function(values){
   library(data.table)
   data_with_coord <- data.table(nl_free(values)$response$docs)
@@ -37,7 +45,6 @@ ui <- fluidPage(
                   label = "Choose where search value:",
                   choices = c("any field", "postcode", "adress", "region", "coordinates")),
 
-      submitButton(text = "View")
     ),
 
     # Main panel for displaying outputs ----
