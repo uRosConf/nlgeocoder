@@ -14,6 +14,8 @@ nl_suggest(q, ..., rows = NULL, type = NULL, verbose = TRUE)
 \item{rows}{maximum number of rows that will be returned, if not specified it will be 10.}
 
 \item{type}{restrict type of geolocation to}
+
+\item{verbose}{Should the functions print messages on what it is retrieving.}
 }
 \description{
 Get a list of suggestions for geolocations in NL

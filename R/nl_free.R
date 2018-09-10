@@ -4,6 +4,8 @@
 #' @export
 #' @inheritParams query
 #' @param q query to geocoding service.
+#' @param ... parameters passed to the pdok webservice
+#' @param verbose \code{logical} should the function print out messages.
 #' @seealso \code{\link{nl_geocode}}
 nl_free <- function( q
                    , start   = NULL
@@ -14,7 +16,7 @@ nl_free <- function( q
                    , verbose = FALSE
                    ){
   l <- list(...)
-  params <- as_params(q = q, .list = l, start = start, fq = fs, lat= lat, lon = lon)
+  params <- as_params(q = q, .list = l, start = start, fq = fq, lat= lat, lon = lon)
   q_url <- paste0(file.path(API, "free"), "?", params)
   if (verbose){
     message(q_url)
