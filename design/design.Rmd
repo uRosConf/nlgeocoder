@@ -58,6 +58,7 @@ Considerations:
 
 ## Ideas
 
+- Use a dataframe with descriptions of locations as an input
 - Return the response as an `sf` object
 - Use the `score` attribute as a thresshold value to determine if a search result should be returned to the user. If the score is too low, it is may not be a good fit.
 - Mimic the `geocode` function in the `ggmap` package. For example, add a parameter `output` (`latlon`, `latlona`, `more`, `all`)
@@ -65,6 +66,7 @@ Considerations:
 - Add a parameter to limit the number of rows returned with default value 1.
 - Add a parameter to add the API key to the request. Apparantly not obligatory, but nice to have for PDOK to monitor API usage.
 - Add parameter `type` with predefined values to choose from (e.g. `adres`). 
+- Add some time ('sleep') between subsequent requests.
 
 ## Findings
 
@@ -76,4 +78,4 @@ Considerations:
 - Create unit tests with `testthat` (Willy)
 - Add documentation using Roxygen2
 - Add functionality and make it more user-friendly  (Edwin)
-- Create demo using tmap and shiny (Egge-Jan)
+- Create demo using tmap and shiny (Egge-Jan, Juris)
