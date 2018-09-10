@@ -13,7 +13,7 @@
 #' @param ... will be passed to \code{\link{nl_free}}.
 #' @inheritParams query
 nl_geocode <- function( location
-                      , output = c("latlon", "rd", "data.frame")
+                      , output = c("wgs84", "rd", "data.frame")
                       #, source = c("google", "dsk") not needed
                       , messaging = FALSE
                       #, force = ifelse(source == "dsk", FALSE, TRUE), sensor = FALSE, override_limit = FALSE
@@ -23,14 +23,30 @@ nl_geocode <- function( location
                       #, data
                       , type = "adres"
                       , ...
-                      , verbose = !messaging
+                      , verbose = messaging
                       ){
   df <- lapply(location, function(loc){
     res <- nl_free(q = loc, type = type, ..., rows = 1, verbose = verbose)
     # TODO check if the docs is available
     res$response$docs[1,]
   })
-  bind_rows(.list = df)
+  df <- bind_rows(.list = df)
+  output = match.arg(output)
+  if (output == "data.frame"){
+    return(df)
+  }
+
+  if (requireNamespace("sf")){
+    wkt <-
+      switch( output
+            , rd = "centroide_rd"
+            , "centroide_ll"
+            )
+    crs <- switch(output, rd = 28992, 4326)
+    sf::st_as_sf(df, wkt = wkt, crs = crs)
+  } else {
+    stop("You'll need package 'sf'.")
+  }
 }
 
 bind_rows <- function(..., .list){
