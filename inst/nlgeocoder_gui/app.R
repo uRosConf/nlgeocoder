@@ -1,29 +1,23 @@
 library(shiny)
 library(leaflet)
+library(data.table)
 
 r_colors <- rgb(t(col2rgb(colors()) / 255))
 names(r_colors) <- colors()
 
-library(data.table)
-
-type
-municipality gemeente
-town         woonplaats
-neiborhood   weg
-postcode     postcode
-adress       adres
-
-
-coordinates <- function(values){
-  library(data.table)
-  data_with_coord <- data.table(nl_free(values)$response$docs)
-  data_with_coord[, centroide_ll := substr(centroide_ll, 7, nchar(centroide_ll) - 1)]
-  data_with_coord[, tukss := unlist(gregexpr(" ", centroide_ll))]
-  data_with_coord[, latitude := as.numeric(substr(centroide_ll, tukss + 1, nchar(centroide_ll)))]
-  data_with_coord[, longitude := as.numeric(substr(centroide_ll, 1, tukss))]
-  data_with_coord <- data_with_coord[, c("latitude", "longitude")]
-  as.data.frame(data_with_coord)
-}
+coordinates <- function(values, fq){
+  if (any(fq == "any field")) fq <- NULL
+  calcs <- nl_free(q = values, fq = fq)
+  if (!is.null(unlist(calcs$response$docs))) {
+          data_with_coord <- data.table(calcs$response$docs)
+          data_with_coord[, centroide_ll := substr(centroide_ll, 7, nchar(centroide_ll) - 1)]
+          data_with_coord[, tukss := unlist(gregexpr(" ", centroide_ll))]
+          data_with_coord[, latitude := as.numeric(substr(centroide_ll, tukss + 1, nchar(centroide_ll)))]
+          data_with_coord[, longitude := as.numeric(substr(centroide_ll, 1, tukss))]
+          data_with_coord <- data_with_coord[, c("latitude", "longitude")]
+          as.data.frame(data_with_coord)
+       } else NULL
+  }
 
 
 ui <- fluidPage(
@@ -41,10 +35,10 @@ ui <- fluidPage(
                 label = "Searched value:",
                 value = "7511DP"),
 
-      selectInput(inputId = "dataset",
+      selectInput(inputId = "izvele",
                   label = "Choose where search value:",
-                  choices = c("any field", "postcode", "adress", "region", "coordinates")),
-
+                  choices = c("any field", "municipality", "town",
+                              "neiborhood", "postcode", "adress"))
     ),
 
     # Main panel for displaying outputs ----
@@ -52,7 +46,6 @@ ui <- fluidPage(
 
 
       # Output: HTML table with requested number of observations ----
-      #tableOutput("view")
       leafletOutput("mymap")
 
     )
@@ -61,11 +54,7 @@ ui <- fluidPage(
 
 
 server <- function(input, output, session) {
-  #coordinates()
-  # points <- eventReactive(input$view, {
-  #   coordinates(input$vertiba)  }, ignoreNULL = FALSE)
-
-  points <- reactive(coordinates(input$vertiba))
+  points <- reactive(coordinates(input$vertiba, fq = input$izvele))
 
   output$mymap <- renderLeaflet({
     leaflet() %>%
@@ -74,7 +63,7 @@ server <- function(input, output, session) {
       ) %>%
       addMarkers(data = points())
   })
-
   }
 
 shinyApp(ui, server)
+

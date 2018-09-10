@@ -23,6 +23,16 @@ nl_free <- function( q
                    , verbose = FALSE
                    ){
   l <- list(...)
+
+  if (!is.null(fq )) {
+             switch(fq,
+                    municipality = {fq1 <- "gemeente"},
+                    town = {fq1 <- "woonplaats"},
+                    neiborhood = {fq1 <- "weg"},
+                    postcode = {fq1 <- postcode},
+                    adress = {fq1 <-"adres"})
+             fq <- fq1 }
+
   l <- type_filter(l, type)
   params <- as_params(q = q, .list = l, start = start, fq = fq, df = df, fl = fl, lat = lat, lon = lon)
   q_url <- paste0(file.path(API, "free"), "?", params)
