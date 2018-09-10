@@ -12,8 +12,8 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/nllocation)](https://cran.r-project.org/package=nllocation)
-[![travis build](https://travis-ci.org/edwindj/nllocation.svg?branch=master)](https://travis-ci.org/edwindj/nllocation)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/nlgeocoder)](https://cran.r-project.org/package=nlgeocoder)
+[![travis build](https://travis-ci.org/uRos2018/nlgeocoder.svg?branch=master)](https://travis-ci.org/uRos2018/nlgeocoder)
 
 # nlgeocoder
 
@@ -30,8 +30,6 @@ devtools::install_github("uRos2018/nlgeocoder")
 
 ```{r example}
 ## basic example code
-library(tmap)
-qtm()
 library(nlgeocoder)
 adres <- nl_suggest("Dam, Amsterdam")
 adres$response$docs

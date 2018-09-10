@@ -4,10 +4,12 @@
 \alias{query}
 \title{Dummy function only used for describing common api parameters}
 \usage{
-query(rows = NULL)
+query(rows = NULL, start = NULL, wt)
 }
 \arguments{
-\item{rows}{number of rows}
+\item{rows}{number of rows
+
+#' @seealso}
 }
 \description{
 Dummy function only used for describing common api parameters
