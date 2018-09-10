@@ -10,6 +10,7 @@
 #' @param location string with location to be found
 #' @param output How should the
 #' @param type retrict the type of object that is returned from the service.
+#' @param ... will be passed to \code{\link{nl_free}}.
 #' @inheritParams query
 nl_geocode <- function( location
                       , output = c("latlon", "rd", "data.frame")
@@ -25,7 +26,17 @@ nl_geocode <- function( location
                       , verbose = !messaging
                       ){
 
-  res <- nl_free(q = location, type = type, ..., verbose = verbose)
-  # TODO convert the result into a sf object.
-  res
+  df <- lapply(location, function(loc){
+    res <- nl_free(q = loc, type = type, ..., verbose = verbose)
+    # TODO check if the docs is available
+    res$response$docs[1,]
+  })
+  df
 }
+
+
+# if (requireNamespace("sf")){
+#   sf::sf.colors(10)
+# } else {
+#   stop("For returning sf object, the package sf is needed.")
+# }

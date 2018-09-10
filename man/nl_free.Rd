@@ -5,7 +5,7 @@
 \title{Free geocoding search}
 \usage{
 nl_free(q, rows = NULL, start = NULL, fq = NULL, lat = NULL,
-  lon = NULL, ..., verbose = FALSE)
+  lon = NULL, type = NULL, ..., verbose = FALSE)
 }
 \arguments{
 \item{q}{query to geocoding service.}
@@ -21,6 +21,8 @@ zero-based. In combinatie met de rows-parameter kunnen deze services gepagineerd
 Het meegeven van een coördinaat is met name nuttig voor de suggest- en vrije geocoder-services. Hier worden meestal meerdere resultaten teruggegeven. Als decimaal scheidingsteken moet een punt worden opgegeven i.p.v. een komma.}
 
 \item{lon}{see lat}
+
+\item{type}{restrict the results on a specific type.}
 
 \item{...}{parameters passed to the pdok webservice}
 

@@ -4,6 +4,7 @@
 #' @export
 #' @param q query to geocoding service.
 #' @param ... parameters passed to the pdok webservice
+#' @param type restrict the results on a specific type.
 #' @param verbose \code{logical} should the function print out messages.
 #' @inheritParams query
 #' @seealso \code{\link{nl_geocode}}
