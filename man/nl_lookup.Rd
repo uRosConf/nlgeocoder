@@ -4,7 +4,7 @@
 \alias{nl_lookup}
 \title{Look up a geo object}
 \usage{
-nl_lookup(id, ..., verbose = FALSE)
+nl_lookup(id, ..., raw = FALSE, verbose = FALSE)
 }
 \arguments{
 \item{id}{of object found in nl_suggest or nl_free}

@@ -4,8 +4,13 @@
 \alias{nl_geocode}
 \title{geocode function}
 \usage{
-nl_geocode(...)
+nl_geocode(location, output = c("latlon", "latlona", "rd", "rda", "all"),
+  messaging = FALSE, type = NULL, ..., verbose = !messaging)
 }
 \description{
-Which is more user friendly than the barebones webservices, uses the same function signature as ggmap geocode
+Which is more user friendly than the barebones webservices,
+uses the same function signature as ggmap geocode.
+}
+\details{
+The return type can be specified.
 }

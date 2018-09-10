@@ -3,5 +3,4 @@
 export(nl_free)
 export(nl_geocode)
 export(nl_lookup)
-export(nl_reverse)
 export(nl_suggest)
