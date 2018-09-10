@@ -3,6 +3,7 @@
 #' Retrieve detailed properties of a geo object found with suggest or free.
 #' @export
 #' @param id of object found in nl_suggest or nl_free
+#' @param raw should the result be the raw result
 #' @inheritParams query
 nl_lookup <- function(id,..., raw = FALSE, verbose = FALSE){
   if (length(id) > 1){
@@ -24,7 +25,7 @@ nl_lookup <- function(id,..., raw = FALSE, verbose = FALSE){
   }
 
   if (res_lookup$response$numFound){
-    res_lookup$response$docs
+    res_lookup$response$docs[[1]]
   } else {
     NULL
   }

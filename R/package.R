@@ -1,4 +1,5 @@
 API <- "https://geodata.nationaalgeoregister.nl/locatieserver/v3"
 
+#' Geo coder package
 #' @docType package
-NULL
+"_PACKAGE"
