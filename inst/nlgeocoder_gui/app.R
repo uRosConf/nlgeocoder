@@ -85,8 +85,8 @@ server <- function(input, output, session) {
                options = tileOptions()) %>%
       addLayersControl(
         baseGroups = c("background map","gray map","pastel map","aerial photo"),
-        options = layersControlOptions(collapsed = FALSE))
-
+        options = layersControlOptions(position = "topleft")
+      )
       if (is.null(points())){
         map
       } else {
