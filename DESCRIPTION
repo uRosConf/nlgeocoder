@@ -15,8 +15,8 @@ Suggests:
     knitr,
     rmarkdown,
     sf,
-    mapview, 
-    shiny
+    shiny, 
+    leaflet
 VignetteBuilder: knitr
 Imports: 
     jsonlite
