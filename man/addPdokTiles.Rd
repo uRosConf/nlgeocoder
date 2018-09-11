@@ -4,12 +4,15 @@
 \alias{addPdokTiles}
 \title{Leaflet function to add pdok tiles}
 \usage{
-addPdokTiles(map, type = c("brt", "aerial", "pastel", "gray"), ...)
+addPdokTiles(map, type = c("brt", "aerial", "pastel", "gray"),
+  group = match.arg(type), ...)
 }
 \arguments{
 \item{map}{leaflet object}
 
 \item{type}{one of the PDOK tiles: currently: "brt", "aerial", "pastel" or "gray"}
+
+\item{group}{group is set equal to type}
 
 \item{...}{Passed to \code{\link{leaflet::addTiles}}.}
 }
