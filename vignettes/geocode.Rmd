@@ -1,5 +1,5 @@
 ---
-title: "nl_geocode with mapview"
+title: "nl_geocode"
 author: "Edwin de Jonge, Willy Tadema"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(mapview)
+library(sf)
 library(nlgeocoder)
 ```
 
@@ -45,7 +46,7 @@ As you can see, the address doesn't need to be an exact match. Uppercases are ig
 
 Besides addresses, you can also search for places, municipalities, provinces, roads and many more. See the [LocatieServer API documentation](https://github.com/PDOK/locatieserver/wiki/API-Locatieserver) complete list of types you can choose from.
 
-You can restrict your search to municipalities:
+You can restrict the output of `geocode` to municipalities only:
 
 ```{r}
 res <- nl_geocode("Groningen", type = "gemeente") 
@@ -53,7 +54,7 @@ res$weergavenaam
 res$type
 ```
 
-You can also restrict your search to places:
+You can also restrict the output to places:
 
 ```{r}
 res <- nl_geocode("Groningen", type = "woonplaats") 
@@ -61,18 +62,12 @@ res$weergavenaam
 res$type
 ```
 
-If you are only interested in results in a particular area (e.g. a province or municipality) you can use the `fq` parameter:
-
-```{r}
-res <- nl_geocode("Hoofdstraat") 
-res$weergavenaam
-```
-
-Restrict the search to the province of Groningen:
+If you are only interested in results in a particular area (for instance a province or municipality) you can use the `fq` parameter.
 
 ```{r}
 res <- nl_geocode("Hoofdstraat", fq = "provincienaam:Groningen") 
 res$weergavenaam
+res$provincienaam
 ```
 
 ## Return coordinates in a spatial dataframe with CRS WGS84 or RD_New
@@ -82,7 +77,7 @@ By default, **nl_geocode** will return an `sf` object with coordinates in the co
 ```{r}
 res <- nl_geocode("Martinikerkhof 3 Groningen") 
 class(res)
-st_crs(res)
+st_crs(res)["epsg"]
 ```
 
 It also possible to specify that the coordinates should be in RD_New (EPSG:28992), the Dutch coordinate reference system.
@@ -90,14 +85,32 @@ It also possible to specify that the coordinates should be in RD_New (EPSG:28992
 ```{r}
 res <- nl_geocode("Martinikerkhof 3 Groningen", output = "rd") 
 class(res)
-st_crs(res)
+st_crs(res)["epsg"]
 ```
 
-# Return coordinates in a dataframe
+You can also use the `nl_geocode_rd` function instead:
+```{r}
+res <- nl_geocode_rd("Martinikerkhof 3 Groningen") 
+class(res)
+st_crs(res)["epsg"]
+```
+
+## Return coordinates in a dataframe
 
 You can use the parameter `output` to indicate that you only want the labels, and not the geometry.
 
 ```{r}
 res <- nl_geocode("Martinikerkhof 3 Groningen", output = "data.frame") 
 class(res)
+```
+
+## Plot the output on a map
+
+Plotting the output on a map, because by default **nl_geocode** returns an `sf` object.
+
+```{r}
+poi<- data.frame(label = c("Martinitoren", "Provinciehuis", "Groninger Museum", "Centraal Station", "Groninger Forum"), 
+                  location = c("Martinikerkhof 3 Groningen", "Sint Jansstraat 4 Groningen", "9711 ME 1", "9726 AE 4", "Hereplein 73 Groningen"))   
+poi_geocoded <- nl_geocode(poi$location)
+mapview(poi_geocoded)
 ```
