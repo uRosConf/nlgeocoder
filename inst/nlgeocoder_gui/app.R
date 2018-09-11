@@ -6,12 +6,10 @@ library(data.table)
 r_colors <- rgb(t(col2rgb(colors()) / 255))
 names(r_colors) <- colors()
 
-rez <- nl_free("4147AS", fq = NULL)$response$docs
-names(rez)
+
 
 coordinates <- function(values, fq){
   if (any(fq == "any field")) fq <- NULL
-
   calcs <- nl_free(q = values, fq = fq)
   if (NROW(calcs$response$docs)) {
           data_with_coord <- data.table(calcs$response$docs)
@@ -47,8 +45,7 @@ ui <- fluidPage(
       selectInput(inputId = "izvele",
                   label = "Choose search field:",
                   choices = c("any field", "municipality", "town",
-                             "road", "neighborhood", "postcode",
-                             "adress"))
+                              "neighborhood", "postcode", "adress"))
       # ,
       # hr(),
       # fileInput(inputId = "adressFile", "Upload file")
@@ -84,20 +81,12 @@ server <- function(input, output, session) {
   output$mymap <- renderLeaflet({
     map <-
       leaflet() %>%
-      addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaart/EPSG:3857/{z}/{x}/{y}.png",
-               attribution = "PDOK", layerId = NULL, group = "background map",
-               options = tileOptions()) %>%
-      addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaartgrijs/EPSG:3857/{z}/{x}/{y}.png",
-               attribution = "PDOK", layerId = NULL, group = "gray map",
-               options = tileOptions()) %>%
-      addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaartpastel/EPSG:3857/{z}/{x}/{y}.png",
-               attribution = "PDOK", layerId = NULL, group = "pastel map",
-               options = tileOptions()) %>%
-      addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/luchtfoto/rgb/wmts/Actueel_ortho25/EPSG:3857/{z}/{x}/{y}.jpeg",
-               attribution = "<a href='https://www.pdok.nl/'>PDOK</a>", layerId = NULL, group = "aerial photo",
-               options = tileOptions()) %>%
+      addPdokTiles(type = "brt") %>%
+      addPdokTiles(type = "gray") %>%
+      addPdokTiles(type = "pastel") %>%
+      addPdokTiles(type = "aerial") %>%
       addLayersControl(
-        baseGroups = c("background map","gray map","pastel map","aerial photo"),
+        baseGroups = c("brt","gray","pastel","aerial"),
         options = layersControlOptions(position = "topleft")
       )
       if (is.null(points())){
