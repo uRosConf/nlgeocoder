@@ -60,7 +60,7 @@ server <- function(input, output, session) {
         addPdokTiles(type = "pastel") %>%
         addPdokTiles(type = "aerial") %>%
         addLayersControl(
-          baseGroups = c("background map","gray map","pastel map","aerial photo"),
+          baseGroups = c("brt","gray","pastel","aerial"),
           options = layersControlOptions(position = "topleft")
         ) %>%
         addMarkers(data = points())

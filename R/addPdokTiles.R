@@ -4,7 +4,7 @@
 #' @param type one of the PDOK tiles: currently: "brt", "aerial", "pastel" or "gray"
 #' @param ... Passed to \code{\link{leaflet::addTiles}}.
 #' @export
-addPdokTiles <- function(map,  type = c("brt", "aerial", "pastel", "gray"), ...){
+addPdokTiles <- function(map,  type = c("brt", "aerial", "pastel", "gray"), group = match.arg(type), ...){
   if (requireNamespace("leaflet")){
     urlTemplate = switch( match.arg(type)
                         , aerial = "//geodata.nationaalgeoregister.nl/luchtfoto/rgb/wmts/Actueel_ortho25/EPSG:3857/{z}/{x}/{y}.jpeg"
@@ -15,6 +15,7 @@ addPdokTiles <- function(map,  type = c("brt", "aerial", "pastel", "gray"), ...)
     leaflet::addTiles( map = map
                      , urlTemplate = urlTemplate
                      , attribution = "<a href='https://www.pdok.nl/'>PDOK</a>"
+                     , group = group
                      , ...
                      )
   } else {
