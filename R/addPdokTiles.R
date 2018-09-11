@@ -2,6 +2,7 @@
 #'
 #' @param map leaflet object
 #' @param type one of the PDOK tiles: currently: "brt", "aerial", "pastel" or "gray"
+#' @param group group is set equal to type
 #' @param ... Passed to \code{\link{leaflet::addTiles}}.
 #' @export
 addPdokTiles <- function(map,  type = c("brt", "aerial", "pastel", "gray"), group = match.arg(type), ...){
