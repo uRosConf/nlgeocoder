@@ -2,5 +2,6 @@
 
 export(nl_free)
 export(nl_geocode)
+export(nl_geocode_rd)
 export(nl_lookup)
 export(nl_suggest)

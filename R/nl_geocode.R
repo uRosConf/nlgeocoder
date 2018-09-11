@@ -49,6 +49,24 @@ nl_geocode <- function( location
   }
 }
 
+#' @rdname nl_geocode
+#' @export
+nl_geocode_rd <- function( location
+                        #, source = c("google", "dsk") not needed
+                        , messaging = FALSE
+                        #, force = ifelse(source == "dsk", FALSE, TRUE), sensor = FALSE, override_limit = FALSE
+                        #, client = ""
+                        #, signature = ""
+                        #, nameType = c("long", "short")
+                        #, data
+                        , type = "adres"
+                        , ...
+                        , verbose = messaging
+                        ){
+  nl_geocode(location, output = "rd", messaging = messaging, type= type, ..., verbose = verbose)
+}
+
+
 bind_rows <- function(..., .list){
   x_l <- lapply(.list, as.list)
   y <- jsonlite::toJSON(x_l)

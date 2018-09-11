@@ -2,10 +2,14 @@
 % Please edit documentation in R/nl_geocode.R
 \name{nl_geocode}
 \alias{nl_geocode}
+\alias{nl_geocode_rd}
 \title{geocode function}
 \usage{
 nl_geocode(location, output = c("wgs84", "rd", "data.frame"),
   messaging = FALSE, type = "adres", ..., verbose = messaging)
+
+nl_geocode_rd(location, messaging = FALSE, type = "adres", ...,
+  verbose = messaging)
 }
 \arguments{
 \item{location}{string with location to be found}
