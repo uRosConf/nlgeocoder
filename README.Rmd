@@ -4,12 +4,13 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "README-"
 )
+library(nlgeocoder)
 ```
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/nlgeocoder)](https://cran.r-project.org/package=nlgeocoder)
@@ -28,9 +29,24 @@ devtools::install_github("uRos2018/nlgeocoder")
 
 ## Example
 
+### Geocoding
+
+```{r}
+library(nlgeocoder)
+adres <- nl_geocode( c("Henri Faasdreef 312", "Leidschenveen"))
+adres # this is a sf object
+```
+
+### Suggestions
+
 ```{r example}
 ## basic example code
-library(nlgeocoder)
 adres <- nl_suggest("Dam, Amsterdam")
-adres$response$docs
+head(adres$response$docs, 2)
 ```
+### lookup
+
+```{r}
+nl_lookup("weg-ab6df5babb15e466f3699b5d2c22e110")
+```
+
