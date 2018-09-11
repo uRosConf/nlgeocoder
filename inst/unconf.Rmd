@@ -24,8 +24,11 @@ Who are we:
 
 ### PDOK: dutch webservice
 
-- Providing location services as a Web API.
-- Providing geo tile layers.
+- Providing **location service**s as a Web API:
+  - e.g. finding address -> location coordinates
+  - deduplicating addressess ("town road" vs "town street" vs "town alley")
+- Providing geo **tile layer**s.
+  - style: "gray", "brt", "", ""
 
 ### Why?
 

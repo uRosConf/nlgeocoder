@@ -6,18 +6,17 @@ library(data.table)
 r_colors <- rgb(t(col2rgb(colors()) / 255))
 names(r_colors) <- colors()
 
-
-
 coordinates <- function(values, fq){
   if (!is.null(fq)){
     fq[which(fq == "municipality")] <- "gemeente"
     fq[which(fq == "town")] <- "woonplaats"
     fq[which(fq == "neighborhood")] <- "buurtnaam"
     fq[which(fq == "road")] <- "weg"
-    fq[which(fq == "address")] <- "adres"
+    fq[which(fq == "adress")] <- "adres"
   }
   if (any(fq == "any field")) fq <- NULL
   calcs <- nl_free(q = values, type = fq, verbose = TRUE)
+
   if (NROW(calcs$response$docs)) {
           data_with_coord <- data.table(calcs$response$docs)
           data_with_coord[, centroide_ll := substr(centroide_ll, 7, nchar(centroide_ll) - 1)]
