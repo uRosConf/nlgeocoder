@@ -73,7 +73,7 @@ nl_geocode_df <- function( location
 
 bind_rows <- function(..., .list){
   x_l <- lapply(.list, as.list)
-  y <- jsonlite::toJSON(x_l)
+  y <- jsonlite::toJSON(x_l, auto_unbox = TRUE)
   jsonlite::fromJSON(y)
 }
 

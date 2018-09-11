@@ -4,7 +4,8 @@
 \alias{addPdokTiles}
 \title{Leaflet function to add pdok tiles}
 \usage{
-addPdokTiles(map, type = c("brt", "aerial", "pastel", "gray"), ...)
+addPdokTiles(map, type = c("brt", "aerial", "pastel", "gray"),
+  group = match.arg(type), ...)
 }
 \arguments{
 \item{map}{leaflet object}
