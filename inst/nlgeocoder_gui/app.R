@@ -10,7 +10,9 @@ names(r_colors) <- colors()
 
 coordinates <- function(values, fq){
   if (any(fq == "any field")) fq <- NULL
-  calcs <- nl_free(q = values, fq = fq)
+
+  values <- c("")
+  calcs <- nl_geocode(q = values, fq = fq)
   if (NROW(calcs$response$docs)) {
           data_with_coord <- data.table(calcs$response$docs)
           data_with_coord[, centroide_ll := substr(centroide_ll, 7, nchar(centroide_ll) - 1)]
