@@ -1,11 +1,11 @@
 #' geocode function
 #'
-#' Which is more user friendly than the barebones webservices,
-#' uses the same function signature as ggmap geocode.
+#' This function is more user friendly than the barebones webservices,
+#' and uses the same function signature as ggmap::geocode.
 #'
 #' type can be one of the following:"provincie", "gemeente", "woonplaats",
 #' weg;postcode;adres;perceel;hectometerpaal;wijk;buurt;waterschapsgrens;appartementsrecht.
-#' The return type can be specified.
+#' The return type can be specified and can be of type "sf" or "data.frame".
 #' @export
 #' @param location string with location to be found
 #' @param output How should the
@@ -47,6 +47,28 @@ nl_geocode <- function( location
   } else {
     stop("You'll need package 'sf'.")
   }
+}
+
+#' @rdname nl_geocode
+#' @export
+nl_geocode_rd <- function( location
+                        , messaging = FALSE
+                        , type = "adres"
+                        , ...
+                        , verbose = messaging
+                        ){
+  nl_geocode(location, output = "rd", messaging = messaging, type= type, ..., verbose = verbose)
+}
+
+#' @rdname nl_geocode
+#' @export
+nl_geocode_df <- function( location
+                           , messaging = FALSE
+                           , type = "adres"
+                           , ...
+                           , verbose = messaging
+){
+  nl_geocode(location, output = "data.frame", messaging = messaging, type= type, ..., verbose = verbose)
 }
 
 bind_rows <- function(..., .list){
