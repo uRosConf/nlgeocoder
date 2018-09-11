@@ -54,18 +54,16 @@ ui <- fluidPage(
     # Main panel for displaying outputs ----
     mainPanel(
 
-      navbarPage(
         tabsetPanel(
         tabPanel("Map",
-
-      # Output: HTML table with requested number of observations ----
-
-      leafletOutput("mymap", height = "400")),
-
-      tabPanel("Data.table",
+                 # Output: HTML table with requested number of observations ----
+        fluidRow(
+          column( width=12,
+            leafletOutput("mymap", height=600)))
+        ),
+      tabPanel("Addresses:",
       tableOutput('table')
       ))
-      )
     )
   )
 )
