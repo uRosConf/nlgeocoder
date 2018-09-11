@@ -57,3 +57,7 @@ test_that("restrict search to Groningen", {
   expect_true(res$provincienaam == "Groningen")
 })
 
+test_that("restrict fields", {
+  res <- nl_geocode("Hoofdstraat", fl = c("woonplaatsnaam", "centroide_ll"))
+  expect_equal(names(res), c("woonplaatsnaam", "centroide_ll"))
+})

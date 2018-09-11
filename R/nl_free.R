@@ -37,6 +37,10 @@ nl_free <- function( q
     )
   }
 
+  if (length(fl)){
+    fl <- paste0(fl, collapse = ",")
+  }
+
   l <- type_filter(l, type)
   params <- as_params(q = q, .list = l, start = start, fq = fq, df = df, fl = fl, lat = lat, lon = lon)
   q_url <- paste0(file.path(API, "free"), "?", params)
