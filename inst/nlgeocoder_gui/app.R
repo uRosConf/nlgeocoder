@@ -90,7 +90,7 @@ server <- function(input, output, session) {
       if (is.null(points())){
         map
       } else {
-        addMarkers(map, data = points())
+        addMarkers(map, data = points(),  popup = ~Location)
       }
   })
   }
