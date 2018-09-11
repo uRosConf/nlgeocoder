@@ -55,9 +55,14 @@ server <- function(input, output, session) {
 
     output$locations <- renderLeaflet({
         leaflet() %>%
-        addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaart/EPSG:3857/{z}/{x}/{y}.png",
-                 attribution = "PDOK", layerId = NULL, group = "background map",
-                 options = tileOptions()) %>%
+        addPdokTiles(type = "brt") %>%
+        addPdokTiles(type = "gray") %>%
+        addPdokTiles(type = "pastel") %>%
+        addPdokTiles(type = "aerial") %>%
+        addLayersControl(
+          baseGroups = c("brt","gray","pastel","aerial"),
+          options = layersControlOptions(position = "topleft")
+        ) %>%
         addMarkers(data = points())
     })
 }
