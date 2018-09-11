@@ -24,7 +24,7 @@ nl_suggest <- function( q
   l$rows = rows
   l$type = type
   l <- type_filter(l, type)
-  params <- as_params(q = q, .list = l, fl = fl, sort = sort)
+  params <- as_params(q = q, .list = l, fl = fl, sort = sort, rows=rows, qf = qf, bq = bq)
   q_url <- paste0(file.path(API, "suggest"), "?", params)
   if (verbose){
     message(q_url)

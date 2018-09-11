@@ -33,8 +33,12 @@ nl_free <- function( q
       fq[which(fq == "address")] <- "adres"
   }
 
+  if (length(fl)){
+    fl <- paste0(fl, collapse = ",")
+  }
+
   l <- type_filter(l, type)
-  params <- as_params(q = q, .list = l, start = start, fq = fq, df = df, fl = fl, lat = lat, lon = lon)
+  params <- as_params(q = q, .list = l, start = start, fq = fq, df = df, fl = fl, lat = lat, lon = lon, rows=rows)
   q_url <- paste0(file.path(API, "free"), "?", params)
   if (verbose){
     message(q_url)
