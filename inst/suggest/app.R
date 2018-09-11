@@ -54,7 +54,11 @@ server <- function(input, output, session) {
     })
 
     output$locations <- renderLeaflet({
-        mapview::mapview(points())@map
+        leaflet() %>%
+        addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaart/EPSG:3857/{z}/{x}/{y}.png",
+                 attribution = "PDOK", layerId = NULL, group = "background map",
+                 options = tileOptions()) %>%
+        addMarkers(data = points())
     })
 }
 

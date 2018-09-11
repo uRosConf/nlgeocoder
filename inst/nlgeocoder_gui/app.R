@@ -90,7 +90,7 @@ server <- function(input, output, session) {
                attribution = "PDOK", layerId = NULL, group = "pastel map",
                options = tileOptions()) %>%
       addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/luchtfoto/rgb/wmts/Actueel_ortho25/EPSG:3857/{z}/{x}/{y}.jpeg",
-               attribution = "PDOK", layerId = NULL, group = "aerial photo",
+               attribution = "<a href='https://www.pdok.nl/'>PDOK</a>", layerId = NULL, group = "aerial photo",
                options = tileOptions()) %>%
       addLayersControl(
         baseGroups = c("background map","gray map","pastel map","aerial photo"),
