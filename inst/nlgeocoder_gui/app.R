@@ -22,11 +22,10 @@ coordinates <- function(values, fq){
   }
 }
 
-
 ui <- fluidPage(
 
   # App title ----
-  titlePanel("Shiny Text"),
+  titlePanel("Search PDOK interactively"),
 
   # Sidebar layout with a input and output definitions ----
   sidebarLayout(
@@ -35,11 +34,11 @@ ui <- fluidPage(
     sidebarPanel(
 
       textInput(inputId = "vertiba",
-                label = "Searched value:",
+                label = "Search query:",
                 value = "7511DP"),
 
       selectInput(inputId = "izvele",
-                  label = "Choose where search value:",
+                  label = "Choose search field:",
                   choices = c("any field", "municipality", "town",
                               "neighborhood", "postcode", "adress"))
     ),
@@ -47,7 +46,7 @@ ui <- fluidPage(
     # Main panel for displaying outputs ----
     mainPanel(
       # Output: HTML table with requested number of observations ----
-      leafletOutput("mymap")
+      leafletOutput("mymap", height = "400")
 
     )
   )
