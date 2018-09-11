@@ -58,8 +58,25 @@ server <- function(input, output, session) {
 
   output$mymap <- renderLeaflet({
     leaflet() %>%
-      addProviderTiles(providers$Stamen.TonerLite,
-                       options = providerTileOptions(noWrap = TRUE)
+      # addProviderTiles(providers$Stamen.TonerLite,
+      #                  options = providerTileOptions(noWrap = TRUE)
+      # ) %>%
+      addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaart/EPSG:3857/{z}/{x}/{y}.png",
+               attribution = "PDOK", layerId = NULL, group = "brtachtergrondkaart",
+               options = tileOptions()) %>%
+      addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaartgrijs/EPSG:3857/{z}/{x}/{y}.png",
+               attribution = "PDOK", layerId = NULL, group = "grijs",
+               options = tileOptions()) %>%
+      addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaartpastel/EPSG:3857/{z}/{x}/{y}.png",
+               attribution = "PDOK", layerId = NULL, group = "pastel",
+               options = tileOptions()) %>%
+      addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/luchtfoto/rgb/wmts/Actueel_ortho25/EPSG:3857/{z}/{x}/{y}.jpeg",
+               attribution = "PDOK", layerId = NULL, group = "lufo",
+               options = tileOptions()) %>%
+
+      addLayersControl(
+        baseGroups = c("brtachtergrondkaart","grijs","pastel","lufo"),
+        options = layersControlOptions(collapsed = FALSE)
       ) %>%
       addMarkers(data = points())
   })
