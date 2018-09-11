@@ -26,15 +26,11 @@ nl_free <- function( q
                    ){
   l <- list(...)
   if (!is.null(fq)){
-    fq <- switch(fq,
-      municipality = "gemeente",
-      town = "woonplaats",
-      neighborhood = "buurtnaam",
-      road = "weg",
-      postcode = "postcode",
-      address = "adres",
-      fq
-    )
+      fq[which(fq == "municipality")] <- "gemeente"
+      fq[which(fq == "town")] <- "woonplaats"
+      fq[which(fq == "neighborhood")] <- "buurtnaam"
+      fq[which(fq == "road")] <- "weg"
+      fq[which(fq == "address")] <- "adres"
   }
 
   l <- type_filter(l, type)
