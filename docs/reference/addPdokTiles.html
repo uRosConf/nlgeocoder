@@ -84,10 +84,10 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/intro.html">Introduction to nlgeocoder</a>
+      <a href="../articles/geocode.html">nl_geocode</a>
     </li>
     <li>
-      <a href="../articles/mapview.html">nl_geocode with mapview</a>
+      <a href="../articles/intro.html">Introduction to nlgeocoder</a>
     </li>
   </ul>
 </li>
@@ -123,7 +123,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>addPdokTiles</span>(<span class='no'>map</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"brt"</span>, <span class='st'>"aerial"</span>, <span class='st'>"pastel"</span>, <span class='st'>"gray"</span>), <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>addPdokTiles</span>(<span class='no'>map</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"brt"</span>, <span class='st'>"aerial"</span>, <span class='st'>"pastel"</span>, <span class='st'>"gray"</span>),
+  <span class='kw'>group</span> <span class='kw'>=</span> <span class='fu'>match.arg</span>(<span class='no'>type</span>), <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -135,6 +136,10 @@
     <tr>
       <th>type</th>
       <td><p>one of the PDOK tiles: currently: "brt", "aerial", "pastel" or "gray"</p></td>
+    </tr>
+    <tr>
+      <th>group</th>
+      <td><p>group is set equal to type</p></td>
     </tr>
     <tr>
       <th>...</th>
