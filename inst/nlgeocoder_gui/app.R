@@ -10,7 +10,7 @@ names(r_colors) <- colors()
 coordinates <- function(values, fq){
   if (any(fq == "any field")) fq <- NULL
   calcs <- nl_free(q = values, fq = fq)
-  if (!is.null(unlist(calcs$response$docs))) {
+  if (NROW(calcs$response$docs)) {
           data_with_coord <- data.table(calcs$response$docs)
           data_with_coord[, centroide_ll := substr(centroide_ll, 7, nchar(centroide_ll) - 1)]
           data_with_coord[, tukss := unlist(gregexpr(" ", centroide_ll))]
@@ -20,14 +20,16 @@ coordinates <- function(values, fq){
                                     c("Source","Location"))
           data_with_coord <- data_with_coord[, c("Source", "Location", "latitude", "longitude")]
           as.data.frame(data_with_coord)
-       } else NULL
+       }
+  else {
+    NULL
   }
-
+}
 
 ui <- fluidPage(
 
   # App title ----
-  titlePanel("Shiny Text"),
+  titlePanel("Search PDOK interactively"),
 
   # Sidebar layout with a input and output definitions ----
   sidebarLayout(
@@ -36,21 +38,20 @@ ui <- fluidPage(
     sidebarPanel(
 
       textInput(inputId = "vertiba",
-                label = "Searched value:",
+                label = "Search query:",
                 value = "7511DP"),
 
       selectInput(inputId = "izvele",
-                  label = "Choose where search value:",
+                  label = "Choose search field:",
                   choices = c("any field", "municipality", "town",
-                              "neiborhood", "postcode", "adress"))
+                              "neighborhood", "postcode", "adress"))
     ),
 
     # Main panel for displaying outputs ----
     mainPanel(
-
-
       # Output: HTML table with requested number of observations ----
-      leafletOutput("mymap"),
+
+      leafletOutput("mymap", height = "400"),
       br(),
       tableOutput('table')
     )
@@ -68,25 +69,29 @@ server <- function(input, output, session) {
   output$table <- renderTable(addresslist())
 
   output$mymap <- renderLeaflet({
-    leaflet() %>%
+    map <-
+      leaflet() %>%
       addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaart/EPSG:3857/{z}/{x}/{y}.png",
-               attribution = "PDOK", layerId = NULL, group = "brtachtergrondkaart",
+               attribution = "PDOK", layerId = NULL, group = "background map",
                options = tileOptions()) %>%
       addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaartgrijs/EPSG:3857/{z}/{x}/{y}.png",
-               attribution = "PDOK", layerId = NULL, group = "grijs",
+               attribution = "PDOK", layerId = NULL, group = "gray map",
                options = tileOptions()) %>%
       addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaartpastel/EPSG:3857/{z}/{x}/{y}.png",
-               attribution = "PDOK", layerId = NULL, group = "pastel",
+               attribution = "PDOK", layerId = NULL, group = "pastel map",
                options = tileOptions()) %>%
       addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/luchtfoto/rgb/wmts/Actueel_ortho25/EPSG:3857/{z}/{x}/{y}.jpeg",
-               attribution = "PDOK", layerId = NULL, group = "lufo",
+               attribution = "PDOK", layerId = NULL, group = "aerial photo",
                options = tileOptions()) %>%
-
       addLayersControl(
-        baseGroups = c("brtachtergrondkaart","grijs","pastel","lufo"),
+        baseGroups = c("background map","gray map","pastel map","aerial photo"),
         options = layersControlOptions(collapsed = FALSE)
-      ) %>%
-      addMarkers(data = points())
+      )
+      if (is.null(points())){
+        map
+      } else {
+        addMarkers(map, data = points())
+      }
   })
   }
 
