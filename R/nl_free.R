@@ -30,8 +30,9 @@ nl_free <- function( q
              switch(fq,
                     municipality = {fq1 <- "gemeente"},
                     town = {fq1 <- "woonplaats"},
-                    neiborhood = {fq1 <- "weg"},
-                    postcode = {fq1 <- postcode},
+                    neiborhood = {fq1 <- "buurtnaam"},
+                    road = {fq1 <- "weg"},
+                    postcode = {fq1 <- "postcode"},
                     adress = {fq1 <-"adres"})
              fq <- fq1 }
 
