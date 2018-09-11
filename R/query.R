@@ -7,8 +7,6 @@
 #' @param fq apply a filter to the query, e.g. fq=bron:BAG. The default filter is 'type:(municipality OR town OR neiborhood OR postcode OR adress)'. Use fq=* to remove the default filter.
 #' @param lat enter a decimal degree (latitude, in WGS84). Together with lon this will define a point to search from. Search results will be ordered by distance from this point. For example: 'lat=52.09&lon=5.12'
 #' @param lon enter a decimal degree (longitude, in WGS84). Together with lat this will define  point to search from. Search results will be ordered by distance from this point. For example: 'lat=52.09&lon=5.12'
-#'
-#' @seealso
 query <- function( rows    = NULL
                  , start   = NULL
                  , fq      = NULL
