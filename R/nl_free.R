@@ -1,6 +1,8 @@
 #' Free geocoding search
 #'
-#' This function wraps the pdok service, and allows for free search.
+#' This function wraps the pdok service, and allows for free search. For syntax and examples
+#' see the documentation of pdok. A more easy/convenient but simpler function for geocoding is
+#' \code{\link{nl_geocode}}.
 #' @export
 #' @param q query to geocoding service.
 #' @param ... parameters passed to the pdok webservice

@@ -1,6 +1,6 @@
 #' Look up a geo object
 #'
-#' Retrieve detailed properties of a geo object found with suggest or free.
+#' Retrieve detailed properties of a geo object found with \code{\link{nl_suggest}} or \code{\link{free}}.
 #' @export
 #' @param id of object found in nl_suggest or nl_free
 #' @param ... extra parameters are passed to the lookup service of pdok.

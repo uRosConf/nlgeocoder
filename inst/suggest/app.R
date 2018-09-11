@@ -9,7 +9,7 @@ ui <- fluidPage(
 
     sidebarLayout(
         sidebarPanel(
-            selectizeInput("adres", choices=""
+            selectizeInput("adres", choices="Henri Faasdreef 312"
                           , label = "Address:"
                           , options = list(
   labelField = "weergavenaam",
@@ -17,9 +17,10 @@ ui <- fluidPage(
   valueField= "weergavenaam",
   placeholder = "Type an address",
   maxOptions = 10,
-  create = TRUE,
+  create = FALSE,
+  loadThrottle = 200,
   render = I("{option: function(item, escape){
-    return '<div>' + escape(item.weergavenaam) + ' (<em>' + escape(item.type) + '</em>) </div>';
+    return '<div>' + escape(item.weergavenaam) + ' (<em>' + escape(item.type) + '/'+ item.score + '</em>) </div>';
   }}"),
   score = I("function(){return function(item){return item.score/100;}}"),
   load = I("function(query, callback) {
@@ -31,7 +32,7 @@ ui <- fluidPage(
           callback();
         },
         success: function(res) {
-          var docs = res.response.docs.slice(0,10);
+          var docs = res.response.docs.slice();
           console.log(docs);
           callback(docs);
         }

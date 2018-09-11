@@ -68,6 +68,7 @@ Considerations:
 - Add parameter `type` with predefined values to choose from (e.g. `adres`). 
 - Add some time ('sleep') between subsequent requests.
 - Add parameter to choose between returning datasets in a new dataframe or adding them to the input dataframe.
+- adressSelectInput box for Shiny
 
 ## Findings
 

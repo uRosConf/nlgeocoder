@@ -15,7 +15,7 @@ nl_free(q, rows = NULL, start = NULL, fq = NULL, lat = NULL,
 
 \item{start}{start index.Default is 0.}
 
-\item{fq}{apply a filter to the query, e.g. fq=bron:BAG. The default filter is 'type:(gemeente OR woonplaats OR weg OR postcode OR adres)'. Use fq=* to remove the default filter.}
+\item{fq}{apply a filter to the query, e.g. fq=bron:BAG. The default filter is 'type:(municipality OR town OR neiborhood OR postcode OR adress)'. Use fq=* to remove the default filter.}
 
 \item{lat}{enter a decimal degree (latitude, in WGS84). Together with lon this will define a point to search from. Search results will be ordered by distance from this point. For example: 'lat=52.09&lon=5.12'}
 
@@ -32,7 +32,9 @@ nl_free(q, rows = NULL, start = NULL, fq = NULL, lat = NULL,
 \item{verbose}{\code{logical} should the function print out messages.}
 }
 \description{
-This function wraps the pdok service, and allows for free search.
+This function wraps the pdok service, and allows for free search. For syntax and examples
+see the documentation of pdok. A more easy/convenient but simpler function for geocoding is
+\code{\link{nl_geocode}}.
 }
 \seealso{
 \code{\link{nl_geocode}}

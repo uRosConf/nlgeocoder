@@ -2,10 +2,18 @@
 % Please edit documentation in R/nl_geocode.R
 \name{nl_geocode}
 \alias{nl_geocode}
+\alias{nl_geocode_rd}
+\alias{nl_geocode_df}
 \title{geocode function}
 \usage{
 nl_geocode(location, output = c("wgs84", "rd", "data.frame"),
   messaging = FALSE, type = "adres", ..., verbose = messaging)
+
+nl_geocode_rd(location, messaging = FALSE, type = "adres", ...,
+  verbose = messaging)
+
+nl_geocode_df(location, messaging = FALSE, type = "adres", ...,
+  verbose = messaging)
 }
 \arguments{
 \item{location}{string with location to be found}
@@ -17,11 +25,11 @@ nl_geocode(location, output = c("wgs84", "rd", "data.frame"),
 \item{...}{will be passed to \code{\link{nl_free}}.}
 }
 \description{
-Which is more user friendly than the barebones webservices,
-uses the same function signature as ggmap geocode.
+This function is more user friendly than the barebones webservices,
+and uses the same function signature as ggmap::geocode.
 }
 \details{
 type can be one of the following:"provincie", "gemeente", "woonplaats",
 weg;postcode;adres;perceel;hectometerpaal;wijk;buurt;waterschapsgrens;appartementsrecht.
-The return type can be specified.
+The return type can be specified and can be of type "sf" or "data.frame".
 }
