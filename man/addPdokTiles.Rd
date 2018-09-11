@@ -12,6 +12,8 @@ addPdokTiles(map, type = c("brt", "aerial", "pastel", "gray"),
 
 \item{type}{one of the PDOK tiles: currently: "brt", "aerial", "pastel" or "gray"}
 
+\item{group}{group is set equal to type}
+
 \item{...}{Passed to \code{\link{leaflet::addTiles}}.}
 }
 \description{
