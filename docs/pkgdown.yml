@@ -2,6 +2,6 @@ pandoc: 2.2.1
 pkgdown: 1.1.0
 pkgdown_sha: ~
 articles:
+  geocode: geocode.html
   intro: intro.html
-  mapview: mapview.html
 

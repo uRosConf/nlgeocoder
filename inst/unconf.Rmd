@@ -1,0 +1,50 @@
+---
+title: "nlgeocoder"
+author: "Edwin de Jonge, Egge-Jan Pollé, Willy Tadema, "
+date: "9/11/2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(leaflet)
+library(sf)
+```
+
+## Geocoding for nl
+
+Who are we:
+
+- Egge-Jan Pollé (NL)
+- Willy Tadema (NL)
+- Edwin de Jonge (NL)
+- Juris Breidaks (LV)
+
+## What is it about?
+
+### PDOK: dutch webservice
+
+- Providing location services as a Web API.
+- Providing geo tile layers.
+
+### Why?
+
+- Location services of Google / Openstreetmap don't suffice
+
+
+## 
+
+```{r, echo = TRUE, eval=TRUE}
+library(nlgeocoder)
+library(leaflet)
+r <- nl_geocode("Henri Faasdreef")
+leaflet() %>% addPdokTiles("gray") %>% addMarkers(data = r)
+```
+
+##
+```{r, echo = FALSE, eval=TRUE}
+library(nlgeocoder)
+library(leaflet)
+r <- nl_geocode("Henri Faasdreef")
+leaflet() %>% addPdokTiles("gray") %>% addMarkers(data = r)
+```
