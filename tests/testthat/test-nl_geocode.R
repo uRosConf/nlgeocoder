@@ -37,21 +37,23 @@ test_that("Dataframe returned (not an sf object)", {
   expect_true(class(res) == "data.frame")
 })
 
-address <- "Martinikerkhof 3 Groningen"
-
 test_that("return as wgs84 is working",{
-  res <- nl_geocode(address, output = "wgs84")
+  res <- nl_geocode("Martinikerkhof 3 Groningen", output = "wgs84")
   expect_equal(sf::st_crs(res), sf::st_crs(4326))
 })
 
 test_that("return as rd is working",{
-  res <- nl_geocode(address, output = "rd")
-  expect_equal(sf::st_crs(res), sf::st_crs(28992))
-  res <- nl_geocode_rd(address)
+  res <- nl_geocode("Martinikerkhof 3 Groningen", output = "rd")
   expect_equal(sf::st_crs(res), sf::st_crs(28992))
 })
 
 test_that("return as data.frame is working",{
-  res <- nl_geocode(address, output = "data.frame")
+  res <- nl_geocode("Martinikerkhof 3 Groningen", output = "data.frame")
   expect_true(is.data.frame(res))
 })
+
+test_that("restrict search to Groningen", {
+  res <- nl_geocode("Hoofdstraat", fq = "provincienaam:Groningen")
+  expect_true(res$provincienaam == "Groningen")
+})
+
