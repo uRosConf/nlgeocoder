@@ -5,6 +5,8 @@ library(data.table)
 r_colors <- rgb(t(col2rgb(colors()) / 255))
 names(r_colors) <- colors()
 
+
+
 coordinates <- function(values, fq){
   if (any(fq == "any field")) fq <- NULL
   calcs <- nl_free(q = values, fq = fq)
@@ -14,7 +16,9 @@ coordinates <- function(values, fq){
           data_with_coord[, tukss := unlist(gregexpr(" ", centroide_ll))]
           data_with_coord[, latitude := as.numeric(substr(centroide_ll, tukss + 1, nchar(centroide_ll)))]
           data_with_coord[, longitude := as.numeric(substr(centroide_ll, 1, tukss))]
-          data_with_coord <- data_with_coord[, c("latitude", "longitude")]
+          setnames(data_with_coord, c("bron", "weergavenaam"),
+                                    c("Source","Location"))
+          data_with_coord <- data_with_coord[, c("Source", "Location", "latitude", "longitude")]
           as.data.frame(data_with_coord)
        } else NULL
   }
@@ -46,8 +50,9 @@ ui <- fluidPage(
 
 
       # Output: HTML table with requested number of observations ----
-      leafletOutput("mymap")
-
+      leafletOutput("mymap"),
+      br(),
+      tableOutput('table')
     )
   )
 )
@@ -55,12 +60,15 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   points <- reactive(coordinates(input$vertiba, fq = input$izvele))
+  addresslist <- reactive({
+
+    points()[, c("Source", "Location")]
+  })
+
+  output$table <- renderTable(addresslist())
 
   output$mymap <- renderLeaflet({
     leaflet() %>%
-      # addProviderTiles(providers$Stamen.TonerLite,
-      #                  options = providerTileOptions(noWrap = TRUE)
-      # ) %>%
       addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaart/EPSG:3857/{z}/{x}/{y}.png",
                attribution = "PDOK", layerId = NULL, group = "brtachtergrondkaart",
                options = tileOptions()) %>%
