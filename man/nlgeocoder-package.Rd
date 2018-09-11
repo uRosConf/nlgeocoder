@@ -11,6 +11,14 @@ The nlgeocoder package provides a R wrapper around the pdok webservice.
 \details{
 it allows to geocode data using the following functions:
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/uRos2018/nlgeocoder}
+  \item Report bugs at \url{https://github.com/uRos2018/nlgeocoder/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Edwin de Jonge \email{edwindjonge@gmail.com}
 
@@ -18,6 +26,11 @@ Authors:
 \itemize{
   \item Willy Tadema
   \item Egge-Jan Pollé
+}
+
+Other contributors:
+\itemize{
+  \item Juris Breidaks [contributor]
 }
 
 }
