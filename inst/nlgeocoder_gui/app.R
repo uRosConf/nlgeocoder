@@ -1,3 +1,4 @@
+
 library(shiny)
 library(leaflet)
 library(data.table)
@@ -49,11 +50,19 @@ ui <- fluidPage(
 
     # Main panel for displaying outputs ----
     mainPanel(
+
+      navbarPage(
+        tabsetPanel(
+        tabPanel("Map",
+
       # Output: HTML table with requested number of observations ----
 
-      leafletOutput("mymap", height = "400"),
-      br(),
+      leafletOutput("mymap", height = "400")),
+
+      tabPanel("Data.table",
       tableOutput('table')
+      ))
+      )
     )
   )
 )
@@ -96,4 +105,3 @@ server <- function(input, output, session) {
   }
 
 shinyApp(ui, server)
-
