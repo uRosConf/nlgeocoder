@@ -46,6 +46,9 @@ ui <- fluidPage(
                   label = "Choose search field:",
                   choices = c("any field", "municipality", "town",
                               "neighborhood", "postcode", "adress"))
+      # ,
+      # hr(),
+      # fileInput(inputId = "adressFile", "Upload file")
     ),
 
     # Main panel for displaying outputs ----
