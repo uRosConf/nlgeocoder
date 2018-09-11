@@ -60,19 +60,19 @@ server <- function(input, output, session) {
     map <-
       leaflet() %>%
       addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaart/EPSG:3857/{z}/{x}/{y}.png",
-               attribution = "PDOK", layerId = NULL, group = "brtachtergrondkaart",
+               attribution = "PDOK", layerId = NULL, group = "background map",
                options = tileOptions()) %>%
       addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaartgrijs/EPSG:3857/{z}/{x}/{y}.png",
-               attribution = "PDOK", layerId = NULL, group = "grijs",
+               attribution = "PDOK", layerId = NULL, group = "gray map",
                options = tileOptions()) %>%
       addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaartpastel/EPSG:3857/{z}/{x}/{y}.png",
-               attribution = "PDOK", layerId = NULL, group = "pastel",
+               attribution = "PDOK", layerId = NULL, group = "pastel map",
                options = tileOptions()) %>%
       addTiles(urlTemplate = "//geodata.nationaalgeoregister.nl/luchtfoto/rgb/wmts/Actueel_ortho25/EPSG:3857/{z}/{x}/{y}.jpeg",
-               attribution = "PDOK", layerId = NULL, group = "lufo",
+               attribution = "PDOK", layerId = NULL, group = "aerial photo",
                options = tileOptions()) %>%
       addLayersControl(
-        baseGroups = c("brtachtergrondkaart","grijs","pastel","lufo"),
+        baseGroups = c("background map","gray map","pastel map","aerial photo"),
         options = layersControlOptions(collapsed = FALSE)
       )
       if (is.null(points())){
