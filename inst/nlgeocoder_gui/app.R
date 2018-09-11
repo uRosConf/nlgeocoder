@@ -6,7 +6,8 @@ library(data.table)
 r_colors <- rgb(t(col2rgb(colors()) / 255))
 names(r_colors) <- colors()
 
-
+rez <- nl_free("4147AS", fq = NULL)$response$docs
+names(rez)
 
 coordinates <- function(values, fq){
   if (any(fq == "any field")) fq <- NULL
