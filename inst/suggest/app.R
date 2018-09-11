@@ -20,9 +20,9 @@ ui <- fluidPage(
   create = FALSE,
   loadThrottle = 200,
   render = I("{option: function(item, escape){
-    return '<div>' + escape(item.weergavenaam) + ' (<em>' + escape(item.type) + '/'+ item.score + '</em>) </div>';
+    return '<div>' + escape(item.weergavenaam) + ' (<em>' + escape(item.type) + '</em>) </div>';
   }}"),
-  score = I("function(){return function(item){return item.score/100;}}"),
+  score = I("function(){return function(item){return item.score;}}"),
   load = I("function(query, callback) {
       if (!query.length) return callback();
       $.ajax({
