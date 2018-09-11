@@ -17,6 +17,7 @@ ui <- fluidPage(
   valueField= "weergavenaam",
   placeholder = "Type an address",
   maxOptions = 10,
+  create = TRUE,
   render = I("{option: function(item, escape){
     return '<div>' + escape(item.weergavenaam) + ' (<em>' + escape(item.type) + '</em>) </div>';
   }}"),
