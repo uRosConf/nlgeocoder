@@ -8,14 +8,14 @@ names(r_colors) <- colors()
 
 coordinates <- function(values, fq){
   if (!is.null(fq)){
-    fq[which(fq == "municipality")] <- "gemeente"
-    fq[which(fq == "town")] <- "woonplaats"
-    fq[which(fq == "neighborhood")] <- "buurtnaam"
-    fq[which(fq == "road")] <- "weg"
-    fq[which(fq == "adress")] <- "adres"
+    fq[fq == "municipality"] <- "gemeente"
+    fq[fq == "town"] <- "woonplaats"
+    fq[fq == "neighborhood"] <- "buurtnaam"
+    fq[fq == "road"] <- "weg"
+    fq[fq == "adress"] <- "adres"
   }
   if (any(fq == "any field")) fq <- NULL
-  calcs <- nl_free(q = values, type = fq, verbose = TRUE)
+  calcs <- nl_free(q = values, type = fq, verbose = TRUE, rows = 40)
 
   if (NROW(calcs$response$docs)) {
           data_with_coord <- data.table(calcs$response$docs)
@@ -46,7 +46,7 @@ ui <- fluidPage(
 
       textInput(inputId = "vertiba",
                 label = "Search query:",
-                value = "7511DP"),
+                value = "Gogh"),
 
       selectInput(inputId = "izvele",
                   label = "Choose search field:",
