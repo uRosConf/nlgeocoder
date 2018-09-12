@@ -25,13 +25,13 @@ nl_free <- function( q
                    , verbose = FALSE
                    ){
   l <- list(...)
-  if (!is.null(fq)){
-      fq[which(fq == "municipality")] <- "gemeente"
-      fq[which(fq == "town")] <- "woonplaats"
-      fq[which(fq == "neighborhood")] <- "buurtnaam"
-      fq[which(fq == "road")] <- "weg"
-      fq[which(fq == "adress")] <- "adres"
-  }
+  # if (!is.null(fq)){
+  #     fq[which(fq == "municipality")] <- "gemeente"
+  #     fq[which(fq == "town")] <- "woonplaats"
+  #     fq[which(fq == "neighborhood")] <- "buurtnaam"
+  #     fq[which(fq == "road")] <- "weg"
+  #     fq[which(fq == "adress")] <- "adres"
+  # }
 
   if (length(fl)){
     fl <- paste0(fl, collapse = ",")

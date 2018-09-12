@@ -1,16 +1,19 @@
 context("nl_geocode")
 
 test_that("Class of object returned is sf", {
+  skip_on_cran()
   res <- nl_geocode("Martinikerkhof 3 Groningen")
   expect_true(class(res)[1] == "sf")
 })
 
 test_that("type = adres", {
+  skip_on_cran()
   res <- nl_geocode("Martinikerkhof 3 Groningen")
   expect_true(res$type == "adres")
 })
 
 test_that("Geocode a vector of adresses", {
+  skip_on_cran()
   res <- nl_geocode(c("Martinikerkhof 3, Groningen", "9712 JN 4", "Henri Faasdreef 312 Den Haag", "Hoofdstraat 1A Een"))
   expect_true(nrow(res) == 4)
 })
@@ -23,11 +26,13 @@ test_that("No NULL values", {
 })
 
 test_that("Location returned is in WGS84", {
+  skip_on_cran()
   res <- nl_geocode("Martinikerkhof 3 Groningen")
   expect_true(class(res$centroide_ll)[1] == "sfc_POINT")
 })
 
 test_that("Location returned is in RD_New", {
+  skip_on_cran()
   res <- nl_geocode("Martinikerkhof 3 Groningen", output = "rd")
   expect_true(class(res$centroide_rd)[1] == "sfc_POINT")
 })
