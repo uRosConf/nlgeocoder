@@ -1,10 +1,12 @@
 ---
-title: "nl_geocode"
-author: "Edwin de Jonge, Willy Tadema"
+title: "Geocode Dutch addresses"
+author: "Willy Tadema, Edwin de Jonge"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: 
+  rmarkdown::html_vignette:
+    df_print: "kable"
 vignette: >
-  %\VignetteIndexEntry{nl_geocode with mapview}
+  %\VignetteIndexEntry{Geocode Dutch addresses with nl_geocode}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -12,24 +14,33 @@ vignette: >
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = " "
 )
-library(mapview)
+library(leaflet)
 library(sf)
 library(nlgeocoder)
 ```
 
-**nl_geocode** is intended to provide a quick and easy way to geocode labels of locations in The Netherlands. It will only returns points or centroids, no polylines or polygons.
+`nl_geocode` provides a quick and easy way to geocode labels of locations in 
+The Netherlands. It will return points or centroids with metadata, but no polylines or polygons.
+`nl_geocode` uses the pdok webservice for geo location and is designed to be similar to ggmap: 
+for each (address) label the most probable location (i.e. according to the pdok service) will be 
+returned.
 
 ## Geocode addresses
 
-By default, **nl_geocode** will search for addresses.    
+By default, `nl_geocode` will search for addresses.    
 
-```{r}
+```{r, df_print="default"}
 library(nlgeocoder)
 
-res <- nl_geocode("Martinikerkhof 3 Groningen") 
-res$weergavenaam
+res <- nl_geocode("Martinikerkhof 3 Groningen")
+print(res["weergavenaam"])
+```
+For addresses a lot of information is available:
+
+```{r}
+colnames(res)
 ```
 
 You can also search for multiple addresses at once.
@@ -37,7 +48,7 @@ You can also search for multiple addresses at once.
 ```{r}
 locations <- c("Martinikerkhof 3", "Sint Jansstraat 4 Groningen", "9726AE 4", "9711 ME 1")
 res <- nl_geocode(locations)
-res$weergavenaam
+data.frame(query = locations, result = res$weergavenaam)
 ```
 
 As you can see, the address doesn't need to be an exact match. Uppercases are ignored.
@@ -46,12 +57,11 @@ As you can see, the address doesn't need to be an exact match. Uppercases are ig
 
 Besides addresses, you can also search for places, municipalities, provinces, roads and many more. See the [LocatieServer API documentation](https://github.com/PDOK/locatieserver/wiki/API-Locatieserver) complete list of types you can choose from.
 
-You can restrict the output of `geocode` to municipalities only:
+You can restrict the output of `nl_geocode` to municipalities only:
 
 ```{r}
 res <- nl_geocode("Groningen", type = "gemeente") 
-res$weergavenaam
-res$type
+res[c("weergavenaam","type")] 
 ```
 
 You can also restrict the output to places:
@@ -72,11 +82,11 @@ res$provincienaam
 
 ## Return coordinates in a spatial dataframe with CRS WGS84 or RD_New
 
-By default, **nl_geocode** will return an `sf` object with coordinates in the coordinate reference system WGS84 (EPSG:4368). 
+By default, `nl_geocode` will return a `sf` object with coordinates in the 
+coordinate reference system WGS84 (EPSG:4326). 
 
 ```{r}
 res <- nl_geocode("Martinikerkhof 3 Groningen") 
-class(res)
 st_crs(res)["epsg"]
 ```
 
@@ -84,14 +94,12 @@ It also possible to specify that the coordinates should be in RD_New (EPSG:28992
 
 ```{r}
 res <- nl_geocode("Martinikerkhof 3 Groningen", output = "rd") 
-class(res)
 st_crs(res)["epsg"]
 ```
 
 You can also use the `nl_geocode_rd` function instead:
 ```{r}
 res <- nl_geocode_rd("Martinikerkhof 3 Groningen") 
-class(res)
 st_crs(res)["epsg"]
 ```
 
@@ -106,11 +114,20 @@ class(res)
 
 ## Plot the output on a map
 
-Plotting the output on a map, because by default **nl_geocode** returns an `sf` object.
+Plotting the output on a map, because by default `nl_geocode` returns an `sf` object.
+```{r}
+data("addresses")
+```
+```{r, echo = FALSE}
+knitr::kable(addresses)
+```
+
 
 ```{r}
-poi<- data.frame(label = c("Martinitoren", "Provinciehuis", "Groninger Museum", "Centraal Station", "Groninger Forum"), 
-                  location = c("Martinikerkhof 3 Groningen", "Sint Jansstraat 4 Groningen", "9711 ME 1", "9726 AE 4", "Hereplein 73 Groningen"))   
-poi_geocoded <- nl_geocode(poi$location)
-mapview(poi_geocoded)
+library(leaflet)
+poi_geocoded <- nl_geocode(addresses$Address)
+
+leaflet(width = "100%", height=600) %>% 
+  addPdokTiles("gray") %>% 
+  addCircleMarkers(data = poi_geocoded)
 ```

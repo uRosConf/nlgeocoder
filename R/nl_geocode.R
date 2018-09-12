@@ -8,9 +8,13 @@
 #' The return type can be specified and can be of type "sf" or "data.frame".
 #' @export
 #' @param location string with location to be found
-#' @param output How should the
+#' @param output Should the output be a \code{data.frame} or
+#'  \code{\link[sf]{sf}} object in wgs84 or Rijksdriehoekstelsel format?
 #' @param type retrict the type of object that is returned from the service.
 #' @param ... will be passed to \code{\link{nl_free}}.
+#' @param messaging Print the urls fired to the webserver (consistent with `ggmap::geocode`)
+#' @param verbose identical to \code{messaging} (consistent with other nlgeoder
+#' functions)
 #' @inheritParams query
 nl_geocode <- function( location
                       , output = c("wgs84", "rd", "data.frame")
@@ -25,7 +29,8 @@ nl_geocode <- function( location
                       , ...
                       , verbose = messaging
                       ){
-  df <- lapply(location, function(loc){
+  location <- as.character(location) # to prevent that a factor will become an integer
+  df <- lapply(as.character(location), function(loc){
     res <- nl_free(q = loc, type = type, ..., rows = 1, verbose = verbose)
     # TODO check if the docs is available
     res$response$docs[1,]

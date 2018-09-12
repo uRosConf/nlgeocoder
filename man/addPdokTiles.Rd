@@ -14,7 +14,7 @@ addPdokTiles(map, type = c("brt", "aerial", "pastel", "gray"),
 
 \item{group}{group is set equal to type}
 
-\item{...}{Passed to \code{\link{leaflet::addTiles}}.}
+\item{...}{Passed to \code{\link[leaflet]{addTiles}}.}
 }
 \description{
 Leaflet function to add pdok tiles

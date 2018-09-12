@@ -18,11 +18,17 @@ nl_geocode_df(location, messaging = FALSE, type = "adres", ...,
 \arguments{
 \item{location}{string with location to be found}
 
-\item{output}{How should the}
+\item{output}{Should the output be a \code{data.frame} or
+\code{\link[sf]{sf}} object in wgs84 or Rijksdriehoekstelsel format?}
+
+\item{messaging}{Print the urls fired to the webserver (consistent with `ggmap::geocode`)}
 
 \item{type}{retrict the type of object that is returned from the service.}
 
 \item{...}{will be passed to \code{\link{nl_free}}.}
+
+\item{verbose}{identical to \code{messaging} (consistent with other nlgeoder
+functions)}
 }
 \description{
 This function is more user friendly than the barebones webservices,

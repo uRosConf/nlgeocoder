@@ -16,5 +16,6 @@ nl_lookup(id, ..., raw = FALSE, verbose = FALSE)
 \item{verbose}{should the function print message while retrieving the data?}
 }
 \description{
-Retrieve detailed properties of a geo object found with \code{\link{nl_suggest}} or \code{\link{free}}.
+Retrieve detailed properties of a geo object found with \code{\link{nl_suggest}} or
+\code{\link{nl_free}}.
 }

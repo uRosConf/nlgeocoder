@@ -24,7 +24,7 @@ nl_suggest(q, ..., rows = NULL, type = NULL, verbose = TRUE,
 
 \item{qf}{the fields that should be queried}
 
-\item{bf}{the boosting of the fields.}
+\item{bq}{the boosting of the query.}
 }
 \description{
 Get a list of suggestions for geolocations in NL

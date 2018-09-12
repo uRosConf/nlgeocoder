@@ -1,8 +1,9 @@
 ---
 title: "nlgeocoder"
-author: "Edwin de Jonge, Egge-Jan Pollé, Willy Tadema, "
+author: 'Edwin de Jonge, Egge-Jan Pollé, Willy Tadema, '
 date: "9/11/2018"
-output: ioslides_presentation
+output:
+  ioslides_presentation: default
 ---
 
 ```{r setup, include=FALSE}
@@ -13,12 +14,13 @@ library(sf)
 
 ## Geocoding for nl
 
-Who are we:
+### We are:
 
 - Egge-Jan Pollé (NL)
 - Willy Tadema (NL)
 - Edwin de Jonge (NL)
 - Juris Breidaks (LV)
+
 
 ## What is it about?
 
@@ -28,12 +30,8 @@ Who are we:
   - e.g. finding address -> location coordinates
   - deduplicating addressess ("town road" vs "town street" vs "town alley")
 - Providing geo **tile layer**s.
-  - style: "gray", "brt", "", ""
-
-### Why?
-
-- Location services of Google / Openstreetmap don't suffice
-
+  - restricts topographic details to NL. 
+  - style: "gray", "brt", "aerial" and "pastel"
 
 ## 
 
@@ -41,13 +39,6 @@ Who are we:
 library(nlgeocoder)
 library(leaflet)
 r <- nl_geocode("Henri Faasdreef")
-leaflet() %>% addPdokTiles("gray") %>% addMarkers(data = r)
-```
-
-##
-```{r, echo = FALSE, eval=TRUE}
-library(nlgeocoder)
-library(leaflet)
-r <- nl_geocode("Henri Faasdreef")
-leaflet() %>% addPdokTiles("gray") %>% addMarkers(data = r)
+leaflet() %>% addPdokTiles("gray") %>% 
+  addMarkers(data = r, popup = ~weergavenaam)
 ```
