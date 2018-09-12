@@ -85,10 +85,7 @@ and uses the same function signature as ggmap::geocode." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/geocode.html">nl_geocode</a>
-    </li>
-    <li>
-      <a href="../articles/intro.html">Introduction to nlgeocoder</a>
+      <a href="../articles/geocode.html">Geocode Dutch addresses</a>
     </li>
   </ul>
 </li>
@@ -143,7 +140,12 @@ and uses the same function signature as ggmap::geocode.</p>
     </tr>
     <tr>
       <th>output</th>
-      <td><p>How should the</p></td>
+      <td><p>Should the output be a <code>data.frame</code> or
+<code><a href='http://www.rdocumentation.org/packages/sf/topics/sf'>sf</a></code> object in wgs84 or Rijksdriehoekstelsel format?</p></td>
+    </tr>
+    <tr>
+      <th>messaging</th>
+      <td><p>Print the urls fired to the webserver (consistent with `ggmap::geocode`)</p></td>
     </tr>
     <tr>
       <th>type</th>
@@ -152,6 +154,11 @@ and uses the same function signature as ggmap::geocode.</p>
     <tr>
       <th>...</th>
       <td><p>will be passed to <code><a href='nl_free.html'>nl_free</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>identical to <code>messaging</code> (consistent with other nlgeoder
+functions)</p></td>
     </tr>
     </table>
     

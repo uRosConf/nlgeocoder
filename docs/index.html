@@ -52,10 +52,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/geocode.html">nl_geocode</a>
-    </li>
-    <li>
-      <a href="articles/intro.html">Introduction to nlgeocoder</a>
+      <a href="articles/geocode.html">Geocode Dutch addresses</a>
     </li>
   </ul>
 </li>
@@ -104,7 +101,7 @@
 <a class="sourceLine" id="cb2-2" data-line-number="2">adres &lt;-<span class="st"> </span><span class="kw"><a href="reference/nl_geocode.html">nl_geocode</a></span>( <span class="kw">c</span>(<span class="st">"Henri Faasdreef 312"</span>, <span class="st">"Leidschenveen"</span>))</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; Loading required namespace: sf</span></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">adres <span class="co"># this is a sf object</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; Simple feature collection with 2 features and 32 fields</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; Simple feature collection with 2 features and 30 fields</span></a>
 <a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; geometry type:  POINT</span></a>
 <a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; dimension:      XY</span></a>
 <a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; bbox:           xmin: 4.40042 ymin: 52.06465 xmax: 4.400575 ymax: 52.06593</span></a>
@@ -134,9 +131,9 @@
 <a class="sourceLine" id="cb2-32" data-line-number="32"><span class="co">#&gt;   provincieafkorting                centroide_rd             straatnaam</span></a>
 <a class="sourceLine" id="cb2-33" data-line-number="33"><span class="co">#&gt; 1                 ZH POINT(87336.752 453530.196)        Henri Faasdreef</span></a>
 <a class="sourceLine" id="cb2-34" data-line-number="34"><span class="co">#&gt; 2                 ZH POINT(87345.457 453388.237) Laan van Leidschenveen</span></a>
-<a class="sourceLine" id="cb2-35" data-line-number="35"><span class="co">#&gt;     score huisletter gekoppeld_appartement              centroide_ll</span></a>
-<a class="sourceLine" id="cb2-36" data-line-number="36"><span class="co">#&gt; 1 44.8018         NA                  NULL  POINT (4.40042 52.06593)</span></a>
-<a class="sourceLine" id="cb2-37" data-line-number="37"><span class="co">#&gt; 2 18.9709         NA                  NULL POINT (4.400575 52.06465)</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-35" data-line-number="35"><span class="co">#&gt;     score              centroide_ll</span></a>
+<a class="sourceLine" id="cb2-36" data-line-number="36"><span class="co">#&gt; 1 44.8018  POINT (4.40042 52.06593)</span></a>
+<a class="sourceLine" id="cb2-37" data-line-number="37"><span class="co">#&gt; 2 18.9709 POINT (4.400575 52.06465)</span></a></code></pre></div>
 </div>
 <div id="suggestions" class="section level3">
 <h3 class="hasAnchor">
