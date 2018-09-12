@@ -15,7 +15,7 @@ coordinates <- function(values, fq){
     fq[fq == "adress"] <- "adres"
   }
   if (any(fq == "any field")) fq <- NULL
-  calcs <- nl_free(q = values, type = fq, verbose = TRUE, rows = 40)
+  calcs <- nl_free(q = values, type = fq, verbose = FALSE, rows = 40)
 
   if (NROW(calcs$response$docs)) {
           data_with_coord <- data.table(calcs$response$docs)
