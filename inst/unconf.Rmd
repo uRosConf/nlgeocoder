@@ -16,13 +16,14 @@ library(sf)
 
 ## Geocoding for nl
 
-### We are:
+### The dev team:
 
-- Egge-Jan Pollé (NL)
-- Willy Tadema (NL)
-- Edwin de Jonge (NL)
-- Juris Breidaks (LV)
+- Egge-Jan Pollé (NL) - @EggePolle
+- Willy Tadema (NL) - @FrieseWoudloper
+- Edwin de Jonge (NL) - @edwindjonge
+- Juris Breidaks (LV) - @CSB_Latvia
 
+![optional caption text](dev_team.png)
 
 ## What is it about?
 
