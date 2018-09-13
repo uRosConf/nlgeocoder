@@ -5,14 +5,16 @@
 #' @export
 #' @param id of object found in nl_suggest or nl_free
 #' @param ... extra parameters are passed to the lookup service of pdok.
-#' @param raw should the result be the raw result
+#' @param output What type of output should be returned
 #' @param verbose should the function print message while retrieving the data?
 #' @inheritParams query
-nl_lookup <- function(id,..., raw = FALSE, verbose = FALSE){
+nl_lookup <- function(id,..., output=c("list", "raw"), verbose = FALSE){
   if (length(id) > 1){
     warning("Only using the first id")
     id <- id[1]
   }
+  output <- match.arg(output)
+  raw <- (output == "raw")
 
   l <- list(...)
   params <- as_params(id = id, .list = l)
@@ -28,7 +30,8 @@ nl_lookup <- function(id,..., raw = FALSE, verbose = FALSE){
   }
 
   if (res_lookup$response$numFound){
-    res_lookup$response$docs[[1]]
+    res <- res_lookup$response$docs[[1]]
+    res
   } else {
     NULL
   }

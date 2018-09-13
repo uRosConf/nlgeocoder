@@ -1,9 +1,11 @@
 ---
 title: "nlgeocoder"
-author: 'Edwin de Jonge, Egge-Jan Pollé, Willy Tadema, '
-date: "9/11/2018"
+subtitle: "Geocoder for NL"
+author: ''
+date: "September 14 2018"
 output:
   ioslides_presentation: default
+  revealjs::revealjs_presentation: default
 ---
 
 ```{r setup, include=FALSE}
@@ -27,18 +29,25 @@ library(sf)
 ### PDOK: dutch webservice
 
 - Providing **location service**s as a Web API:
-  - e.g. finding address -> location coordinates
-  - deduplicating addressess ("town road" vs "town street" vs "town alley")
+  - Search: "address",return: coordinates, regional administrative info (>30).
+  - deduplicating addresses ("town road" vs "town street" vs "town alley")
 - Providing geo **tile layer**s.
   - restricts topographic details to NL. 
   - style: "gray", "brt", "aerial" and "pastel"
 
-## 
+## `nl_geocode`
+
+## `nl_free`, `nl_suggest`, `nl_lookup`
+
+## `addPdokTiles`
+
+
+## Example
 
 ```{r, echo = TRUE, eval=TRUE}
 library(nlgeocoder)
 library(leaflet)
-r <- nl_geocode("Henri Faasdreef")
+r <- nl_geocode("Henri Faasdreef 312") # uRos 2018 Conference!
 leaflet() %>% addPdokTiles("gray") %>% 
   addMarkers(data = r, popup = ~weergavenaam)
 ```

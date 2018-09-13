@@ -10,7 +10,7 @@
 #' @param location string with location to be found
 #' @param output Should the output be a \code{data.frame} or
 #'  \code{\link[sf]{sf}} object in wgs84 or Rijksdriehoekstelsel format?
-#' @param type retrict the type of object that is returned from the service.
+#' @param type restrict the type of object that is returned from the service.
 #' @param ... will be passed to \code{\link{nl_free}}.
 #' @param messaging Print the urls fired to the webserver (consistent with `ggmap::geocode`)
 #' @param verbose identical to \code{messaging} (consistent with other nlgeoder
@@ -76,14 +76,9 @@ nl_geocode_df <- function( location
   nl_geocode(location, output = "data.frame", messaging = messaging, type= type, ..., verbose = verbose)
 }
 
+# hack to implement bind_rows functionality (leaning on jsonlite)
 bind_rows <- function(..., .list){
   x_l <- lapply(.list, as.list)
   y <- jsonlite::toJSON(x_l, auto_unbox = TRUE)
-  jsonlite::fromJSON(y)
+  jsonlite::fromJSON(y) # automagically knits together the lists as a data.frame.
 }
-
-# if (requireNamespace("sf")){
-#   sf::sf.colors(10)
-# } else {
-#   stop("For returning sf object, the package sf is needed.")
-# }
