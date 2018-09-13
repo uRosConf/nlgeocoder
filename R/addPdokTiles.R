@@ -6,7 +6,7 @@
 #' @param ... Passed to \code{\link[leaflet]{addTiles}}.
 #' @export
 addPdokTiles <- function(map,  type = c("brt", "aerial", "pastel", "gray"), group = match.arg(type), ...){
-  if (requireNamespace("leaflet")){
+  if (requireNamespace("leaflet", quietly = TRUE)){
     urlTemplate = switch( match.arg(type)
                         , aerial = "//geodata.nationaalgeoregister.nl/luchtfoto/rgb/wmts/Actueel_ortho25/EPSG:3857/{z}/{x}/{y}.jpeg"
                         , pastel = "//geodata.nationaalgeoregister.nl/tiles/service/wmts/brtachtergrondkaartpastel/EPSG:3857/{z}/{x}/{y}.png"

@@ -41,7 +41,7 @@ nl_geocode <- function( location
     return(df)
   }
 
-  if (requireNamespace("sf")){
+  if (requireNamespace("sf", quietly = TRUE)){
     wkt <-
       switch( output
             , rd = "centroide_rd"
