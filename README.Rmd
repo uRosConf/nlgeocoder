@@ -29,12 +29,13 @@ devtools::install_github("uRos2018/nlgeocoder")
 
 ## Example
 
-### Geocoding
+### Geocoding nl addresses
 
 ```{r}
 library(nlgeocoder)
-adres <- nl_geocode( c("Henri Faasdreef 312", "Leidschenveen"))
-adres # this is a sf object
+address <- nl_geocode( c("Henri Faasdreef 312", "Leidschenveen"))
+address[c("weergavenaam")] # this is a sf object
+names(address)
 ```
 
 ### Suggestions
@@ -47,6 +48,7 @@ head(adres$response$docs, 2)
 ### lookup
 
 ```{r}
-nl_lookup("weg-ab6df5babb15e466f3699b5d2c22e110")
+obj <- nl_lookup("weg-ab6df5babb15e466f3699b5d2c22e110")
+names(obj)
 ```
 

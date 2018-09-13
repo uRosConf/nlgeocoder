@@ -1,11 +1,11 @@
 Package: nlgeocoder
-Title: Geolocation for NL
+Title: Geocoder for the Netherlands
 Version: 0.1.0
 Authors@R: c(person("Willy", "Tadema", role = c("aut")),
     person("Egge-Jan", "Pollé", role = c("aut"))
    ,person("Edwin", "de Jonge", email = "edwindjonge@gmail.com", role = c("aut", "cre"))
    ,person("Juris", "Breidaks", role = c("ctb")))
-Description: R interface to the location server API of PDOK.
+Description: R interface to the location server API of pdok (<http://www.pdok.nl>). It offers geocoding, address suggestions and lookup of geographical objects. Included is an utility function for displaying leaflet tiles restricted to the Netherlands.
 Depends: R (>= 3.4)
 License: GPL-2
 BugReports: https://github.com/uRos2018/nlgeocoder/issues
