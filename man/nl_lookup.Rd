@@ -4,14 +4,14 @@
 \alias{nl_lookup}
 \title{Look up a geo object}
 \usage{
-nl_lookup(id, ..., raw = FALSE, verbose = FALSE)
+nl_lookup(id, ..., output = c("list", "raw"), verbose = FALSE)
 }
 \arguments{
 \item{id}{of object found in nl_suggest or nl_free}
 
 \item{...}{extra parameters are passed to the lookup service of pdok.}
 
-\item{raw}{should the result be the raw result}
+\item{output}{What type of output should be returned}
 
 \item{verbose}{should the function print message while retrieving the data?}
 }

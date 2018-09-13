@@ -23,7 +23,7 @@ nl_geocode_df(location, messaging = FALSE, type = "adres", ...,
 
 \item{messaging}{Print the urls fired to the webserver (consistent with `ggmap::geocode`)}
 
-\item{type}{retrict the type of object that is returned from the service.}
+\item{type}{restrict the type of object that is returned from the service.}
 
 \item{...}{will be passed to \code{\link{nl_free}}.}
 
