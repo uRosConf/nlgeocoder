@@ -46,7 +46,7 @@ colnames(res)
 You can also search for multiple addresses at once.
 
 ```{r}
-locations <- c("Martinikerkhof 3", "Sint Jansstraat 4 Groningen", "9726AE 4", "9711 ME 1")
+locations <- c("Martinikerkhof 3", "st jansstr 4 groningen", "9726AE 4", "9711 ME 1")
 res <- nl_geocode(locations)
 data.frame(query = locations, result = res$weergavenaam)
 ```
@@ -129,5 +129,5 @@ poi_geocoded <- nl_geocode(addresses$Address)
 
 leaflet(width = "100%", height=600) %>% 
   addPdokTiles("gray") %>% 
-  addCircleMarkers(data = poi_geocoded)
+  addCircleMarkers(data = poi_geocoded, popup = ~weergavenaam)
 ```

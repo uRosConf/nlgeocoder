@@ -23,7 +23,6 @@ devtools::install_github("uRos2018/nlgeocoder")
 ``` r
 library(nlgeocoder)
 address <- nl_geocode( c("Henri Faasdreef 312", "Leidschenveen"))
-#> Loading required namespace: sf
 address[c("weergavenaam")] # this is a sf object
 #> Simple feature collection with 2 features and 1 field
 #> geometry type:  POINT
@@ -34,7 +33,7 @@ address[c("weergavenaam")] # this is a sf object
 #>                                weergavenaam              centroide_ll
 #> 1 Henri Faasdreef 312, 2492JP 's-Gravenhage  POINT (4.40042 52.06593)
 #> 2  Laan van Leidschenveen 20, 's-Gravenhage POINT (4.400575 52.06465)
-names(address)
+colnames(address)
 #>  [1] "bron"                   "woonplaatscode"        
 #>  [3] "type"                   "woonplaatsnaam"        
 #>  [5] "wijkcode"               "huis_nlt"              

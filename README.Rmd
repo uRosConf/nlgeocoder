@@ -35,7 +35,7 @@ devtools::install_github("uRos2018/nlgeocoder")
 library(nlgeocoder)
 address <- nl_geocode( c("Henri Faasdreef 312", "Leidschenveen"))
 address[c("weergavenaam")] # this is a sf object
-names(address)
+colnames(address)
 ```
 
 ### Suggestions
