@@ -62,7 +62,7 @@ nl_free." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nlgeocoder</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9000</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
       </span>
     </div>
 
@@ -122,7 +122,7 @@ nl_free." />
     
     </div>
 
-    <pre class="usage"><span class='fu'>nl_lookup</span>(<span class='no'>id</span>, <span class='no'>...</span>, <span class='kw'>raw</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>nl_lookup</span>(<span class='no'>id</span>, <span class='no'>...</span>, <span class='kw'>output</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"list"</span>, <span class='st'>"raw"</span>), <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -136,8 +136,8 @@ nl_free." />
       <td><p>extra parameters are passed to the lookup service of pdok.</p></td>
     </tr>
     <tr>
-      <th>raw</th>
-      <td><p>should the result be the raw result</p></td>
+      <th>output</th>
+      <td><p>What type of output should be returned</p></td>
     </tr>
     <tr>
       <th>verbose</th>
