@@ -1,7 +1,7 @@
 #' Leaflet function to add pdok tiles
 #'
-#' This function adds PDOK tile layers to \code{\link{leaflet::leaflet}}.
-#' It is a small wrapper around \code{\link{leaflet::addTiles}} that sets
+#' This function adds PDOK tile layers to \code{\link[leaflet]{leaflet}}.
+#' It is a small wrapper around \code{\link[leaflet]{addTiles}} that sets
 #' the correct urls for the layers.
 #'
 #' PDOK provides tiles that can be used as a tile layer in several

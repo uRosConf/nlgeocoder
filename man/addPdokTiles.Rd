@@ -17,8 +17,8 @@ addPdokTiles(map, type = c("brt", "aerial", "pastel", "gray"),
 \item{...}{Passed to \code{\link[leaflet]{addTiles}}.}
 }
 \description{
-This function adds PDOK tile layers to \code{\link{leaflet::leaflet}}.
-It is a small wrapper around \code{\link{leaflet::addTiles}} that sets
+This function adds PDOK tile layers to \code{\link[leaflet]{leaflet}}.
+It is a small wrapper around \code{\link[leaflet]{addTiles}} that sets
 the correct urls for the layers.
 }
 \details{
