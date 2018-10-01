@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Geolocation for NL • nlgeocoder</title>
+<title>Geocoding for the Netherlands • nlgeocoder</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Geolocation for NL">
-<meta property="og:description" content="R interface to the location server API of PDOK.">
+<script src="pkgdown.js"></script><meta property="og:title" content="Geocoding for the Netherlands">
+<meta property="og:description" content="R interface to the open location server API of 'Publieke Diensten Op de Kaart' (&lt;http://www.pdok.nl&gt;). It offers geocoding, address suggestions and lookup of geographical objects. Included is an utility function for displaying leaflet tiles restricted to the Netherlands.">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -29,7 +29,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">nlgeocoder</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9000</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
       </span>
     </div>
 
@@ -94,121 +94,64 @@
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<div id="geocoding" class="section level3">
+<div id="geocoding-nl-addresses" class="section level3">
 <h3 class="hasAnchor">
-<a href="#geocoding" class="anchor"></a>Geocoding</h3>
+<a href="#geocoding-nl-addresses" class="anchor"></a>Geocoding nl addresses</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(nlgeocoder)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">adres &lt;-<span class="st"> </span><span class="kw"><a href="reference/nl_geocode.html">nl_geocode</a></span>( <span class="kw">c</span>(<span class="st">"Henri Faasdreef 312"</span>, <span class="st">"Leidschenveen"</span>))</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; Loading required namespace: sf</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">adres <span class="co"># this is a sf object</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; Simple feature collection with 2 features and 30 fields</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; geometry type:  POINT</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; dimension:      XY</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; bbox:           xmin: 4.40042 ymin: 52.06465 xmax: 4.400575 ymax: 52.06593</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; epsg (SRID):    4326</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;   bron woonplaatscode  type woonplaatsnaam wijkcode huis_nlt</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; 1  BAG           1245 adres  's-Gravenhage WK051844      312</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; 2  BAG           1245 adres  's-Gravenhage WK051844       20</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;   openbareruimtetype buurtnaam gemeentecode</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; 1                Weg De Velden         0518</span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; 2                Weg De Velden         0518</span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt;                                weergavenaam     straatnaam_verkort</span></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; 1 Henri Faasdreef 312, 2492JP 's-Gravenhage           Henri Faasdr</span></a>
-<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt; 2  Laan van Leidschenveen 20, 's-Gravenhage Laan van Leidschenveen</span></a>
-<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt;                                     id gekoppeld_perceel  gemeentenaam</span></a>
-<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt; 1 adr-604fd61e727850a5bd8c68a7bc509d83     GVH43-BD-6124 's-Gravenhage</span></a>
-<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt; 2 adr-afa3fc1caf3af44de53821b3135d4a16     GVH44-BE-5354 's-Gravenhage</span></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt;    buurtcode              wijknaam                     identificatie</span></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; 1 BU05184419 Wijk 44 Leidschenveen 0518010000452341-0518200000452339</span></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; 2 BU05184419 Wijk 44 Leidschenveen 0518010001757445-0518200001757491</span></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt;   openbareruimte_id  waterschapsnaam provinciecode postcode provincienaam</span></a>
-<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; 1  0518300000202273 HHS van Delfland          PV28   2492JP  Zuid-Holland</span></a>
-<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; 2  0518300000202933 HHS van Delfland          PV28     &lt;NA&gt;  Zuid-Holland</span></a>
-<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co">#&gt;   nummeraanduiding_id waterschapscode adresseerbaarobject_id huisnummer</span></a>
-<a class="sourceLine" id="cb2-30" data-line-number="30"><span class="co">#&gt; 1    0518200000452339              15       0518010000452341        312</span></a>
-<a class="sourceLine" id="cb2-31" data-line-number="31"><span class="co">#&gt; 2    0518200001757491              15       0518010001757445         20</span></a>
-<a class="sourceLine" id="cb2-32" data-line-number="32"><span class="co">#&gt;   provincieafkorting                centroide_rd             straatnaam</span></a>
-<a class="sourceLine" id="cb2-33" data-line-number="33"><span class="co">#&gt; 1                 ZH POINT(87336.752 453530.196)        Henri Faasdreef</span></a>
-<a class="sourceLine" id="cb2-34" data-line-number="34"><span class="co">#&gt; 2                 ZH POINT(87345.457 453388.237) Laan van Leidschenveen</span></a>
-<a class="sourceLine" id="cb2-35" data-line-number="35"><span class="co">#&gt;     score              centroide_ll</span></a>
-<a class="sourceLine" id="cb2-36" data-line-number="36"><span class="co">#&gt; 1 44.8018  POINT (4.40042 52.06593)</span></a>
-<a class="sourceLine" id="cb2-37" data-line-number="37"><span class="co">#&gt; 2 18.9709 POINT (4.400575 52.06465)</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-2" data-line-number="2">address &lt;-<span class="st"> </span><span class="kw"><a href="reference/nl_geocode.html">nl_geocode</a></span>( <span class="kw">c</span>(<span class="st">"Henri Faasdreef 312"</span>, <span class="st">"Leidschenveen"</span>))</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">address[<span class="kw">c</span>(<span class="st">"weergavenaam"</span>)] <span class="co"># this is a sf object</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; Simple feature collection with 2 features and 1 field</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; geometry type:  POINT</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; dimension:      XY</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; bbox:           xmin: 4.40042 ymin: 52.06465 xmax: 4.400575 ymax: 52.06593</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; epsg (SRID):    4326</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;                                weergavenaam              centroide_ll</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; 1 Henri Faasdreef 312, 2492JP 's-Gravenhage  POINT (4.40042 52.06593)</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; 2  Laan van Leidschenveen 20, 's-Gravenhage POINT (4.400575 52.06465)</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="kw">colnames</span>(address)</a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;  [1] "bron"                   "woonplaatscode"        </span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;  [3] "type"                   "woonplaatsnaam"        </span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt;  [5] "wijkcode"               "huis_nlt"              </span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt;  [7] "openbareruimtetype"     "buurtnaam"             </span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt;  [9] "gemeentecode"           "weergavenaam"          </span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt; [11] "straatnaam_verkort"     "id"                    </span></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt; [13] "gekoppeld_perceel"      "gemeentenaam"          </span></a>
+<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt; [15] "buurtcode"              "wijknaam"              </span></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt; [17] "identificatie"          "openbareruimte_id"     </span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; [19] "waterschapsnaam"        "provinciecode"         </span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; [21] "postcode"               "provincienaam"         </span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; [23] "nummeraanduiding_id"    "waterschapscode"       </span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; [25] "adresseerbaarobject_id" "huisnummer"            </span></a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; [27] "provincieafkorting"     "centroide_rd"          </span></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; [29] "straatnaam"             "score"                 </span></a>
+<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co">#&gt; [31] "centroide_ll"</span></a></code></pre></div>
 </div>
 <div id="suggestions" class="section level3">
 <h3 class="hasAnchor">
 <a href="#suggestions" class="anchor"></a>Suggestions</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">## basic example code</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">adres &lt;-<span class="st"> </span><span class="kw"><a href="reference/nl_suggest.html">nl_suggest</a></span>(<span class="st">"Dam, Amsterdam"</span>)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt; https://geodata.nationaalgeoregister.nl/locatieserver/v3/suggest?q=Dam,%20Amsterdam</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">head</span>(adres<span class="op">$</span>response<span class="op">$</span>docs, <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;   type            weergavenaam                                   id</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; 1  weg          Dam, Amsterdam weg-ab6df5babb15e466f3699b5d2c22e110</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; 2  weg Damloperspad, Amsterdam weg-c57e61425c421a206015596b41c92259</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;      score</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; 1 21.70482</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt; 2 14.84322</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">head</span>(adres<span class="op">$</span>response<span class="op">$</span>docs, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt;   type            weergavenaam                                   id</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; 1  weg          Dam, Amsterdam weg-ab6df5babb15e466f3699b5d2c22e110</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; 2  weg Damloperspad, Amsterdam weg-c57e61425c421a206015596b41c92259</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;      score</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; 1 21.70482</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; 2 14.84322</span></a></code></pre></div>
 </div>
 <div id="lookup" class="section level3">
 <h3 class="hasAnchor">
 <a href="#lookup" class="anchor"></a>lookup</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="reference/nl_lookup.html">nl_lookup</a></span>(<span class="st">"weg-ab6df5babb15e466f3699b5d2c22e110"</span>)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; $bron</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; [1] "BAG/NWB"</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; $identificatie</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; [1] "0363300000003186"</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; $openbareruimte_id</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; [1] "0363300000003186"</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt; $provinciecode</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt; [1] "PV27"</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; $woonplaatscode</span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; [1] "3594"</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; $type</span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; [1] "weg"</span></a>
-<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt; $woonplaatsnaam</span></a>
-<a class="sourceLine" id="cb4-21" data-line-number="21"><span class="co">#&gt; [1] "Amsterdam"</span></a>
-<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">#&gt; $provincienaam</span></a>
-<a class="sourceLine" id="cb4-24" data-line-number="24"><span class="co">#&gt; [1] "Noord-Holland"</span></a>
-<a class="sourceLine" id="cb4-25" data-line-number="25"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-26" data-line-number="26"><span class="co">#&gt; $nwb_id</span></a>
-<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="co">#&gt; [1] "031209"</span></a>
-<a class="sourceLine" id="cb4-28" data-line-number="28"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-29" data-line-number="29"><span class="co">#&gt; $centroide_ll</span></a>
-<a class="sourceLine" id="cb4-30" data-line-number="30"><span class="co">#&gt; [1] "POINT(4.89304914 52.372973)"</span></a>
-<a class="sourceLine" id="cb4-31" data-line-number="31"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-32" data-line-number="32"><span class="co">#&gt; $openbareruimtetype</span></a>
-<a class="sourceLine" id="cb4-33" data-line-number="33"><span class="co">#&gt; [1] "Weg"</span></a>
-<a class="sourceLine" id="cb4-34" data-line-number="34"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-35" data-line-number="35"><span class="co">#&gt; $gemeentecode</span></a>
-<a class="sourceLine" id="cb4-36" data-line-number="36"><span class="co">#&gt; [1] "0363"</span></a>
-<a class="sourceLine" id="cb4-37" data-line-number="37"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-38" data-line-number="38"><span class="co">#&gt; $weergavenaam</span></a>
-<a class="sourceLine" id="cb4-39" data-line-number="39"><span class="co">#&gt; [1] "Dam, Amsterdam"</span></a>
-<a class="sourceLine" id="cb4-40" data-line-number="40"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-41" data-line-number="41"><span class="co">#&gt; $provincieafkorting</span></a>
-<a class="sourceLine" id="cb4-42" data-line-number="42"><span class="co">#&gt; [1] "NH"</span></a>
-<a class="sourceLine" id="cb4-43" data-line-number="43"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-44" data-line-number="44"><span class="co">#&gt; $centroide_rd</span></a>
-<a class="sourceLine" id="cb4-45" data-line-number="45"><span class="co">#&gt; [1] "POINT(121348.243 487347.752)"</span></a>
-<a class="sourceLine" id="cb4-46" data-line-number="46"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-47" data-line-number="47"><span class="co">#&gt; $straatnaam_verkort</span></a>
-<a class="sourceLine" id="cb4-48" data-line-number="48"><span class="co">#&gt; [1] "Dam"</span></a>
-<a class="sourceLine" id="cb4-49" data-line-number="49"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-50" data-line-number="50"><span class="co">#&gt; $id</span></a>
-<a class="sourceLine" id="cb4-51" data-line-number="51"><span class="co">#&gt; [1] "weg-ab6df5babb15e466f3699b5d2c22e110"</span></a>
-<a class="sourceLine" id="cb4-52" data-line-number="52"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-53" data-line-number="53"><span class="co">#&gt; $straatnaam</span></a>
-<a class="sourceLine" id="cb4-54" data-line-number="54"><span class="co">#&gt; [1] "Dam"</span></a>
-<a class="sourceLine" id="cb4-55" data-line-number="55"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-56" data-line-number="56"><span class="co">#&gt; $gemeentenaam</span></a>
-<a class="sourceLine" id="cb4-57" data-line-number="57"><span class="co">#&gt; [1] "Amsterdam"</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">obj &lt;-<span class="st"> </span><span class="kw"><a href="reference/nl_lookup.html">nl_lookup</a></span>(<span class="st">"weg-ab6df5babb15e466f3699b5d2c22e110"</span>)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">names</span>(obj)</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;  [1] "bron"               "identificatie"      "openbareruimte_id" </span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;  [4] "provinciecode"      "woonplaatscode"     "type"              </span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;  [7] "woonplaatsnaam"     "provincienaam"      "nwb_id"            </span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; [10] "centroide_ll"       "openbareruimtetype" "gemeentecode"      </span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; [13] "weergavenaam"       "provincieafkorting" "centroide_rd"      </span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; [16] "straatnaam_verkort" "id"                 "straatnaam"        </span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; [19] "gemeentenaam"</span></a></code></pre></div>
 </div>
 </div>
 </div>

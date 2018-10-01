@@ -32,9 +32,12 @@ nl_geocode <- function( location
                       ){
   location <- as.character(location) # to prevent that a factor will become an integer
   df <- lapply(as.character(location), function(loc){
+    #browser()
     res <- nl_free(q = loc, type = type, ..., rows = 1, verbose = verbose)
     # TODO check if the docs is available
-    res$response$docs[1,]
+    if (res$response$numFound){
+      res$response$docs[1,]
+    }
   })
   df <- bind_rows(.list = df)
   output = match.arg(output)
