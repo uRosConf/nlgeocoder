@@ -14,7 +14,7 @@ nl_suggest(q, ..., rows = NULL, type = NULL, verbose = FALSE,
 
 \item{rows}{maximum number of rows to be returned. Default is 10.}
 
-\item{type}{restrict type of geolocation to}
+\item{type}{restrict type of geolocation to a type (see details for possible types)}
 
 \item{verbose}{Should the functions print messages on what it is retrieving.}
 

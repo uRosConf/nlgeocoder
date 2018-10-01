@@ -7,7 +7,7 @@
 #' "wijk", "buurt", "waterschapsgrens", "appartementsrecht".
 #' @param q search terms that should be geolocated
 #' @param ... parameters passed to geolocation service
-#' @param type restrict type of geolocation to
+#' @param type restrict type of geolocation to a type (see details for possible types)
 #' @inheritParams query
 #' @param verbose Should the functions print messages on what it is retrieving.
 #' @param fl the columns that should be returned (aka select on columms of result)

@@ -1,6 +1,6 @@
 #' Geocode adresses
 #'
-#' \code{nl_geocode} return for vector of addresses
+#' \code{nl_geocode} returns for a vector of addresses
 #' the most probable object/location.
 #' This function is more user friendly than the barebones webservices
 #' (\code{\link{nl_free}}), and uses the same function signature as

@@ -3,12 +3,20 @@
 \docType{data}
 \name{addresses}
 \alias{addresses}
-\title{Several Points of Interest (POI) that are included for test purposes.}
+\title{Several Points of Interest (POI) that are included for test purposes.
+\itemize{
+  \item \code{POI}, points of interest
+  \item \code{Address}, Uncleaned address information.
+}}
 \format{An object of class \code{data.frame} with 5 rows and 2 columns.}
 \usage{
 addresses
 }
 \description{
 Several Points of Interest (POI) that are included for test purposes.
+\itemize{
+  \item \code{POI}, points of interest
+  \item \code{Address}, Uncleaned address information.
+}
 }
 \keyword{datasets}
