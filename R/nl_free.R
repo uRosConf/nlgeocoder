@@ -12,6 +12,7 @@
 #' @param verbose \code{logical} should the function print out messages.
 #' @inheritParams query
 #' @seealso \code{\link{nl_geocode}}
+#' @example ./examples/nl_free.R
 nl_free <- function( q
                    , rows    = NULL
                    , start   = NULL

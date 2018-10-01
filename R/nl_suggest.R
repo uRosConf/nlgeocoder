@@ -10,6 +10,7 @@
 #' @param qf the fields that should be queried
 #' @param bq the boosting of the query.
 #' @export
+#' @example ./examples/nl_suggest.R
 nl_suggest <- function( q
                       , ...
                       , rows    = NULL

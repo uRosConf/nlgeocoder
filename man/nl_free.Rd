@@ -36,6 +36,15 @@ This function wraps the pdok service, and allows for free search. For syntax and
 see the documentation of pdok. A more easy/convenient but simpler function for geocoding is
 \code{\link{nl_geocode}}.
 }
+\examples{
+\dontrun{
+
+l <- nl_free("Henri Faasdreef 312")
+l$response$numFound
+l$response$docs["weergavenaam"]
+
+}
+}
 \seealso{
 \code{\link{nl_geocode}}
 }

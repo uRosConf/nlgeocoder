@@ -8,6 +8,7 @@
 #' @param output What type of output should be returned
 #' @param verbose should the function print message while retrieving the data?
 #' @inheritParams query
+#' @example ./examples/nl_lookup.R
 nl_lookup <- function(id,..., output=c("list", "raw"), verbose = FALSE){
   if (length(id) > 1){
     warning("Only using the first id")

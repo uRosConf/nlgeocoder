@@ -29,3 +29,16 @@ nl_suggest(q, ..., rows = NULL, type = NULL, verbose = FALSE,
 \description{
 Get a list of suggestions for geolocations in NL
 }
+\examples{
+\dontrun{
+
+sug <- nl_suggest("Henri Faasdreef")
+
+# how many objects have a score?
+sug$response$numFound
+
+# get suggestions
+sug$response$docs
+
+}
+}

@@ -39,3 +39,14 @@ type can be one of the following:"provincie", "gemeente", "woonplaats",
 weg;postcode;adres;perceel;hectometerpaal;wijk;buurt;waterschapsgrens;appartementsrecht.
 The return type can be specified and can be of type "sf" or "data.frame".
 }
+\examples{
+\dontrun{
+
+data("addresses")
+
+r <- nl_geocode(addresses$Address)
+r["weergavenaam"]
+names(r)
+
+}
+}

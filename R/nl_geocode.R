@@ -16,6 +16,7 @@
 #' @param verbose identical to \code{messaging} (consistent with other nlgeoder
 #' functions)
 #' @inheritParams query
+#' @example ./examples/nl_geocode.R
 nl_geocode <- function( location
                       , output = c("wgs84", "rd", "data.frame")
                       #, source = c("google", "dsk") not needed

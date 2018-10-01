@@ -19,3 +19,12 @@ nl_lookup(id, ..., output = c("list", "raw"), verbose = FALSE)
 Retrieve detailed properties of a geo object found with \code{\link{nl_suggest}} or
 \code{\link{nl_free}}.
 }
+\examples{
+\dontrun{
+
+obj <- nl_lookup("weg-f633e85f07eda4e68a00fb13f9d128f5")
+names(obj)
+obj$weergavenaam
+
+}
+}

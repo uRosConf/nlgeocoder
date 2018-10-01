@@ -1,6 +1,6 @@
 Package: nlgeocoder
 Title: Geocoding for the Netherlands
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(person("Willy", "Tadema", role = c("aut")),
     person("Egge-Jan", "Pollé", role = c("aut"))
    ,person("Edwin", "de Jonge", email = "edwindjonge@gmail.com", role = c("aut", "cre"))
