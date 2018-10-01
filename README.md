@@ -4,6 +4,8 @@
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/nlgeocoder)](https://cran.r-project.org/package=nlgeocoder)
 [![travis
 build](https://travis-ci.org/uRos2018/nlgeocoder.svg?branch=master)](https://travis-ci.org/uRos2018/nlgeocoder)
+[![Build
+status](https://ci.appveyor.com/api/projects/status/ydb01147q649ordx?svg=true)](https://ci.appveyor.com/project/edwindj/nlgeocoder)
 
 # nlgeocoder
 
@@ -62,8 +64,8 @@ head(adres$response$docs, 2)
 #> 1  weg          Dam, Amsterdam weg-ab6df5babb15e466f3699b5d2c22e110
 #> 2  weg Damloperspad, Amsterdam weg-c57e61425c421a206015596b41c92259
 #>      score
-#> 1 21.70482
-#> 2 14.84322
+#> 1 21.70586
+#> 2 14.84375
 ```
 
 ### lookup
