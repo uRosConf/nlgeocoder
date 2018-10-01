@@ -31,19 +31,19 @@ nl_free(q, rows = NULL, start = NULL, fq = NULL, lat = NULL,
 
 \item{verbose}{\code{logical} should the function print out messages.}
 }
+\value{
+The result of the pdok free webservice converted to a R list object.
+}
 \description{
-This function wraps the pdok service, and allows for free search. For syntax and examples
-see the documentation of pdok. A more easy/convenient but simpler function for geocoding is
+This function wraps the "free" pdok service, and allows for free search.
+For syntax and examples see the documentation of pdok.
+A more easy/convenient but simpler function for geocoding is
 \code{\link{nl_geocode}}.
 }
 \examples{
-\dontrun{
-
 l <- nl_free("Henri Faasdreef 312")
 l$response$numFound
 l$response$docs["weergavenaam"]
-
-}
 }
 \seealso{
 \code{\link{nl_geocode}}

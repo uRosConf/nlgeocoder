@@ -10,6 +10,14 @@ The nlgeocoder package provides a R wrapper around the pdok webservice.
 }
 \details{
 it allows to geocode data using the following functions:
+
+\itemize{
+  \item \code{\link{nl_geocode}}: geocode a vector of addresses.
+  \item \code{\link{nl_free}}: find possible matches for one address.
+  \item \code{\link{nl_suggest}}: find possible suggestions for one address.
+  \item \code{\link{nl_lookup}}: lookup information of object found in
+  \code{nl_suggest}.
+}
 }
 \seealso{
 Useful links:

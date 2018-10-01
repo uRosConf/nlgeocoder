@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>geocode function — nl_geocode • nlgeocoder</title>
+<title>Geocode adresses — nl_geocode • nlgeocoder</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,10 +30,13 @@
 
 
 
-<meta property="og:title" content="geocode function — nl_geocode" />
+<meta property="og:title" content="Geocode adresses — nl_geocode" />
 
-<meta property="og:description" content="This function is more user friendly than the barebones webservices,
-and uses the same function signature as ggmap::geocode." />
+<meta property="og:description" content="nl_geocode return for vector of addresses
+the most probable object/location.
+This function is more user friendly than the barebones webservices
+(nl_free), and uses the same function signature as
+ggmap::geocode." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -62,7 +65,7 @@ and uses the same function signature as ggmap::geocode." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nlgeocoder</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.2</span>
       </span>
     </div>
 
@@ -110,15 +113,18 @@ and uses the same function signature as ggmap::geocode." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>geocode function</h1>
+    <h1>Geocode adresses</h1>
     <small class="dont-index">Source: <a href='https://github.com/uRos2018/nlgeocoder/blob/master/R/nl_geocode.R'><code>R/nl_geocode.R</code></a></small>
     <div class="hidden name"><code>nl_geocode.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This function is more user friendly than the barebones webservices,
-and uses the same function signature as ggmap::geocode.</p>
+    <p><code>nl_geocode</code> return for vector of addresses
+the most probable object/location.
+This function is more user friendly than the barebones webservices
+(<code><a href='nl_free.html'>nl_free</a></code>), and uses the same function signature as
+<code><a href='http://www.rdocumentation.org/packages/ggmap/topics/geocode'>ggmap::geocode</a></code>.</p>
     
     </div>
 
@@ -149,7 +155,8 @@ and uses the same function signature as ggmap::geocode.</p>
     </tr>
     <tr>
       <th>type</th>
-      <td><p>restrict the type of object that is returned from the service.</p></td>
+      <td><p>restrict the type of object that is returned from the service,
+see details for possible types.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -162,21 +169,56 @@ functions)</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>The return type can be specified and can be of type "sf" or "data.frame",
+depending on the value of <code>output</code>.</p>
+    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>type can be one of the following:"provincie", "gemeente", "woonplaats",
-weg;postcode;adres;perceel;hectometerpaal;wijk;buurt;waterschapsgrens;appartementsrecht.
-The return type can be specified and can be of type "sf" or "data.frame".</p>
+    <p><code>type</code> can be one or more of the following: "provincie", "gemeente"
+, "woonplaats", "weg", "postcode", "adres", "perceel", "hectometerpaal",
+"wijk", "buurt", "waterschapsgrens", "appartementsrecht".</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>data</span>(<span class='st'>"addresses"</span>)
+
+<span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='fu'>nl_geocode</span>(<span class='no'>addresses</span>$<span class='no'>Address</span>)
+<span class='no'>r</span>[<span class='st'>"weergavenaam"</span>]</div><div class='output co'>#&gt; Simple feature collection with 5 features and 1 field
+#&gt; geometry type:  POINT
+#&gt; dimension:      XY
+#&gt; bbox:           xmin: 6.563506 ymin: 53.21085 xmax: 6.57079 ymax: 53.21978
+#&gt; epsg (SRID):    4326
+#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
+#&gt;                          weergavenaam              centroide_ll
+#&gt; 1  Martinikerkhof 3, 9712JG Groningen POINT (6.568567 53.21927)
+#&gt; 2 Sint Jansstraat 4, 9712JN Groningen  POINT (6.57079 53.21978)
+#&gt; 3    Museumeiland 1, 9711ME Groningen POINT (6.566075 53.21247)
+#&gt; 4   Stationsplein 4, 9726AE Groningen POINT (6.563506 53.21085)
+#&gt; 5      Hereplein 73, 9711GD Groningen POINT (6.569384 53.21396)</div><div class='input'><span class='fu'>names</span>(<span class='no'>r</span>)</div><div class='output co'>#&gt;  [1] "bron"                   "woonplaatscode"         "type"                  
+#&gt;  [4] "woonplaatsnaam"         "wijkcode"               "huis_nlt"              
+#&gt;  [7] "openbareruimtetype"     "buurtnaam"              "gemeentecode"          
+#&gt; [10] "weergavenaam"           "straatnaam_verkort"     "id"                    
+#&gt; [13] "gekoppeld_perceel"      "gemeentenaam"           "buurtcode"             
+#&gt; [16] "wijknaam"               "identificatie"          "openbareruimte_id"     
+#&gt; [19] "waterschapsnaam"        "provinciecode"          "postcode"              
+#&gt; [22] "provincienaam"          "nummeraanduiding_id"    "waterschapscode"       
+#&gt; [25] "adresseerbaarobject_id" "huisnummer"             "provincieafkorting"    
+#&gt; [28] "centroide_rd"           "straatnaam"             "score"                 
+#&gt; [31] "centroide_ll"          </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
       <li><a href="#details">Details</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

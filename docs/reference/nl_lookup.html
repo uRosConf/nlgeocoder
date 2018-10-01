@@ -62,7 +62,7 @@ nl_free." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nlgeocoder</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.2</span>
       </span>
     </div>
 
@@ -145,13 +145,32 @@ nl_free." />
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>Depending on the value of <code>output</code> the raw search
+results in R format or the properties of the specific object as
+a R list object.</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>obj</span> <span class='kw'>&lt;-</span> <span class='fu'>nl_lookup</span>(<span class='st'>"weg-f633e85f07eda4e68a00fb13f9d128f5"</span>)
+<span class='fu'>names</span>(<span class='no'>obj</span>)</div><div class='output co'>#&gt;  [1] "bron"               "identificatie"      "openbareruimte_id" 
+#&gt;  [4] "provinciecode"      "woonplaatscode"     "type"              
+#&gt;  [7] "woonplaatsnaam"     "provincienaam"      "nwb_id"            
+#&gt; [10] "centroide_ll"       "openbareruimtetype" "gemeentecode"      
+#&gt; [13] "weergavenaam"       "provincieafkorting" "centroide_rd"      
+#&gt; [16] "straatnaam_verkort" "id"                 "straatnaam"        
+#&gt; [19] "gemeentenaam"      </div><div class='input'><span class='no'>obj</span>$<span class='no'>weergavenaam</span></div><div class='output co'>#&gt; [1] "Henri Faasdreef, 's-Gravenhage"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

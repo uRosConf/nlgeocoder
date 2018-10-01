@@ -8,6 +8,9 @@
 #' @param output What type of output should be returned
 #' @param verbose should the function print message while retrieving the data?
 #' @inheritParams query
+#' @return Depending on the value of \code{output} the raw search
+#' results in R format or the properties of the specific object as
+#' a R list object.
 #' @example ./examples/nl_lookup.R
 nl_lookup <- function(id,..., output=c("list", "raw"), verbose = FALSE){
   if (length(id) > 1){

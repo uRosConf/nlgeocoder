@@ -32,8 +32,9 @@
 
 <meta property="og:title" content="Free geocoding search — nl_free" />
 
-<meta property="og:description" content="This function wraps the pdok service, and allows for free search. For syntax and examples
-see the documentation of pdok. A more easy/convenient but simpler function for geocoding is
+<meta property="og:description" content="This function wraps the &quot;free&quot; pdok service, and allows for free search.
+For syntax and examples see the documentation of pdok.
+A more easy/convenient but simpler function for geocoding is
 nl_geocode." />
 <meta name="twitter:card" content="summary" />
 
@@ -63,7 +64,7 @@ nl_geocode." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nlgeocoder</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.2</span>
       </span>
     </div>
 
@@ -118,8 +119,9 @@ nl_geocode." />
 
     <div class="ref-description">
     
-    <p>This function wraps the pdok service, and allows for free search. For syntax and examples
-see the documentation of pdok. A more easy/convenient but simpler function for geocoding is
+    <p>This function wraps the "free" pdok service, and allows for free search.
+For syntax and examples see the documentation of pdok.
+A more easy/convenient but simpler function for geocoding is
 <code><a href='nl_geocode.html'>nl_geocode</a></code>.</p>
     
     </div>
@@ -177,19 +179,40 @@ see the documentation of pdok. A more easy/convenient but simpler function for g
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>The result of the pdok free webservice converted to a R list object.</p>
+    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='nl_geocode.html'>nl_geocode</a></code></p></div>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>l</span> <span class='kw'>&lt;-</span> <span class='fu'>nl_free</span>(<span class='st'>"Henri Faasdreef 312"</span>)
+<span class='no'>l</span>$<span class='no'>response</span>$<span class='no'>numFound</span></div><div class='output co'>#&gt; [1] 8510</div><div class='input'><span class='no'>l</span>$<span class='no'>response</span>$<span class='no'>docs</span>[<span class='st'>"weergavenaam"</span>]</div><div class='output co'>#&gt;                                  weergavenaam
+#&gt; 1   Henri Faasdreef 312, 2492JP 's-Gravenhage
+#&gt; 2              Henri Faasdreef, 's-Gravenhage
+#&gt; 3       Henri Faasdreef, 2492JP 's-Gravenhage
+#&gt; 4         Henri Faasdreef 194T, 's-Gravenhage
+#&gt; 5  Henri Faasdreef 222A, 2492JP 's-Gravenhage
+#&gt; 6   Henri Faasdreef 194, 2492JP 's-Gravenhage
+#&gt; 7   Henri Faasdreef 200, 2492JP 's-Gravenhage
+#&gt; 8   Henri Faasdreef 218, 2492JP 's-Gravenhage
+#&gt; 9   Henri Faasdreef 222, 2492JP 's-Gravenhage
+#&gt; 10  Henri Faasdreef 226, 2492JP 's-Gravenhage</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
       <li><a href="#see-also">See also</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

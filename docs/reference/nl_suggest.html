@@ -32,7 +32,7 @@
 
 <meta property="og:title" content="Get a list of suggestions for geolocations in NL — nl_suggest" />
 
-<meta property="og:description" content="Get a list of suggestions for geolocations in NL" />
+<meta property="og:description" content="nl_suggest returns a list of suggestions for a location description." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nlgeocoder</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.2</span>
       </span>
     </div>
 
@@ -116,7 +116,7 @@
 
     <div class="ref-description">
     
-    <p>Get a list of suggestions for geolocations in NL</p>
+    <p><code>nl_suggest</code> returns a list of suggestions for a location description.</p>
     
     </div>
 
@@ -164,13 +164,57 @@
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>The result of the pdok suggest webservice converted to a R list object.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p><code>type</code> can be one or more of the following: "provincie", "gemeente"
+, "woonplaats", "weg", "postcode", "adres", "perceel", "hectometerpaal",
+"wijk", "buurt", "waterschapsgrens", "appartementsrecht".</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>sug</span> <span class='kw'>&lt;-</span> <span class='fu'>nl_suggest</span>(<span class='st'>"Henri Faasdreef"</span>)
+
+<span class='co'># how many objects have a score?</span>
+<span class='no'>sug</span>$<span class='no'>response</span>$<span class='no'>numFound</span></div><div class='output co'>#&gt; [1] 12</div><div class='input'>
+<span class='co'># get suggestions</span>
+<span class='no'>sug</span>$<span class='no'>response</span>$<span class='no'>docs</span></div><div class='output co'>#&gt;     type                               weergavenaam
+#&gt; 1    weg             Henri Faasdreef, 's-Gravenhage
+#&gt; 2  adres        Henri Faasdreef 194T, 's-Gravenhage
+#&gt; 3  adres  Henri Faasdreef 194, 2492JP 's-Gravenhage
+#&gt; 4  adres  Henri Faasdreef 200, 2492JP 's-Gravenhage
+#&gt; 5  adres  Henri Faasdreef 218, 2492JP 's-Gravenhage
+#&gt; 6  adres  Henri Faasdreef 222, 2492JP 's-Gravenhage
+#&gt; 7  adres Henri Faasdreef 222A, 2492JP 's-Gravenhage
+#&gt; 8  adres  Henri Faasdreef 226, 2492JP 's-Gravenhage
+#&gt; 9  adres  Henri Faasdreef 228, 2492JP 's-Gravenhage
+#&gt; 10 adres  Henri Faasdreef 300, 2492JP 's-Gravenhage
+#&gt;                                      id    score
+#&gt; 1  weg-f633e85f07eda4e68a00fb13f9d128f5 32.06973
+#&gt; 2  adr-c3d9770bcc6a2dc762475d5fe5f619cf 22.83119
+#&gt; 3  adr-e1e06434f4fdc53db3bf29ea61304b7a 19.93772
+#&gt; 4  adr-6c3a7c000571ee07da9f48e7ce7cc9ae 19.93772
+#&gt; 5  adr-d0613907ca3ff239b0f42f06f1ecd38c 19.93772
+#&gt; 6  adr-188be71cc18d276712a65d814de8aa05 19.93772
+#&gt; 7  adr-f91cc969743132a5bef901e9652aa665 19.93772
+#&gt; 8  adr-d4d551eeea46611e731ba6fe12008bef 19.93772
+#&gt; 9  adr-e17eb123835906df64da85a1b2139ecb 19.93772
+#&gt; 10 adr-2abdec9b964c6df00be9d0af129f9fed 19.93772</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

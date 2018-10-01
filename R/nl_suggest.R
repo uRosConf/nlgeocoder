@@ -1,5 +1,10 @@
 #' Get a list of suggestions for geolocations in NL
 #'
+#' \code{nl_suggest} returns a list of suggestions for a location description.
+#'
+#' \code{type} can be one or more of the following: "provincie", "gemeente"
+#' , "woonplaats", "weg", "postcode", "adres", "perceel", "hectometerpaal",
+#' "wijk", "buurt", "waterschapsgrens", "appartementsrecht".
 #' @param q search terms that should be geolocated
 #' @param ... parameters passed to geolocation service
 #' @param type restrict type of geolocation to
@@ -10,6 +15,7 @@
 #' @param qf the fields that should be queried
 #' @param bq the boosting of the query.
 #' @export
+#' @return The result of the pdok suggest webservice converted to a R list object.
 #' @example ./examples/nl_suggest.R
 nl_suggest <- function( q
                       , ...

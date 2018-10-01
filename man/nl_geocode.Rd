@@ -4,7 +4,7 @@
 \alias{nl_geocode}
 \alias{nl_geocode_rd}
 \alias{nl_geocode_df}
-\title{geocode function}
+\title{Geocode adresses}
 \usage{
 nl_geocode(location, output = c("wgs84", "rd", "data.frame"),
   messaging = FALSE, type = "adres", ..., verbose = messaging)
@@ -18,26 +18,34 @@ nl_geocode_df(location, messaging = FALSE, type = "adres", ...,
 \arguments{
 \item{location}{string with location to be found}
 
-\item{output}{Should the output be a \code{data.frame} or
+\item{output}{Should the output be a \code{\link{data.frame}} or
 \code{\link[sf]{sf}} object in wgs84 or Rijksdriehoekstelsel format?}
 
 \item{messaging}{Print the urls fired to the webserver (consistent with `ggmap::geocode`)}
 
-\item{type}{restrict the type of object that is returned from the service.}
+\item{type}{restrict the type of object that is returned from the service,
+see details for possible types.}
 
 \item{...}{will be passed to \code{\link{nl_free}}.}
 
 \item{verbose}{identical to \code{messaging} (consistent with other nlgeoder
 functions)}
 }
+\value{
+The return type can be specified and can be of type "sf" or "data.frame",
+depending on the value of \code{output}.
+}
 \description{
-This function is more user friendly than the barebones webservices,
-and uses the same function signature as ggmap::geocode.
+\code{nl_geocode} return for vector of addresses
+the most probable object/location.
+This function is more user friendly than the barebones webservices
+(\code{\link{nl_free}}), and uses the same function signature as
+\code{ggmap::geocode}.
 }
 \details{
-type can be one of the following:"provincie", "gemeente", "woonplaats",
-weg;postcode;adres;perceel;hectometerpaal;wijk;buurt;waterschapsgrens;appartementsrecht.
-The return type can be specified and can be of type "sf" or "data.frame".
+\code{type} can be one or more of the following: "provincie", "gemeente"
+, "woonplaats", "weg", "postcode", "adres", "perceel", "hectometerpaal",
+"wijk", "buurt", "waterschapsgrens", "appartementsrecht".
 }
 \examples{
 data("addresses")
