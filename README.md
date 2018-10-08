@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/nlgeocoder)](https://cran.r-project.org/package=nlgeocoder)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/nlgeocoder)](https://cran.r-project.org/package=nlgeocoder)
 [![travis
 build](https://travis-ci.org/uRos2018/nlgeocoder.svg?branch=master)](https://travis-ci.org/uRos2018/nlgeocoder)
 [![Build
