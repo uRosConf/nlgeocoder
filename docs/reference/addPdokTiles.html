@@ -63,7 +63,7 @@ the correct urls for the layers." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nlgeocoder</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.3</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.3.9000</span>
       </span>
     </div>
 
@@ -125,7 +125,7 @@ the correct urls for the layers.</p>
     </div>
 
     <pre class="usage"><span class='fu'>addPdokTiles</span>(<span class='no'>map</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"brt"</span>, <span class='st'>"aerial"</span>, <span class='st'>"pastel"</span>, <span class='st'>"gray"</span>),
-  <span class='kw'>group</span> <span class='kw'>=</span> <span class='fu'>match.arg</span>(<span class='no'>type</span>), <span class='no'>...</span>)</pre>
+  <span class='kw'>group</span> <span class='kw'>=</span> <span class='fu'>match.arg</span>(<span class='no'>type</span>), <span class='no'>options</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -141,6 +141,10 @@ the correct urls for the layers.</p>
     <tr>
       <th>group</th>
       <td><p>group is set equal to type</p></td>
+    </tr>
+    <tr>
+      <th>options</th>
+      <td><p>passed to <code><a href='http://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addTiles</a></code></p></td>
     </tr>
     <tr>
       <th>...</th>

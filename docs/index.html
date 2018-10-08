@@ -29,7 +29,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">nlgeocoder</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.3</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.3.9000</span>
       </span>
     </div>
 
@@ -87,9 +87,11 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install nlgeocoder from github with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"uRos2018/nlgeocoder"</span>)</a></code></pre></div>
+<p>You can install nlgeocoder from CRAN with</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"nlgeocoder"</span>)</a></code></pre></div>
+<p>Development version (use at own risk!) can be install from github with:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"uRos2018/nlgeocoder"</span>)</a></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
@@ -97,61 +99,61 @@
 <div id="geocoding-nl-addresses" class="section level3">
 <h3 class="hasAnchor">
 <a href="#geocoding-nl-addresses" class="anchor"></a>Geocoding nl addresses</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(nlgeocoder)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">address &lt;-<span class="st"> </span><span class="kw"><a href="reference/nl_geocode.html">nl_geocode</a></span>( <span class="kw">c</span>(<span class="st">"Henri Faasdreef 312"</span>, <span class="st">"Leidschenveen"</span>))</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">address[<span class="kw">c</span>(<span class="st">"weergavenaam"</span>)] <span class="co"># this is a sf object</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; Simple feature collection with 2 features and 1 field</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; geometry type:  POINT</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; dimension:      XY</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; bbox:           xmin: 4.40042 ymin: 52.06465 xmax: 4.400575 ymax: 52.06593</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; epsg (SRID):    4326</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;                                weergavenaam              centroide_ll</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; 1 Henri Faasdreef 312, 2492JP 's-Gravenhage  POINT (4.40042 52.06593)</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; 2  Laan van Leidschenveen 20, 's-Gravenhage POINT (4.400575 52.06465)</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="kw">colnames</span>(address)</a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;  [1] "bron"                   "woonplaatscode"        </span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;  [3] "type"                   "woonplaatsnaam"        </span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt;  [5] "wijkcode"               "huis_nlt"              </span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt;  [7] "openbareruimtetype"     "buurtnaam"             </span></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt;  [9] "gemeentecode"           "weergavenaam"          </span></a>
-<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt; [11] "straatnaam_verkort"     "id"                    </span></a>
-<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt; [13] "gekoppeld_perceel"      "gemeentenaam"          </span></a>
-<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt; [15] "buurtcode"              "wijknaam"              </span></a>
-<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt; [17] "identificatie"          "openbareruimte_id"     </span></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; [19] "waterschapsnaam"        "provinciecode"         </span></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; [21] "postcode"               "provincienaam"         </span></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; [23] "nummeraanduiding_id"    "waterschapscode"       </span></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; [25] "adresseerbaarobject_id" "huisnummer"            </span></a>
-<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; [27] "provincieafkorting"     "centroide_rd"          </span></a>
-<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; [29] "straatnaam"             "score"                 </span></a>
-<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co">#&gt; [31] "centroide_ll"</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(nlgeocoder)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">address &lt;-<span class="st"> </span><span class="kw"><a href="reference/nl_geocode.html">nl_geocode</a></span>( <span class="kw">c</span>(<span class="st">"Henri Faasdreef 312"</span>, <span class="st">"Leidschenveen"</span>))</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">address[<span class="kw">c</span>(<span class="st">"weergavenaam"</span>)] <span class="co"># this is a sf object</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; Simple feature collection with 2 features and 1 field</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; geometry type:  POINT</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; dimension:      XY</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; bbox:           xmin: 4.40042 ymin: 52.06465 xmax: 4.400575 ymax: 52.06593</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; epsg (SRID):    4326</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;                                weergavenaam              centroide_ll</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; 1 Henri Faasdreef 312, 2492JP 's-Gravenhage  POINT (4.40042 52.06593)</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; 2  Laan van Leidschenveen 20, 's-Gravenhage POINT (4.400575 52.06465)</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="kw">colnames</span>(address)</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt;  [1] "bron"                   "woonplaatscode"        </span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt;  [3] "type"                   "woonplaatsnaam"        </span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt;  [5] "wijkcode"               "huis_nlt"              </span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt;  [7] "openbareruimtetype"     "buurtnaam"             </span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt;  [9] "gemeentecode"           "weergavenaam"          </span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt; [11] "straatnaam_verkort"     "id"                    </span></a>
+<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt; [13] "gekoppeld_perceel"      "gemeentenaam"          </span></a>
+<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt; [15] "buurtcode"              "wijknaam"              </span></a>
+<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="co">#&gt; [17] "identificatie"          "openbareruimte_id"     </span></a>
+<a class="sourceLine" id="cb3-23" data-line-number="23"><span class="co">#&gt; [19] "waterschapsnaam"        "provinciecode"         </span></a>
+<a class="sourceLine" id="cb3-24" data-line-number="24"><span class="co">#&gt; [21] "postcode"               "provincienaam"         </span></a>
+<a class="sourceLine" id="cb3-25" data-line-number="25"><span class="co">#&gt; [23] "nummeraanduiding_id"    "waterschapscode"       </span></a>
+<a class="sourceLine" id="cb3-26" data-line-number="26"><span class="co">#&gt; [25] "adresseerbaarobject_id" "huisnummer"            </span></a>
+<a class="sourceLine" id="cb3-27" data-line-number="27"><span class="co">#&gt; [27] "provincieafkorting"     "centroide_rd"          </span></a>
+<a class="sourceLine" id="cb3-28" data-line-number="28"><span class="co">#&gt; [29] "straatnaam"             "score"                 </span></a>
+<a class="sourceLine" id="cb3-29" data-line-number="29"><span class="co">#&gt; [31] "centroide_ll"</span></a></code></pre></div>
 </div>
 <div id="suggestions" class="section level3">
 <h3 class="hasAnchor">
 <a href="#suggestions" class="anchor"></a>Suggestions</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">## basic example code</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">adres &lt;-<span class="st"> </span><span class="kw"><a href="reference/nl_suggest.html">nl_suggest</a></span>(<span class="st">"Dam, Amsterdam"</span>)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">head</span>(adres<span class="op">$</span>response<span class="op">$</span>docs, <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt;   type            weergavenaam                                   id</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; 1  weg          Dam, Amsterdam weg-ab6df5babb15e466f3699b5d2c22e110</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; 2  weg Damloperspad, Amsterdam weg-c57e61425c421a206015596b41c92259</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;      score</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; 1 21.70586</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; 2 14.84375</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">## basic example code</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">adres &lt;-<span class="st"> </span><span class="kw"><a href="reference/nl_suggest.html">nl_suggest</a></span>(<span class="st">"Dam, Amsterdam"</span>)</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">head</span>(adres<span class="op">$</span>response<span class="op">$</span>docs, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;   type            weergavenaam                                   id</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; 1  weg          Dam, Amsterdam weg-ab6df5babb15e466f3699b5d2c22e110</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; 2  weg Damloperspad, Amsterdam weg-c57e61425c421a206015596b41c92259</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt;      score</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; 1 21.70628</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; 2 14.84461</span></a></code></pre></div>
 </div>
 <div id="lookup" class="section level3">
 <h3 class="hasAnchor">
 <a href="#lookup" class="anchor"></a>lookup</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">obj &lt;-<span class="st"> </span><span class="kw"><a href="reference/nl_lookup.html">nl_lookup</a></span>(<span class="st">"weg-ab6df5babb15e466f3699b5d2c22e110"</span>)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">names</span>(obj)</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;  [1] "bron"               "identificatie"      "openbareruimte_id" </span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;  [4] "provinciecode"      "woonplaatscode"     "type"              </span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;  [7] "woonplaatsnaam"     "provincienaam"      "nwb_id"            </span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; [10] "centroide_ll"       "openbareruimtetype" "gemeentecode"      </span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; [13] "weergavenaam"       "provincieafkorting" "centroide_rd"      </span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; [16] "straatnaam_verkort" "id"                 "straatnaam"        </span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; [19] "gemeentenaam"</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">obj &lt;-<span class="st"> </span><span class="kw"><a href="reference/nl_lookup.html">nl_lookup</a></span>(<span class="st">"weg-ab6df5babb15e466f3699b5d2c22e110"</span>)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">names</span>(obj)</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt;  [1] "bron"               "identificatie"      "openbareruimte_id" </span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;  [4] "provinciecode"      "woonplaatscode"     "type"              </span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt;  [7] "woonplaatsnaam"     "provincienaam"      "nwb_id"            </span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; [10] "centroide_ll"       "openbareruimtetype" "gemeentecode"      </span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; [13] "weergavenaam"       "provincieafkorting" "centroide_rd"      </span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; [16] "straatnaam_verkort" "id"                 "straatnaam"        </span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; [19] "gemeentenaam"</span></a></code></pre></div>
 </div>
 </div>
 </div>
@@ -161,6 +163,8 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=nlgeocoder">https://​cloud.r-project.org/​package=nlgeocoder</a>
+</li>
 <li>Browse source code at <br><a href="https://github.com/uRos2018/nlgeocoder">https://​github.com/​uRos2018/​nlgeocoder</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/uRos2018/nlgeocoder/issues">https://​github.com/​uRos2018/​nlgeocoder/​issues</a>
@@ -186,8 +190,9 @@
       <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://cran.r-project.org/package=nlgeocoder"><img src="http://www.r-pkg.org/badges/version/nlgeocoder" alt="CRAN_Status_Badge"></a></li>
+<li><a href="https://cran.r-project.org/package=nlgeocoder"><img src="https://www.r-pkg.org/badges/version/nlgeocoder" alt="CRAN_Status_Badge"></a></li>
 <li><a href="https://travis-ci.org/uRos2018/nlgeocoder"><img src="https://travis-ci.org/uRos2018/nlgeocoder.svg?branch=master" alt="travis build"></a></li>
+<li><a href="https://ci.appveyor.com/project/edwindj/nlgeocoder"><img src="https://ci.appveyor.com/api/projects/status/ydb01147q649ordx?svg=true" alt="Build status"></a></li>
 </ul>
 </div>
 </div>
