@@ -11,7 +11,13 @@ status](https://ci.appveyor.com/api/projects/status/ydb01147q649ordx?svg=true)](
 
 ## Installation
 
-You can install nlgeocoder from github with:
+You can install nlgeocoder from CRAN with
+
+``` r
+install.packages("nlgeocoder")
+```
+
+Development version (use at own risk\!) can be install from github with:
 
 ``` r
 # install.packages("devtools")
@@ -64,8 +70,8 @@ head(adres$response$docs, 2)
 #> 1  weg          Dam, Amsterdam weg-ab6df5babb15e466f3699b5d2c22e110
 #> 2  weg Damloperspad, Amsterdam weg-c57e61425c421a206015596b41c92259
 #>      score
-#> 1 21.70586
-#> 2 14.84375
+#> 1 21.70628
+#> 2 14.84461
 ```
 
 ### lookup

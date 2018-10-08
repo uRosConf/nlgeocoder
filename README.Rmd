@@ -22,7 +22,14 @@ library(nlgeocoder)
 
 ## Installation
 
-You can install nlgeocoder from github with:
+You can install nlgeocoder from CRAN with
+
+```{r, eval=FALSE}
+install.packages("nlgeocoder")
+```
+
+Development version (use at own risk!) can be install from
+github with:
 
 ```r
 # install.packages("devtools")
