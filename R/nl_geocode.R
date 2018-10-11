@@ -38,12 +38,15 @@ nl_geocode <- function( location
                       , verbose = messaging
                       ){
   location <- as.character(location) # to prevent that a factor will become an integer
-  df <- lapply(as.character(location), function(loc){
+  df <- lapply(location, function(loc){
     #browser()
     res <- nl_free(q = loc, type = type, ..., rows = 1, verbose = verbose)
     # TODO check if the docs is available
-    if (res$response$numFound){
+    if (res$response$numFound > 0){
       res$response$docs[1,]
+    } else {
+      # empty point...
+      list(centroide_ll = EMPTY, centroid_rd = EMPTY)
     }
   })
   df <- bind_rows(.list = df)
@@ -88,6 +91,8 @@ nl_geocode_df <- function( location
 }
 
 # hack to implement bind_rows functionality (leaning on jsonlite)
+EMPTY <- "POINT EMPTY"
+
 bind_rows <- function(..., .list){
   x_l <- lapply(.list, as.list)
   y <- jsonlite::toJSON(x_l, auto_unbox = TRUE)

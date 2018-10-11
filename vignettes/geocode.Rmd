@@ -129,5 +129,7 @@ poi_geocoded <- nl_geocode(addresses$Address)
 
 leaflet(width = "100%", height=600) %>% 
   addPdokTiles("gray") %>% 
-  addCircleMarkers(data = poi_geocoded, popup = paste("<b>",addresses$POI, "</b><br/>", poi_geocoded$weergavenaam))
+  addCircleMarkers( data = poi_geocoded
+                  , popup = paste("<b>",addresses$POI, "</b><br/>", poi_geocoded$weergavenaam)
+                  )
 ```

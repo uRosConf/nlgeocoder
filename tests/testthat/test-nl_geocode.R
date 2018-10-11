@@ -66,3 +66,15 @@ test_that("restrict fields", {
   res <- nl_geocode("Hoofdstraat", fl = c("woonplaatsnaam", "centroide_ll"))
   expect_equal(names(res), c("woonplaatsnaam", "centroide_ll"))
 })
+
+test_that("nl_geocode can handle a factor",{
+  f <- factor("Martinikerkhof 3 Groningen")
+  res <- nl_geocode(f)
+  expect_true(class(res)[1] == "sf")
+})
+
+test_that("Empty result does not fail", {
+  skip_on_cran()
+  res <- nl_geocode("bla")
+  expect_true(res$centroid_rd == "POINT EMPTY")
+})
