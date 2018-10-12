@@ -2,7 +2,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/nlgeocoder)](https://cran.r-project.org/package=nlgeocoder)
-[![travis
+![downloads](https://cranlogs.r-pkg.org/badges/nlgeocoder) [![travis
 build](https://travis-ci.org/uRos2018/nlgeocoder.svg?branch=master)](https://travis-ci.org/uRos2018/nlgeocoder)
 [![Build
 status](https://ci.appveyor.com/api/projects/status/ydb01147q649ordx?svg=true)](https://ci.appveyor.com/project/edwindj/nlgeocoder)
@@ -70,8 +70,8 @@ head(adres$response$docs, 2)
 #> 1  weg          Dam, Amsterdam weg-ab6df5babb15e466f3699b5d2c22e110
 #> 2  weg Damloperspad, Amsterdam weg-c57e61425c421a206015596b41c92259
 #>      score
-#> 1 21.70628
-#> 2 14.84461
+#> 1 21.69954
+#> 2 14.83534
 ```
 
 ### lookup
