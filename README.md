@@ -2,7 +2,8 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/nlgeocoder)](https://cran.r-project.org/package=nlgeocoder)
-![downloads](https://cranlogs.r-pkg.org/badges/nlgeocoder) [![travis
+![downloads](https://cranlogs.r-pkg.org/badges/grand-total/nlgeocoder)
+[![travis
 build](https://travis-ci.org/uRos2018/nlgeocoder.svg?branch=master)](https://travis-ci.org/uRos2018/nlgeocoder)
 [![Build
 status](https://ci.appveyor.com/api/projects/status/ydb01147q649ordx?svg=true)](https://ci.appveyor.com/project/edwindj/nlgeocoder)
