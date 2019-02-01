@@ -19,7 +19,8 @@ You can install nlgeocoder from CRAN with
 install.packages("nlgeocoder")
 ```
 
-Development version (use at own risk\!) can be install from github with:
+Development version (use at own risk\!) can be installed from github
+with:
 
 ``` r
 # install.packages("devtools")
