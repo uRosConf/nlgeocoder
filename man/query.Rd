@@ -4,8 +4,15 @@
 \alias{query}
 \title{Dummy function only used for describing common api parameters}
 \usage{
-query(rows = NULL, start = NULL, fq = NULL, lat = NULL,
-  lon = NULL, indent = NULL, wt = "json")
+query(
+  rows = NULL,
+  start = NULL,
+  fq = NULL,
+  lat = NULL,
+  lon = NULL,
+  indent = NULL,
+  wt = "json"
+)
 }
 \arguments{
 \item{rows}{maximum number of rows to be returned. Default is 10.}

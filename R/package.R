@@ -1,4 +1,4 @@
-API <- "https://geodata.nationaalgeoregister.nl/locatieserver/v3"
+API <- "https://api.pdok.nl/bzk/locatieserver/search/v3_1"
 
 #' nlgeocoder package
 #'

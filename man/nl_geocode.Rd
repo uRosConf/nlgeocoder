@@ -6,14 +6,30 @@
 \alias{nl_geocode_df}
 \title{Geocode adresses}
 \usage{
-nl_geocode(location, output = c("wgs84", "rd", "data.frame"),
-  messaging = FALSE, type = "adres", ..., verbose = messaging)
+nl_geocode(
+  location,
+  output = c("wgs84", "rd", "data.frame"),
+  messaging = FALSE,
+  type = "adres",
+  ...,
+  verbose = messaging
+)
 
-nl_geocode_rd(location, messaging = FALSE, type = "adres", ...,
-  verbose = messaging)
+nl_geocode_rd(
+  location,
+  messaging = FALSE,
+  type = "adres",
+  ...,
+  verbose = messaging
+)
 
-nl_geocode_df(location, messaging = FALSE, type = "adres", ...,
-  verbose = messaging)
+nl_geocode_df(
+  location,
+  messaging = FALSE,
+  type = "adres",
+  ...,
+  verbose = messaging
+)
 }
 \arguments{
 \item{location}{string with location to be found}

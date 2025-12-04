@@ -1,6 +1,6 @@
 Package: nlgeocoder
 Title: Geocoding for the Netherlands
-Version: 0.1.3.9000
+Version: 0.2
 Authors@R: c(person("Willy", "Tadema", role = c("aut")),
     person("Egge-Jan", "Pollé", role = c("aut"))
    ,person("Edwin", "de Jonge", email = "edwindjonge@gmail.com"
@@ -13,7 +13,7 @@ BugReports: https://github.com/uRosConf/nlgeocoder/issues
 URL: https://github.com/uRosConf/nlgeocoder
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.3.3
 Suggests: 
     testthat,
     knitr,

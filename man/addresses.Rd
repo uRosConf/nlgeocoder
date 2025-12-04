@@ -4,7 +4,9 @@
 \name{addresses}
 \alias{addresses}
 \title{Several Points of Interest (POI) that are included for test purposes.}
-\format{An object of class \code{data.frame} with 5 rows and 2 columns.}
+\format{
+An object of class \code{data.frame} with 5 rows and 2 columns.
+}
 \usage{
 addresses
 }

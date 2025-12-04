@@ -22,13 +22,13 @@ it allows to geocode data using the following functions:
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/uRos2018/nlgeocoder}
-  \item Report bugs at \url{https://github.com/uRos2018/nlgeocoder/issues}
+  \item \url{https://github.com/uRosConf/nlgeocoder}
+  \item Report bugs at \url{https://github.com/uRosConf/nlgeocoder/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Edwin de Jonge \email{edwindjonge@gmail.com} (0000-0002-6580-4718)
+\strong{Maintainer}: Edwin de Jonge \email{edwindjonge@gmail.com} (\href{https://orcid.org/0000-0002-6580-4718}{ORCID})
 
 Authors:
 \itemize{

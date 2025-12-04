@@ -4,9 +4,19 @@
 \alias{nl_free}
 \title{Free geocoding search}
 \usage{
-nl_free(q, rows = NULL, start = NULL, fq = NULL, lat = NULL,
-  lon = NULL, type = NULL, fl = NULL, df = NULL, ...,
-  verbose = FALSE)
+nl_free(
+  q,
+  rows = NULL,
+  start = NULL,
+  fq = NULL,
+  lat = NULL,
+  lon = NULL,
+  type = NULL,
+  fl = NULL,
+  df = NULL,
+  ...,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{q}{query to geocoding service.}
