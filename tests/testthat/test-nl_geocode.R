@@ -38,36 +38,43 @@ test_that("Location returned is in RD_New", {
 })
 
 test_that("Dataframe returned (not an sf object)", {
+  skip_on_cran()
   res <- nl_geocode("Martinikerkhof 3 Groningen", output = "data.frame")
   expect_true(class(res) == "data.frame")
 })
 
 test_that("return as wgs84 is working",{
+  skip_on_cran()
   res <- nl_geocode("Martinikerkhof 3 Groningen", output = "wgs84")
   expect_equal(sf::st_crs(res), sf::st_crs(4326))
 })
 
 test_that("return as rd is working",{
+  skip_on_cran()
   res <- nl_geocode("Martinikerkhof 3 Groningen", output = "rd")
   expect_equal(sf::st_crs(res), sf::st_crs(28992))
 })
 
 test_that("return as data.frame is working",{
+  skip_on_cran()
   res <- nl_geocode("Martinikerkhof 3 Groningen", output = "data.frame")
   expect_true(is.data.frame(res))
 })
 
 test_that("restrict search to Groningen", {
+  skip_on_cran()
   res <- nl_geocode("Hoofdstraat", fq = "provincienaam:Groningen")
   expect_true(res$provincienaam == "Groningen")
 })
 
 test_that("restrict fields", {
+  skip_on_cran()
   res <- nl_geocode("Hoofdstraat", fl = c("woonplaatsnaam", "centroide_ll"))
   expect_equal(names(res), c("woonplaatsnaam", "centroide_ll"))
 })
 
 test_that("nl_geocode can handle a factor",{
+  skip_on_cran()
   f <- factor("Martinikerkhof 3 Groningen")
   res <- nl_geocode(f)
   expect_true(class(res)[1] == "sf")
