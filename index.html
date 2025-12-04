@@ -53,7 +53,6 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9">
-<!-- ![downloads](https://cranlogs.r-pkg.org/badges/grand-total/nlgeocoder) -->
 <div class="section level1">
 <div class="page-header"><h1 id="nlgeocoder">nlgeocoder<a class="anchor" aria-label="anchor" href="#nlgeocoder"></a>
 </h1></div>
@@ -79,31 +78,25 @@
 <span><span class="va">address</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/nl_geocode.html">nl_geocode</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Henri Faasdreef 312"</span>, <span class="st">"Leidschenveen"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">address</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"weergavenaam"</span><span class="op">)</span><span class="op">]</span> <span class="co"># this is a sf object</span></span>
 <span><span class="co">#&gt; Simple feature collection with 2 features and 1 field</span></span>
-<span><span class="co">#&gt; geometry type:  POINT</span></span>
-<span><span class="co">#&gt; dimension:      XY</span></span>
-<span><span class="co">#&gt; bbox:           xmin: 4.40042 ymin: 52.06465 xmax: 4.400575 ymax: 52.06593</span></span>
-<span><span class="co">#&gt; epsg (SRID):    4326</span></span>
-<span><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></span>
-<span><span class="co">#&gt;                                weergavenaam              centroide_ll</span></span>
-<span><span class="co">#&gt; 1 Henri Faasdreef 312, 2492JP 's-Gravenhage  POINT (4.40042 52.06593)</span></span>
-<span><span class="co">#&gt; 2  Laan van Leidschenveen 20, 's-Gravenhage POINT (4.400575 52.06465)</span></span>
+<span><span class="co">#&gt; Geometry type: POINT</span></span>
+<span><span class="co">#&gt; Dimension:     XY</span></span>
+<span><span class="co">#&gt; Bounding box:  xmin: 4.399247 ymin: 52.06491 xmax: 4.40042 ymax: 52.06593</span></span>
+<span><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
+<span><span class="co">#&gt;                                      weergavenaam              centroide_ll</span></span>
+<span><span class="co">#&gt; 1       Henri Faasdreef 312, 2492JP 's-Gravenhage  POINT (4.40042 52.06593)</span></span>
+<span><span class="co">#&gt; 2 Laan van Leidschenveen 27, 2493CT 's-Gravenhage POINT (4.399247 52.06491)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">address</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1] "bron"                   "woonplaatscode"        </span></span>
-<span><span class="co">#&gt;  [3] "type"                   "woonplaatsnaam"        </span></span>
-<span><span class="co">#&gt;  [5] "wijkcode"               "huis_nlt"              </span></span>
-<span><span class="co">#&gt;  [7] "openbareruimtetype"     "buurtnaam"             </span></span>
-<span><span class="co">#&gt;  [9] "gemeentecode"           "weergavenaam"          </span></span>
-<span><span class="co">#&gt; [11] "straatnaam_verkort"     "id"                    </span></span>
-<span><span class="co">#&gt; [13] "gekoppeld_perceel"      "gemeentenaam"          </span></span>
-<span><span class="co">#&gt; [15] "buurtcode"              "wijknaam"              </span></span>
-<span><span class="co">#&gt; [17] "identificatie"          "openbareruimte_id"     </span></span>
-<span><span class="co">#&gt; [19] "waterschapsnaam"        "provinciecode"         </span></span>
-<span><span class="co">#&gt; [21] "postcode"               "provincienaam"         </span></span>
-<span><span class="co">#&gt; [23] "nummeraanduiding_id"    "waterschapscode"       </span></span>
-<span><span class="co">#&gt; [25] "adresseerbaarobject_id" "huisnummer"            </span></span>
-<span><span class="co">#&gt; [27] "provincieafkorting"     "centroide_rd"          </span></span>
-<span><span class="co">#&gt; [29] "straatnaam"             "score"                 </span></span>
-<span><span class="co">#&gt; [31] "centroide_ll"</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1] "bron"                   "woonplaatscode"         "type"                  </span></span>
+<span><span class="co">#&gt;  [4] "woonplaatsnaam"         "wijkcode"               "huis_nlt"              </span></span>
+<span><span class="co">#&gt;  [7] "openbareruimtetype"     "buurtnaam"              "gemeentecode"          </span></span>
+<span><span class="co">#&gt; [10] "rdf_seealso"            "weergavenaam"           "straatnaam_verkort"    </span></span>
+<span><span class="co">#&gt; [13] "id"                     "gekoppeld_perceel"      "gemeentenaam"          </span></span>
+<span><span class="co">#&gt; [16] "buurtcode"              "wijknaam"               "identificatie"         </span></span>
+<span><span class="co">#&gt; [19] "openbareruimte_id"      "waterschapsnaam"        "provinciecode"         </span></span>
+<span><span class="co">#&gt; [22] "postcode"               "provincienaam"          "nummeraanduiding_id"   </span></span>
+<span><span class="co">#&gt; [25] "waterschapscode"        "adresseerbaarobject_id" "huisnummer"            </span></span>
+<span><span class="co">#&gt; [28] "provincieafkorting"     "centroide_rd"           "straatnaam"            </span></span>
+<span><span class="co">#&gt; [31] "score"                  "gekoppeld_appartement"  "centroide_ll"</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="suggestions">Suggestions<a class="anchor" aria-label="anchor" href="#suggestions"></a>
@@ -112,12 +105,12 @@
 <code class="sourceCode R"><span><span class="co">## basic example code</span></span>
 <span><span class="va">adres</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/nl_suggest.html">nl_suggest</a></span><span class="op">(</span><span class="st">"Dam, Amsterdam"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">adres</span><span class="op">$</span><span class="va">response</span><span class="op">$</span><span class="va">docs</span>, <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   type            weergavenaam                                   id</span></span>
-<span><span class="co">#&gt; 1  weg          Dam, Amsterdam weg-ab6df5babb15e466f3699b5d2c22e110</span></span>
-<span><span class="co">#&gt; 2  weg Damloperspad, Amsterdam weg-c57e61425c421a206015596b41c92259</span></span>
-<span><span class="co">#&gt;      score</span></span>
-<span><span class="co">#&gt; 1 21.69954</span></span>
-<span><span class="co">#&gt; 2 14.83534</span></span></code></pre></div>
+<span><span class="co">#&gt;   type            weergavenaam                                   id    score</span></span>
+<span><span class="co">#&gt; 1  weg          Dam, Amsterdam weg-ab6df5babb15e466f3699b5d2c22e110 9.380681</span></span>
+<span><span class="co">#&gt; 2  weg Damloperspad, Amsterdam weg-c57e61425c421a206015596b41c92259 6.352306</span></span>
+<span><span class="co">#&gt;   adrestype</span></span>
+<span><span class="co">#&gt; 1      &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; 2      &lt;NA&gt;</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="lookup">lookup<a class="anchor" aria-label="anchor" href="#lookup"></a>
@@ -125,13 +118,13 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/nl_lookup.html">nl_lookup</a></span><span class="op">(</span><span class="st">"weg-ab6df5babb15e466f3699b5d2c22e110"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">obj</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1] "bron"               "identificatie"      "openbareruimte_id" </span></span>
-<span><span class="co">#&gt;  [4] "provinciecode"      "woonplaatscode"     "type"              </span></span>
-<span><span class="co">#&gt;  [7] "woonplaatsnaam"     "provincienaam"      "nwb_id"            </span></span>
-<span><span class="co">#&gt; [10] "centroide_ll"       "openbareruimtetype" "gemeentecode"      </span></span>
-<span><span class="co">#&gt; [13] "weergavenaam"       "provincieafkorting" "centroide_rd"      </span></span>
-<span><span class="co">#&gt; [16] "straatnaam_verkort" "id"                 "straatnaam"        </span></span>
-<span><span class="co">#&gt; [19] "gemeentenaam"</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1] "bron"               "woonplaatscode"     "type"              </span></span>
+<span><span class="co">#&gt;  [4] "woonplaatsnaam"     "nwb_id"             "openbareruimtetype"</span></span>
+<span><span class="co">#&gt;  [7] "gemeentecode"       "rdf_seealso"        "weergavenaam"      </span></span>
+<span><span class="co">#&gt; [10] "straatnaam_verkort" "id"                 "gemeentenaam"      </span></span>
+<span><span class="co">#&gt; [13] "identificatie"      "openbareruimte_id"  "provinciecode"     </span></span>
+<span><span class="co">#&gt; [16] "provincienaam"      "centroide_ll"       "provincieafkorting"</span></span>
+<span><span class="co">#&gt; [19] "centroide_rd"       "straatnaam"</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -174,8 +167,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://cran.r-project.org/package=nlgeocoder" class="external-link"><img src="https://www.r-pkg.org/badges/version/nlgeocoder" alt="CRAN_Status_Badge"></a></li>
-<li><a href="https://travis-ci.org/uRos2018/nlgeocoder" class="external-link"><img src="https://travis-ci.org/uRos2018/nlgeocoder.svg?branch=master" alt="travis build"></a></li>
-<li><a href="https://ci.appveyor.com/project/edwindj/nlgeocoder" class="external-link"><img src="https://ci.appveyor.com/api/projects/status/ydb01147q649ordx?svg=true" alt="Build status"></a></li>
+<li><a href="https://github.com/uRoSConf/nlgeocoder/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/uRoSConf/nlgeocoder/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 
