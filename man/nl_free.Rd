@@ -48,7 +48,7 @@ The result of the pdok free webservice converted to a R list object.
 This function wraps the "free" pdok service, and allows for free search.
 For syntax and examples see the documentation of pdok.
 A more easy/convenient but simpler function for geocoding is
-\code{\link{nl_geocode}}.
+\code{\link[=nl_geocode]{nl_geocode()}}.
 }
 \examples{
 l <- nl_free("Henri Faasdreef 312")
@@ -56,5 +56,5 @@ l$response$numFound
 l$response$docs["weergavenaam"]
 }
 \seealso{
-\code{\link{nl_geocode}}
+\code{\link[=nl_geocode]{nl_geocode()}}
 }

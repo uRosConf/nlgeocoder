@@ -8,3 +8,7 @@
 ^examples
 ^docs
 ^README\.md$
+^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

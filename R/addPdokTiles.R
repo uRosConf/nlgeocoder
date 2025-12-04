@@ -1,11 +1,11 @@
 #' Leaflet function to add pdok tiles
 #'
-#' This function adds PDOK tile layers to \code{\link[leaflet]{leaflet}}.
-#' It is a small wrapper around \code{\link[leaflet]{addTiles}} that sets
+#' This function adds PDOK tile layers to [leaflet::leaflet()].
+#' It is a small wrapper around [leaflet::addTiles()] that sets
 #' the correct urls for the layers.
 #'
 #' PDOK provides tiles that can be used as a tile layer in several
-#' geovisualization tools including \code{leaflet}.
+#' geovisualization tools including `leaflet`.
 #' The layers differ from other tile layers such as Openstreetmap, Google and
 #' cartomap in the following manner:
 #' \itemize{
@@ -18,8 +18,8 @@
 #' @param map leaflet object
 #' @param type one of the PDOK tiles: currently: "brt", "aerial", "pastel" or "gray"
 #' @param group group is set equal to type
-#' @param options passed to \code{\link[leaflet]{addTiles}}
-#' @param ... Passed to \code{\link[leaflet]{addTiles}}.
+#' @param options passed to [leaflet::addTiles()]
+#' @param ... Passed to [leaflet::addTiles()].
 #' @export
 addPdokTiles <- function(map,  type = c("brt", "aerial", "pastel", "gray"), group = match.arg(type), options, ...){
   if (requireNamespace("leaflet", quietly = TRUE)){

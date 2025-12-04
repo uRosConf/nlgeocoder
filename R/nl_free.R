@@ -3,17 +3,17 @@
 #' This function wraps the "free" pdok service, and allows for free search.
 #' For syntax and examples see the documentation of pdok.
 #' A more easy/convenient but simpler function for geocoding is
-#' \code{\link{nl_geocode}}.
+#' [nl_geocode()].
 #' @export
 #' @param q query to geocoding service.
 #' @param ... parameters passed to the pdok webservice
 #' @param type restrict the results on a specific type.
 #' @param fl fields to return.
 #' @param df field that should be search in.
-#' @param verbose \code{logical} should the function print out messages.
+#' @param verbose `logical` should the function print out messages.
 #' @inheritParams query
 #' @return The result of the pdok free webservice converted to a R list object.
-#' @seealso \code{\link{nl_geocode}}
+#' @seealso [nl_geocode()]
 #' @example ./examples/nl_free.R
 nl_free <- function( q
                    , rows    = NULL

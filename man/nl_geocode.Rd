@@ -34,15 +34,15 @@ nl_geocode_df(
 \arguments{
 \item{location}{string with location to be found}
 
-\item{output}{Should the output be a \code{\link{data.frame}} or
-\code{\link[sf]{sf}} object in wgs84 or Rijksdriehoekstelsel format?}
+\item{output}{Should the output be a \code{\link[=data.frame]{data.frame()}} or
+\code{\link[sf:sf]{sf::sf()}} object in wgs84 or Rijksdriehoekstelsel format?}
 
-\item{messaging}{Print the urls fired to the webserver (consistent with `ggmap::geocode`)}
+\item{messaging}{Print the urls fired to the webserver (consistent with \code{ggmap::geocode})}
 
 \item{type}{restrict the type of object that is returned from the service,
 see details for possible types.}
 
-\item{...}{will be passed to \code{\link{nl_free}}.}
+\item{...}{will be passed to \code{\link[=nl_free]{nl_free()}}.}
 
 \item{verbose}{identical to \code{messaging} (consistent with other nlgeoder
 functions)}
@@ -55,7 +55,7 @@ depending on the value of \code{output}.
 \code{nl_geocode} returns for a vector of addresses
 the most probable object/location.
 This function is more user friendly than the barebones webservices
-(\code{\link{nl_free}}), and uses the same function signature as
+(\code{\link[=nl_free]{nl_free()}}), and uses the same function signature as
 \code{ggmap::geocode}.
 }
 \details{

@@ -19,13 +19,13 @@ addPdokTiles(
 
 \item{group}{group is set equal to type}
 
-\item{options}{passed to \code{\link[leaflet]{addTiles}}}
+\item{options}{passed to \code{\link[leaflet:map-layers]{leaflet::addTiles()}}}
 
-\item{...}{Passed to \code{\link[leaflet]{addTiles}}.}
+\item{...}{Passed to \code{\link[leaflet:map-layers]{leaflet::addTiles()}}.}
 }
 \description{
-This function adds PDOK tile layers to \code{\link[leaflet]{leaflet}}.
-It is a small wrapper around \code{\link[leaflet]{addTiles}} that sets
+This function adds PDOK tile layers to \code{\link[leaflet:leaflet]{leaflet::leaflet()}}.
+It is a small wrapper around \code{\link[leaflet:map-layers]{leaflet::addTiles()}} that sets
 the correct urls for the layers.
 }
 \details{
@@ -34,9 +34,9 @@ geovisualization tools including \code{leaflet}.
 The layers differ from other tile layers such as Openstreetmap, Google and
 cartomap in the following manner:
 \itemize{
-  \item The tiles are restricted to the Netherlands: tiles accross the Dutch
-  border are "grayed out". This is useful for cartographic applications
-  that are restricted to Dutch geo-information.
-  \item The tiles are open source and based on open sourced geo-information.
+\item The tiles are restricted to the Netherlands: tiles accross the Dutch
+border are "grayed out". This is useful for cartographic applications
+that are restricted to Dutch geo-information.
+\item The tiles are open source and based on open sourced geo-information.
 }
 }

@@ -7,11 +7,11 @@ API <- "https://api.pdok.nl/bzk/locatieserver/search/v3_1"
 #' it allows to geocode data using the following functions:
 #'
 #' \itemize{
-#'   \item \code{\link{nl_geocode}}: geocode a vector of addresses.
-#'   \item \code{\link{nl_free}}: find possible matches for one address.
-#'   \item \code{\link{nl_suggest}}: find possible suggestions for one address.
-#'   \item \code{\link{nl_lookup}}: lookup information of object found in
-#'   \code{nl_suggest}.
+#'   \item [nl_geocode()]: geocode a vector of addresses.
+#'   \item [nl_free()]: find possible matches for one address.
+#'   \item [nl_suggest()]: find possible suggestions for one address.
+#'   \item [nl_lookup()]: lookup information of object found in
+#'   `nl_suggest`.
 #' }
 #'
 #'
@@ -22,7 +22,7 @@ API <- "https://api.pdok.nl/bzk/locatieserver/search/v3_1"
 #' Several Points of Interest (POI) that are included for test purposes.
 #'
 #' \itemize{
-#'   \item \code{POI}, points of interest
-#'   \item \code{Address}, Uncleaned address information.
+#'   \item `POI`, points of interest
+#'   \item `Address`, Uncleaned address information.
 #' }
 "addresses"

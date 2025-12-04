@@ -1,8 +1,8 @@
 #' Get a list of suggestions for geolocations in NL
 #'
-#' \code{nl_suggest} returns a list of suggestions for a location description.
+#' `nl_suggest` returns a list of suggestions for a location description.
 #'
-#' \code{type} can be one or more of the following: "provincie", "gemeente"
+#' `type` can be one or more of the following: "provincie", "gemeente"
 #' , "woonplaats", "weg", "postcode", "adres", "perceel", "hectometerpaal",
 #' "wijk", "buurt", "waterschapsgrens", "appartementsrecht".
 #' @param q search terms that should be geolocated

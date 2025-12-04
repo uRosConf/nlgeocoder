@@ -1,14 +1,13 @@
 #' Look up a geo object
 #'
-#' Retrieve detailed properties of a geo object found with \code{\link{nl_suggest}} or
-#' \code{\link{nl_free}}.
+#' Retrieve detailed properties of a geo object found with [nl_suggest()] or
+#' [nl_free()].
 #' @export
 #' @param id of object found in nl_suggest or nl_free
 #' @param ... extra parameters are passed to the lookup service of pdok.
 #' @param output What type of output should be returned
 #' @param verbose should the function print message while retrieving the data?
-#' @inheritParams query
-#' @return Depending on the value of \code{output} the raw search
+#' @return Depending on the value of `output` the raw search
 #' results in R format or the properties of the specific object as
 #' a R list object.
 #' @example ./examples/nl_lookup.R

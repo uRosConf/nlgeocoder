@@ -12,17 +12,18 @@ The nlgeocoder package provides a R wrapper around the pdok webservice.
 it allows to geocode data using the following functions:
 
 \itemize{
-  \item \code{\link{nl_geocode}}: geocode a vector of addresses.
-  \item \code{\link{nl_free}}: find possible matches for one address.
-  \item \code{\link{nl_suggest}}: find possible suggestions for one address.
-  \item \code{\link{nl_lookup}}: lookup information of object found in
-  \code{nl_suggest}.
+\item \code{\link[=nl_geocode]{nl_geocode()}}: geocode a vector of addresses.
+\item \code{\link[=nl_free]{nl_free()}}: find possible matches for one address.
+\item \code{\link[=nl_suggest]{nl_suggest()}}: find possible suggestions for one address.
+\item \code{\link[=nl_lookup]{nl_lookup()}}: lookup information of object found in
+\code{nl_suggest}.
 }
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://github.com/uRosConf/nlgeocoder}
+  \item \url{https://urosconf.github.io/nlgeocoder/}
   \item Report bugs at \url{https://github.com/uRosConf/nlgeocoder/issues}
 }
 

@@ -12,8 +12,8 @@ addresses
 }
 \description{
 \itemize{
-  \item \code{POI}, points of interest
-  \item \code{Address}, Uncleaned address information.
+\item \code{POI}, points of interest
+\item \code{Address}, Uncleaned address information.
 }
 }
 \keyword{datasets}
