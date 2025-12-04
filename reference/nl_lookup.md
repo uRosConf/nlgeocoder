@@ -37,7 +37,7 @@ the properties of the specific object as a R list object.
 ## Examples
 
 ``` r
-obj <- nl_lookup("weg-f633e85f07eda4e68a00fb13f9d128f5")
+obj <- nl_lookup("weg-f633e85f07eda4e68a00fb13f9d128f5", output = "list")
 names(obj)
 #>  [1] "bron"               "woonplaatscode"     "type"              
 #>  [4] "woonplaatsnaam"     "nwb_id"             "openbareruimtetype"

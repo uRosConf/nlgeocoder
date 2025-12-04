@@ -126,10 +126,11 @@ A more easy/convenient but simpler function for geocoding is
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">l</span> <span class="op">&lt;-</span> <span class="fu">nl_free</span><span class="op">(</span><span class="st">"Henri Faasdreef 312"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">l</span><span class="op">$</span><span class="va">response</span><span class="op">$</span><span class="va">numFound</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 9197</span>
-<span class="r-in"><span><span class="va">l</span><span class="op">$</span><span class="va">response</span><span class="op">$</span><span class="va">docs</span><span class="op">[</span><span class="st">"weergavenaam"</span><span class="op">]</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"sf"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="va">l</span> <span class="op">&lt;-</span> <span class="fu">nl_free</span><span class="op">(</span><span class="st">"Henri Faasdreef 312"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">l</span><span class="op">$</span><span class="va">response</span><span class="op">$</span><span class="va">numFound</span></span></span>
+<span class="r-in"><span>  <span class="va">l</span><span class="op">$</span><span class="va">response</span><span class="op">$</span><span class="va">docs</span><span class="op">[</span><span class="st">"weergavenaam"</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                  weergavenaam</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1   Henri Faasdreef 312, 2492JP 's-Gravenhage</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2              Henri Faasdreef, 's-Gravenhage</span>

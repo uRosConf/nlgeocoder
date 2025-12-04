@@ -86,10 +86,11 @@ The result of the pdok free webservice converted to a R list object.
 ## Examples
 
 ``` r
-l <- nl_free("Henri Faasdreef 312")
-l$response$numFound
-#> [1] 9197
-l$response$docs["weergavenaam"]
+if (requireNamespace("sf", quietly = TRUE)){
+  l <- nl_free("Henri Faasdreef 312")
+  l$response$numFound
+  l$response$docs["weergavenaam"]
+}
 #>                                  weergavenaam
 #> 1   Henri Faasdreef 312, 2492JP 's-Gravenhage
 #> 2              Henri Faasdreef, 's-Gravenhage

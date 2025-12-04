@@ -127,20 +127,14 @@ depending on the value of <code>output</code>.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"addresses"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu">nl_geocode</span><span class="op">(</span><span class="va">addresses</span><span class="op">$</span><span class="va">Address</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu">nl_geocode</span><span class="op">(</span><span class="va">addresses</span><span class="op">$</span><span class="va">Address</span>, output <span class="op">=</span> <span class="st">"data.frame"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">r</span><span class="op">[</span><span class="st">"weergavenaam"</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Simple feature collection with 5 features and 1 field</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: POINT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Dimension:     XY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 6.563506 ymin: 53.21085 xmax: 6.57079 ymax: 53.21978</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS:  WGS 84</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                          weergavenaam              centroide_ll</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  Martinikerkhof 3, 9712JG Groningen POINT (6.568567 53.21927)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Sint Jansstraat 4, 9712JN Groningen  POINT (6.57079 53.21978)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3    Museumeiland 1, 9711ME Groningen POINT (6.566075 53.21247)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   Stationsplein 4, 9726AE Groningen POINT (6.563506 53.21085)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5      Hereplein 73, 9711GD Groningen POINT (6.569384 53.21396)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                          weergavenaam</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  Martinikerkhof 3, 9712JG Groningen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Sint Jansstraat 4, 9712JN Groningen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    Museumeiland 1, 9711ME Groningen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   Stationsplein 4, 9726AE Groningen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5      Hereplein 73, 9711GD Groningen</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "bron"                   "woonplaatscode"         "type"                  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "woonplaatsnaam"         "wijkcode"               "huis_nlt"              </span>
@@ -149,10 +143,81 @@ depending on the value of <code>output</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [13] "id"                     "gekoppeld_perceel"      "gemeentenaam"          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [16] "buurtcode"              "wijknaam"               "identificatie"         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [19] "openbareruimte_id"      "waterschapsnaam"        "provinciecode"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [22] "postcode"               "provincienaam"          "nummeraanduiding_id"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "waterschapscode"        "adresseerbaarobject_id" "huisnummer"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "provincieafkorting"     "centroide_rd"           "straatnaam"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [31] "score"                  "centroide_ll"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [22] "postcode"               "provincienaam"          "centroide_ll"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "nummeraanduiding_id"    "waterschapscode"        "adresseerbaarobject_id"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "huisnummer"             "provincieafkorting"     "centroide_rd"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] "straatnaam"             "score"                 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># or if you have sf installed</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"sf"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="va">r_sf</span> <span class="op">&lt;-</span> <span class="fu">nl_geocode</span><span class="op">(</span><span class="va">addresses</span><span class="op">$</span><span class="va">Address</span>, output <span class="op">=</span> <span class="st">"wgs84"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">r_sf</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Simple feature collection with 5 features and 31 fields</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: POINT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Dimension:     XY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 6.563506 ymin: 53.21085 xmax: 6.57079 ymax: 53.21978</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS:  WGS 84</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   bron woonplaatscode  type woonplaatsnaam wijkcode huis_nlt openbareruimtetype</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  BAG           1070 adres      Groningen WK001400        3                Weg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  BAG           1070 adres      Groningen WK001400        4                Weg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  BAG           1070 adres      Groningen WK001400        1            Terrein</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  BAG           1070 adres      Groningen WK001400        4                Weg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  BAG           1070 adres      Groningen WK001400       73                Weg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          buurtnaam gemeentecode</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Binnenstad-Noord         0014</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Binnenstad-Noord         0014</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  Binnenstad-Zuid         0014</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   Stationsgebied         0014</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  Binnenstad-Zuid         0014</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                         rdf_seealso</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0014200010875280</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0014200010876294</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0014200010874379</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0014200022192119</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0014200010875730</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                          weergavenaam straatnaam_verkort</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  Martinikerkhof 3, 9712JG Groningen     Martinikerkhof</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Sint Jansstraat 4, 9712JN Groningen       Sint Jansstr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    Museumeiland 1, 9711ME Groningen       Museumeiland</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   Stationsplein 4, 9726AE Groningen        Stationspln</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5      Hereplein 73, 9711GD Groningen            Herepln</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                     id gekoppeld_perceel gemeentenaam</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 adr-93da60c34b4a807de3e8c9aa24f32caf      GNG00-G-7027    Groningen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 adr-ddd2067f9f58de177db654e421cee64c      GNG00-G-6650    Groningen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 adr-94d3ee58c729b959d2c03aec6bd634ff      GNG00-I-4700    Groningen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 adr-992595b6e3782b5dde204cf42df9f775     GNG00-C-12634    Groningen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 adr-487a5b565f812215d60142ee3d6912fa              NULL    Groningen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    buurtcode wijknaam                     identificatie openbareruimte_id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 BU00140000  Centrum 0014010011064644-0014200010875280  0014300010785543</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 BU00140000  Centrum 0014010011068697-0014200010876294  0014300010785900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 BU00140001  Centrum 0014010011066455-0014200010874379  0014300010785599</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 BU00140008  Centrum 0014010022191371-0014200022192119  0014300010785952</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 BU00140001  Centrum 0014010011068152-0014200010875730  0014300010785210</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            waterschapsnaam provinciecode postcode provincienaam</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Waterschap Hunze en Aa's          PV20   9712JG     Groningen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Waterschap Hunze en Aa's          PV20   9712JN     Groningen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Waterschap Hunze en Aa's          PV20   9711ME     Groningen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 Waterschap Hunze en Aa's          PV20   9726AE     Groningen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 Waterschap Hunze en Aa's          PV20   9711GD     Groningen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   nummeraanduiding_id waterschapscode adresseerbaarobject_id huisnummer</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    0014200010875280              33       0014010011064644          3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    0014200010876294              33       0014010011068697          4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    0014200010874379              33       0014010011066455          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4    0014200022192119              33       0014010022191371          4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    0014200010875730              33       0014010011068152         73</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   provincieafkorting                 centroide_rd      straatnaam   score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 GR POINT(233908.029 582053.016)  Martinikerkhof 15.9020</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 GR POINT(234055.579 582111.908) Sint Jansstraat 13.4316</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                 GR POINT(233753.948 581294.228)    Museumeiland 11.3217</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                 GR POINT(233585.306 581110.904)   Stationsplein 11.4506</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                 GR POINT(233972.276 581462.946)       Hereplein 16.7290</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                centroide_ll</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 POINT (6.568567 53.21927)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  POINT (6.57079 53.21978)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 POINT (6.566075 53.21247)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 POINT (6.563506 53.21085)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 POINT (6.569384 53.21396)</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
