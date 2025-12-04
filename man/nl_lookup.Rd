@@ -25,7 +25,7 @@ Retrieve detailed properties of a geo object found with \code{\link[=nl_suggest]
 \code{\link[=nl_free]{nl_free()}}.
 }
 \examples{
-obj <- nl_lookup("weg-f633e85f07eda4e68a00fb13f9d128f5")
+obj <- nl_lookup("weg-f633e85f07eda4e68a00fb13f9d128f5", output = "list")
 names(obj)
 obj$weergavenaam
 }

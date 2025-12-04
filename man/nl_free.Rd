@@ -51,9 +51,11 @@ A more easy/convenient but simpler function for geocoding is
 \code{\link[=nl_geocode]{nl_geocode()}}.
 }
 \examples{
-l <- nl_free("Henri Faasdreef 312")
-l$response$numFound
-l$response$docs["weergavenaam"]
+if (requireNamespace("sf", quietly = TRUE)){
+  l <- nl_free("Henri Faasdreef 312")
+  l$response$numFound
+  l$response$docs["weergavenaam"]
+}
 }
 \seealso{
 \code{\link[=nl_geocode]{nl_geocode()}}

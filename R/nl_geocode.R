@@ -15,7 +15,7 @@
 #' @export
 #' @param location string with location to be found
 #' @param output Should the output be a [data.frame()] or
-#'  [sf::sf()] object in wgs84 or Rijksdriehoekstelsel format?
+#' [sf::sf()] object in wgs84 or Rijksdriehoekstelsel format?
 #' @param type restrict the type of object that is returned from the service,
 #' see details for possible types.
 #' @param ... will be passed to [nl_free()].
